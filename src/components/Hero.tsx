@@ -7,7 +7,7 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23000000" fill-opacity="0.1"%3E%3Cpath d="M20 20L0 0h40v40L20 20z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23000000\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M20 20L0 0h40v40L20 20z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
       </div>
 
       <div className="container mx-auto px-4 py-32 relative">
@@ -21,7 +21,7 @@ const Hero = () => {
           {/* Main Heading */}
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
             Vakkundige{" "}
-            <span className="text-gradient">geveltechnieken</span>
+            <span className="text-gradient">geveltechniek</span>
             <br />
             voor elke bouwuitdaging
           </h1>

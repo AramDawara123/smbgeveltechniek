@@ -1,14 +1,27 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 
 const Hero = () => {
+  // Pre-encode the SVG to safely embed it as a data URL (avoids JSX parsing issues)
+  const patternSVG =
+    '<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="#000000" fill-opacity="0.1"><path d="M20 20L0 0h40v40L20 20z"/></g></g></svg>';
+  const encodedPattern = encodeURIComponent(patternSVG);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted overflow-hidden">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted overflow-hidden"
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23000000\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M20 20L0 0h40v40L20 20z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-      </div>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,${encodedPattern}")`,
+          opacity: 0.05,
+          backgroundRepeat: "repeat",
+          backgroundSize: "40px 40px",
+        }}
+      />
 
       <div className="container mx-auto px-4 py-32 relative">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
@@ -28,21 +41,21 @@ const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Van nieuwbouw tot renovatie en schadeherstel - SMB Geveltechniek levert 
+            Van nieuwbouw tot renovatie en schadeherstel - SMB Geveltechniek levert
             kwaliteit en vakmanschap voor al uw gevelprojecten in Noord-Holland.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="gradient-primary text-white px-8 py-4 text-lg font-semibold construction-shadow hover:opacity-90 transition-all duration-300 group"
             >
               Gratis Offerte Aanvragen
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="px-8 py-4 text-lg font-semibold border-2 hover:bg-primary hover:text-white transition-all duration-300"
             >

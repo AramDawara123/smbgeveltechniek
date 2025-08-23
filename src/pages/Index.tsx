@@ -3,7 +3,6 @@ import Navigation from "@/components/Navigation";
 import SEOOptimizedHero from "@/components/SEOOptimizedHero";
 import Services from "@/components/Services";
 import About from "@/components/About";
-import Contact from "@/components/Contact";
 import { Helmet } from "react-helmet-async";
 
 const Index = () => {
@@ -63,7 +62,6 @@ const Index = () => {
       <SEOOptimizedHero />
       <Services />
       <About />
-      <Contact />
       
       {/* Footer */}
       <footer className="bg-construction-dark text-white py-12">

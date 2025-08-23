@@ -1,14 +1,24 @@
+
 import { Button } from "@/components/ui/button";
 import { Shield, Star, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SEOOptimizedHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-black/30"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full opacity-50 blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full opacity-50 blur-3xl"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/lovable-uploads/95de0640-fc57-4770-b4ec-0f3553690264.png')"
+        }}
+      ></div>
+      
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60"></div>
+      
+      {/* Gradient overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/50"></div>
       
       {/* Content */}
       <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 py-8 mt-20 sm:mt-16 md:mt-12">

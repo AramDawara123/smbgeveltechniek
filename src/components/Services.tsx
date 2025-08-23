@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight, Send, Ruler, CheckCircle, Play, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -56,15 +55,15 @@ const Services = () => {
     },
     {
       icon: Ruler,
-      title: "Voer metingen uit",
-      description: "Zodra u uw verzoek naar ons heeft verzonden, nemen wij contact met u op en maken we een afspraak om naar de locatie te komen om uw project op het door u geschikte tijdstip te evalueren.",
+      title: "Voer metingen uit", 
+      description: "Zodra u uw verzoek naar ons heeft verzonden, nemen wij contact met u op en maken we een afspraak om naar de locatie te komen.",
       detailedDescription: "Wij beoordelen verschillende zaken, zoals de locatie, de projectomvang en de hoeveelheid voorbereidend werk die nodig is. Ook zal het team de exacte afmetingen van uw project opnemen."
     },
     {
       icon: CheckCircle,
       title: "Keur het budget goed",
-      description: "Nadat we de site hebben bezocht en uw project hebben geëvalueerd, zullen we een offerte opstellen waarin rekening wordt gehouden met de verschillende diensten die we u willen aanbieden.",
-      detailedDescription: "Wij zorgen ervoor dat we een nauwkeurige offerte opmaken op basis van de omvang van uw project. Bovendien zijn we transparant en houden we geen prijzen bij als het project van start gaat."
+      description: "Nadat we de site hebben bezocht en uw project hebben geëvalueerd, zullen we een offerte opstellen.",
+      detailedDescription: "Wij zorgen ervoor dat we een nauwkeurige offerte opmaken op basis van de omvang van uw project. Bovendien zijn we transparant en houden we geen prijzen achter als het project van start gaat."
     },
     {
       icon: Play,
@@ -75,8 +74,8 @@ const Services = () => {
     {
       icon: Clock,
       title: "Voltooi het project op tijd",
-      description: "Wanneer we het project starten, zullen we eer prioriteit van maken om het op tijd af te ronden.",
-      detailedDescription: "We begrijpen hoe belangrijk het is om deadlines te halen en ervoor te zorgen dat alles geregeld is voordat het project af is. U kunt erop vertrouwen dat wij het harde werk en de toewijding leveren die nodig zijn om het project op een tijdige en efficiënte manier te voltooien. Ons team streeft ernaar werk van hoge kwaliteit te leveren en we zullen hard werken om ervoor te zorgen dat we aan uw verwachtingen voldoen."
+      description: "Wanneer we het project starten, zullen we er prioriteit van maken om het op tijd af te ronden.",
+      detailedDescription: "We begrijpen hoe belangrijk het is om deadlines te halen en ervoor te zorgen dat alles geregeld is voordat het project af is. U kunt erop vertrouwen dat wij het harde werk en de toewijding leveren die nodig zijn om het project op een tijdige en efficiënte manier te voltooien."
     }
   ];
 
@@ -167,69 +166,111 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Updated Process Section with Detailed Information */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8 border border-primary/20">
-            Ons Werkproces
+        {/* Enhanced Process Section */}
+        <div className="relative">
+          {/* Section Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 text-primary text-sm font-bold mb-8 border-2 border-primary/20 backdrop-blur-sm">
+              <Clock className="w-5 h-5 mr-3" />
+              Ons Werkproces
+            </div>
+            <h3 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+              Hoe het werkt
+            </h3>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
+              Van eerste contact tot oplevering: een transparant proces in 5 stappen
+            </p>
           </div>
-          <h3 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Hoe het werkt
-          </h3>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-16">
-            Van eerste contact tot oplevering: een transparant proces in 5 stappen
-          </p>
 
-          <div className="space-y-12">
+          {/* Process Steps with Enhanced Design */}
+          <div className="space-y-24">
             {processSteps.map((step, index) => (
               <div 
                 key={index} 
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}
+                className={`relative flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-20`}
                 style={{ 
                   animationDelay: `${index * 0.2}s`,
                   animation: 'fade-in 0.8s ease-out forwards'
                 }}
               >
-                {/* Icon and Step Number */}
-                <div className="flex-shrink-0 relative">
-                  <div className="w-32 h-32 gradient-primary rounded-3xl flex items-center justify-center group hover:scale-110 hover:rotate-3 transition-all duration-500 logo-shadow">
-                    <step.icon className="w-16 h-16 text-white" />
-                  </div>
-                  <div className="absolute -top-4 -right-4 w-10 h-10 bg-background border-4 border-primary rounded-full flex items-center justify-center text-primary font-bold text-lg">
-                    {index + 1}
+                {/* Connecting Line */}
+                {index < processSteps.length - 1 && (
+                  <div className={`absolute ${index % 2 === 0 ? 'lg:left-16' : 'lg:right-16'} top-32 lg:top-20 w-px lg:w-0.5 h-24 lg:h-32 bg-gradient-to-b from-primary via-primary/50 to-transparent opacity-30 hidden lg:block z-0`} />
+                )}
+
+                {/* Icon Container with Enhanced Design */}
+                <div className="flex-shrink-0 relative z-10">
+                  <div className="relative group">
+                    {/* Outer glow ring */}
+                    <div className="absolute inset-0 w-40 h-40 gradient-primary rounded-full opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"></div>
+                    
+                    {/* Main icon container */}
+                    <div className="relative w-32 h-32 gradient-primary rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 construction-shadow">
+                      <step.icon className="w-16 h-16 text-white drop-shadow-lg" />
+                    </div>
+                    
+                    {/* Step number badge */}
+                    <div className="absolute -top-6 -right-6 w-16 h-16 bg-background border-4 border-primary rounded-full flex items-center justify-center text-primary font-bold text-xl shadow-lg backdrop-blur-sm">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className={`flex-1 ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'} text-center max-w-2xl`}>
-                  <h4 className="font-display text-3xl font-bold text-foreground mb-4">
-                    {step.title}
-                  </h4>
-                  
-                  <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-                    {step.description}
-                  </p>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.detailedDescription}
-                  </p>
+                {/* Content with Enhanced Typography */}
+                <div className={`flex-1 ${index % 2 === 0 ? 'lg:text-left' : 'lg:text-right'} text-center max-w-3xl`}>
+                  <div className="space-y-6">
+                    <h4 className="font-display text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                      {step.title}
+                    </h4>
+                    
+                    <div className="space-y-4">
+                      <p className="text-lg md:text-xl text-primary font-semibold leading-relaxed">
+                        {step.description}
+                      </p>
+                      
+                      <div className="w-24 h-1 gradient-primary rounded-full mx-auto lg:mx-0" />
+                      
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
+                        {step.detailedDescription}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Enhanced Benefits Grid */}
+          <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "Transparant", description: "Geen verborgen kosten of verrassingen" },
-              { title: "Betrouwbaar", description: "25+ jaar ervaring en tevreden klanten" },
-              { title: "Garantie", description: "Volledige garantie op al onze werkzaamheden" }
+              { 
+                icon: CheckCircle,
+                title: "Transparant", 
+                description: "Geen verborgen kosten of verrassingen",
+                color: "from-green-500/20 to-green-600/10"
+              },
+              { 
+                icon: Clock,
+                title: "Betrouwbaar", 
+                description: "25+ jaar ervaring en tevreden klanten",
+                color: "from-blue-500/20 to-blue-600/10"
+              },
+              { 
+                icon: CheckCircle,
+                title: "Garantie", 
+                description: "Volledige garantie op al onze werkzaamheden",
+                color: "from-purple-500/20 to-purple-600/10"
+              }
             ].map((benefit, index) => (
-              <div key={index} className="flex items-center gap-4 p-6 bg-muted/20 rounded-xl">
-                <div className="w-3 h-3 gradient-primary rounded-full flex-shrink-0"></div>
-                <div className="text-left">
-                  <h5 className="font-semibold text-foreground">{benefit.title}</h5>
-                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                </div>
-              </div>
+              <Card key={index} className="group hover:construction-shadow transition-all duration-500 hover:-translate-y-2 border-0 bg-card/50 backdrop-blur-sm">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                    <benefit.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h5 className="font-display text-xl font-bold text-foreground mb-3">{benefit.title}</h5>
+                  <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

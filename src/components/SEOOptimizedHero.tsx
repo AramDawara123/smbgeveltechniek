@@ -11,7 +11,7 @@ const SEOOptimizedHero = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full opacity-50 blur-3xl"></div>
       
       {/* Content */}
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 py-8 mt-16 sm:mt-12 md:mt-8">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 py-8 mt-20 sm:mt-16 md:mt-12">
         <div className="max-w-5xl mx-auto text-center text-white">
           {/* Trust Indicators */}
           <div className="flex flex-col items-center justify-center gap-1.5 sm:gap-2 md:gap-4 mb-4 sm:mb-6 md:mb-8">

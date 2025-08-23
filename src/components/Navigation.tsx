@@ -18,23 +18,28 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          {/* Enhanced Logo */}
-          <div className="flex items-center space-x-3 group cursor-pointer">
+          {/* Updated Logo to match the design */}
+          <div className="flex items-center space-x-4 group cursor-pointer">
+            {/* 3D Cube Logo */}
             <div className="relative">
-              <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center logo-shadow group-hover:scale-110 transition-all duration-300">
-                <span className="text-white font-black text-lg">SMB</span>
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                <div className="w-2 h-2 bg-primary rounded-full"></div>
+              <div className="w-14 h-14 relative transform-gpu group-hover:scale-110 transition-all duration-300">
+                {/* Front face - orange */}
+                <div className="absolute inset-0 gradient-primary rounded-sm transform perspective-1000 rotateY-10 shadow-lg"></div>
+                {/* Top face - darker orange */}
+                <div className="absolute -top-2 left-2 w-14 h-6 bg-gradient-to-r from-orange-600 to-orange-500 transform skew-x-12 rounded-sm opacity-90"></div>
+                {/* Right face - darkest */}
+                <div className="absolute top-2 -right-2 w-6 h-12 bg-gradient-to-b from-red-800 to-red-900 transform skew-y-12 rounded-sm opacity-80"></div>
               </div>
             </div>
-            <div>
-              <span className="font-display font-bold text-2xl text-white">
-                SMB Geveltechniek
-              </span>
-              <div className="text-xs text-gray-400 font-medium -mt-1">
-                Vakmanschap sinds 2010
+            
+            {/* Company Name */}
+            <div className="flex flex-col">
+              <div className="flex items-baseline space-x-1">
+                <span className="font-display font-black text-4xl text-white tracking-wider">SMB</span>
               </div>
+              <span className="font-display font-medium text-lg text-gray-300 tracking-wide uppercase -mt-1">
+                Geveltechniek
+              </span>
             </div>
           </div>
 

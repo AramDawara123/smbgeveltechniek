@@ -1,23 +1,17 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Hero = () => {
-  return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Enhanced Background with multiple layers */}
       <div className="absolute inset-0 gradient-dark"></div>
       
       {/* Pattern Overlay */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff5722' fill-opacity='0.05'%3E%3Cpolygon points='30 0 60 30 30 60 0 30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "60px 60px"
-        }}
-      />
+      <div className="absolute inset-0 opacity-10" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff5722' fill-opacity='0.05'%3E%3Cpolygon points='30 0 60 30 30 60 0 30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      backgroundRepeat: "repeat",
+      backgroundSize: "60px 60px"
+    }} />
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-background/10 to-background/30"></div>
@@ -25,10 +19,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="max-w-5xl mx-auto text-center animate-fade-in">
           {/* Enhanced Badge */}
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 text-primary text-sm font-bold mb-8 glass-effect">
-            <Award className="w-4 h-4 mr-2" />
-            25+ jaar ervaring in Noord-Holland
-          </div>
+          
 
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-[0.9] tracking-tight">
             Bouwen met{" "}
@@ -92,8 +83,6 @@ const Hero = () => {
           <div className="w-1.5 h-4 bg-primary rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

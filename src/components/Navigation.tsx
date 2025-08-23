@@ -1,14 +1,31 @@
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
     { label: "Home", href: "#home" },
-    { label: "Diensten", href: "#services" },
+    { 
+      label: "Diensten", 
+      href: "#services",
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "Metselwerk", href: "#metselwerk" },
+        { label: "Nieuwbouw", href: "#nieuwbouw" },
+        { label: "Gevelrenovatie", href: "#gevelrenovatie" },
+        { label: "Renovatieankers", href: "#renovatieankers" },
+        { label: "Scheurherstel", href: "#scheurherstel" },
+      ]
+    },
     { label: "Over ons", href: "#about" },
     { label: "Projecten", href: "#projects" },
     { label: "Contact", href: "#contact" },
@@ -30,14 +47,36 @@ const Navigation = () => {
           {/* Enhanced Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
-              </a>
+              item.hasDropdown ? (
+                <DropdownMenu key={item.label}>
+                  <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group">
+                    {item.label}
+                    <ChevronDown className="w-4 h-4 ml-1 group-data-[state=open]:rotate-180 transition-transform duration-200" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-card/95 backdrop-blur-sm border border-border/20 z-50">
+                    {item.dropdownItems?.map((dropdownItem) => (
+                      <DropdownMenuItem key={dropdownItem.label} asChild>
+                        <a 
+                          href={dropdownItem.href}
+                          className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
+                        >
+                          {dropdownItem.label}
+                        </a>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                </a>
+              )
             ))}
             <Button 
               variant="default" 
@@ -61,14 +100,39 @@ const Navigation = () => {
           <div className="md:hidden py-6 border-t border-white/10 animate-fade-in glass-effect rounded-b-2xl">
             <div className="flex flex-col space-y-6">
               {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="text-gray-300 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
+                <div key={item.label}>
+                  {item.hasDropdown ? (
+                    <div>
+                      <a
+                        href={item.href}
+                        className="text-gray-300 hover:text-primary transition-colors duration-300 font-semibold text-xlpy-2 block"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                      <div className="ml-4 mt-2 space-y-2">
+                        {item.dropdownItems?.map((dropdownItem) => (
+                          <a
+                            key={dropdownItem.label}
+                            href={dropdownItem.href}
+                            className="block text-gray-400 hover:text-primary transition-colors duration-300 font-medium text-lg py-1"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {dropdownItem.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="text-gray-300 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  )}
+                </div>
               ))}
               <Button 
                 variant="default" 

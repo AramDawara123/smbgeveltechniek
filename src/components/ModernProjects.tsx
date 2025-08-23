@@ -355,9 +355,7 @@ const ModernProjects = () => {
                 Plan Gratis Consultatie
                 <ArrowRight className="w-5 h-5 ml-2 inline-block group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                Bekijk Portfolio
-              </button>
+              
             </div>
           </div>
         </div>

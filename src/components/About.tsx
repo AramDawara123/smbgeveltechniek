@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Users, Award, Clock, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const stats = [
@@ -57,11 +57,11 @@ const About = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="gradient-primary text-white">
-                Meer over ons
+              <Button asChild size="lg" className="gradient-primary text-white">
+                <Link to="/over-ons">Meer over ons</Link>
               </Button>
-              <Button variant="outline" size="lg">
-                Vraag offerte aan
+              <Button asChild variant="outline" size="lg">
+                <Link to="/offerte">Vraag offerte aan</Link>
               </Button>
             </div>
           </div>

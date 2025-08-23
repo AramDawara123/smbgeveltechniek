@@ -74,11 +74,11 @@ const Navigation = () => {
                 </Link>
               )
             ))}
-            <Button 
+            <Button asChild
               variant="default" 
               className="gradient-primary text-white hover:scale-105 transition-all duration-300 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0 shrink-0"
             >
-              Offerte Aanvragen
+              <Link to="/offerte">Offerte Aanvragen</Link>
             </Button>
           </div>
 
@@ -128,12 +128,12 @@ const Navigation = () => {
                   </div>
                 )
               )}
-              <Button 
+              <Button asChild
                 variant="default" 
                 className="w-full gradient-primary text-white mt-6 py-4 font-bold text-lg rounded-xl construction-shadow border-0"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Offerte Aanvragen
+                <Link to="/offerte">Offerte Aanvragen</Link>
               </Button>
             </div>
           </div>

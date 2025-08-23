@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
+
 const Contact = () => {
   const {
     toast
@@ -130,13 +132,12 @@ const Contact = () => {
                   <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required className="min-h-32" placeholder="Beschrijf uw project en wensen..." />
                 </div>
                 
-                <Button type="submit" size="lg" className="w-full gradient-primary text-white text-lg font-semibold">
-                  Gratis Offerte Aanvragen
+                <Button asChild type="button" size="lg" className="w-full gradient-primary text-white text-lg font-semibold">
+                  <Link to="/offerte">Gratis Offerte Aanvragen</Link>
                 </Button>
                 
                 <p className="text-xs text-muted-foreground text-center">
-                  Door dit formulier te verzenden gaat u akkoord met onze privacy policy. 
-                  Wij behandelen uw gegevens vertrouwelijk.
+                  Voor een gedetailleerde offerte kunt u ook ons uitgebreide offerteformulier invullen.
                 </p>
               </form>
             </CardContent>

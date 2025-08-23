@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const AboutCTA = () => {
   return (
@@ -12,11 +13,11 @@ const AboutCTA = () => {
           Neem dan gerust contact met ons op. We staan klaar om uw project te bespreken en een passende oplossing te bieden.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="gradient-primary text-white">
-            Contact opnemen
+          <Button asChild size="lg" className="gradient-primary text-white">
+            <Link to="/contact">Contact opnemen</Link>
           </Button>
-          <Button variant="outline" size="lg">
-            Bekijk onze diensten
+          <Button asChild variant="outline" size="lg">
+            <Link to="/offerte">Bekijk onze diensten</Link>
           </Button>
         </div>
       </div>

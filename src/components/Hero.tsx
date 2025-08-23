@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -29,7 +30,6 @@ const Hero = () => {
             25+ jaar ervaring in Noord-Holland
           </div>
 
-          {/* Improved Main Heading */}
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-[0.9] tracking-tight">
             Bouwen met{" "}
             <span className="relative">
@@ -42,7 +42,6 @@ const Hero = () => {
             </span>
           </h1>
 
-          {/* Enhanced Subtitle */}
           <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             Met meer dan 25 jaar ervaring in geveltechniek en metselwerk kunnen wij wel zeggen dat wij ons vak verstaan. 
             <span className="text-primary font-semibold"> Wij denken altijd in oplossingen.</span>
@@ -50,12 +49,16 @@ const Hero = () => {
 
           {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-            <Button size="lg" className="gradient-primary text-white px-10 py-5 text-xl font-bold rounded-2xl construction-shadow hover:scale-105 transition-all duration-500 group border-0">
-              Gratis Offerte Aanvragen
-              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+            <Button asChild size="lg" className="gradient-primary text-white px-10 py-5 text-xl font-bold rounded-2xl construction-shadow hover:scale-105 transition-all duration-500 group border-0">
+              <Link to="/offerte">
+                Gratis Offerte Aanvragen
+                <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="px-10 py-5 text-xl font-semibold border-2 border-white/30 text-white hover:bg-white hover:text-construction-dark transition-all duration-500 rounded-2xl glass-effect">
-              Bekijk Onze Projecten
+            <Button asChild variant="outline" size="lg" className="px-10 py-5 text-xl font-semibold border-2 border-white/30 text-white hover:bg-white hover:text-construction-dark transition-all duration-500 rounded-2xl glass-effect">
+              <Link to="/projecten">
+                Bekijk Onze Projecten
+              </Link>
             </Button>
           </div>
 

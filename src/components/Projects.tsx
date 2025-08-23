@@ -80,116 +80,130 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        {/* Hero Section */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 font-display">
-            Onze <span className="text-primary">Projecten</span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ontdek onze uitgevoerde projecten en zie hoe wij vakmanschap en innovatie combineren 
-            voor uitzonderlijke resultaten in geveltechniek.
-          </p>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          <div className="text-center animate-fade-in">
-            <div className="text-4xl font-bold text-primary mb-2">150+</div>
-            <div className="text-gray-300">Projecten Voltooid</div>
-          </div>
-          <div className="text-center animate-fade-in">
-            <div className="text-4xl font-bold text-primary mb-2">25+</div>
-            <div className="text-gray-300">Jaren Ervaring</div>
-          </div>
-          <div className="text-center animate-fade-in">
-            <div className="text-4xl font-bold text-primary mb-2">98%</div>
-            <div className="text-gray-300">Klanttevredenheid</div>
-          </div>
-          <div className="text-center animate-fade-in">
-            <div className="text-4xl font-bold text-primary mb-2">50+</div>
-            <div className="text-gray-300">Specialisten</div>
-          </div>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={project.id} 
-              className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
-                />
-                <div className="absolute top-4 right-4">
-                  <Badge variant="secondary" className="bg-primary text-white">
-                    {project.category}
-                  </Badge>
-                </div>
-              </div>
-              <CardHeader>
-                <CardTitle className="text-white text-xl font-display">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="text-gray-300">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-center text-gray-300 text-sm">
-                  <MapPin className="w-4 h-4 mr-2 text-primary" />
-                  {project.location}
-                </div>
-                <div className="flex items-center text-gray-300 text-sm">
-                  <Calendar className="w-4 h-4 mr-2 text-primary" />
-                  {project.year} • {project.duration}
-                </div>
-                <div className="flex items-center text-gray-300 text-sm">
-                  <Users className="w-4 h-4 mr-2 text-primary" />
-                  {project.teamSize}
-                </div>
-                
-                <div className="pt-2">
-                  <div className="flex items-center mb-2">
-                    <Award className="w-4 h-4 mr-2 text-primary" />
-                    <span className="text-sm font-semibold text-white">Hoogtepunten:</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.highlights.map((highlight, idx) => (
-                      <Badge 
-                        key={idx} 
-                        variant="outline" 
-                        className="text-xs border-primary/50 text-gray-300"
-                      >
-                        {highlight}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-16 animate-fade-in">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h2 className="text-3xl font-bold text-white mb-4 font-display">
-              Klaar voor uw volgende project?
-            </h2>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Laat ons uw visie werkelijkheid maken. Neem contact met ons op voor een 
-              vrijblijvende offerte en ontdek hoe wij uw project tot een succes kunnen maken.
+    <div className="min-h-screen">
+      {/* Hero Section - Consistent with About and Contact */}
+      <section className="relative py-32 bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 animate-fade-in">
+              Onze Projecten
+            </div>
+            
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight animate-slide-in">
+              Vakmanschap in
+              <br />
+              <span className="text-gradient">actie</span>
+            </h1>
+            
+            <p className="text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Ontdek onze uitgevoerde projecten en zie hoe wij vakmanschap en innovatie combineren 
+              voor uitzonderlijke resultaten in geveltechniek
             </p>
-            <button className="gradient-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 construction-shadow">
-              Plan een Gratis Consultatie
-            </button>
+          </div>
+        </div>
+      </section>
+
+      <div className="bg-background py-16">
+        <div className="container mx-auto px-4">
+          {/* Stats Section */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            <div className="text-center animate-fade-in">
+              <div className="text-4xl font-bold text-primary mb-2">150+</div>
+              <div className="text-muted-foreground">Projecten Voltooid</div>
+            </div>
+            <div className="text-center animate-fade-in">
+              <div className="text-4xl font-bold text-primary mb-2">25+</div>
+              <div className="text-muted-foreground">Jaren Ervaring</div>
+            </div>
+            <div className="text-center animate-fade-in">
+              <div className="text-4xl font-bold text-primary mb-2">98%</div>
+              <div className="text-muted-foreground">Klanttevredenheid</div>
+            </div>
+            <div className="text-center animate-fade-in">
+              <div className="text-4xl font-bold text-primary mb-2">50+</div>
+              <div className="text-muted-foreground">Specialisten</div>
+            </div>
+          </div>
+
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <Card 
+                key={project.id} 
+                className="group hover:construction-shadow transition-all duration-300 hover:-translate-y-1 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative overflow-hidden rounded-t-lg">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <Badge variant="secondary" className="bg-primary text-white">
+                      {project.category}
+                    </Badge>
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-foreground text-xl font-display">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center text-muted-foreground text-sm">
+                    <MapPin className="w-4 h-4 mr-2 text-primary" />
+                    {project.location}
+                  </div>
+                  <div className="flex items-center text-muted-foreground text-sm">
+                    <Calendar className="w-4 h-4 mr-2 text-primary" />
+                    {project.year} • {project.duration}
+                  </div>
+                  <div className="flex items-center text-muted-foreground text-sm">
+                    <Users className="w-4 h-4 mr-2 text-primary" />
+                    {project.teamSize}
+                  </div>
+                  
+                  <div className="pt-2">
+                    <div className="flex items-center mb-2">
+                      <Award className="w-4 h-4 mr-2 text-primary" />
+                      <span className="text-sm font-semibold text-foreground">Hoogtepunten:</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.highlights.map((highlight, idx) => (
+                        <Badge 
+                          key={idx} 
+                          variant="outline" 
+                          className="text-xs border-primary/50 text-muted-foreground"
+                        >
+                          {highlight}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-16 animate-fade-in">
+            <div className="bg-muted/50 rounded-2xl p-8 border">
+              <h2 className="text-3xl font-bold text-foreground mb-4 font-display">
+                Klaar voor uw volgende project?
+              </h2>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Laat ons uw visie werkelijkheid maken. Neem contact met ons op voor een 
+                vrijblijvende offerte en ontdek hoe wij uw project tot een succes kunnen maken.
+              </p>
+              <button className="gradient-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-all duration-300 construction-shadow">
+                Plan een Gratis Consultatie
+              </button>
+            </div>
           </div>
         </div>
       </div>

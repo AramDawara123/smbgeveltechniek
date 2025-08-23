@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,36 +9,41 @@ import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: ""
   });
-  const contactInfo = [{
-    icon: Phone,
-    title: "Telefoon",
-    content: "06 123 456 789",
-    subtitle: "Ma-Vr 08:00 - 18:00"
-  }, {
-    icon: Mail,
-    title: "E-mail",
-    content: "info@smbgeveltechniek.nl",
-    subtitle: "We reageren binnen 24 uur"
-  }, {
-    icon: MapPin,
-    title: "Locatie",
-    content: "Noord-Holland",
-    subtitle: "Service in heel de regio"
-  }, {
-    icon: Clock,
-    title: "Spoeddienst",
-    content: "24/7 Beschikbaar",
-    subtitle: "Voor acute reparaties"
-  }];
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Telefoon",
+      content: "06 123 456 789",
+      subtitle: "Ma-Vr 08:00 - 18:00"
+    },
+    {
+      icon: Mail,
+      title: "E-mail",
+      content: "info@smbgeveltechniek.nl",
+      subtitle: "We reageren binnen 24 uur"
+    },
+    {
+      icon: MapPin,
+      title: "Locatie",
+      content: "Noord-Holland",
+      subtitle: "Service in heel de regio"
+    },
+    {
+      icon: Clock,
+      title: "Spoeddienst",
+      content: "24/7 Beschikbaar",
+      subtitle: "Voor acute reparaties"
+    }
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -51,99 +57,159 @@ const Contact = () => {
       message: ""
     });
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-  return <section id="contact" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Klaar voor uw
-            <br />
-            <span className="text-gradient">gevelproject?</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Neem vrijblijvend contact met ons op voor een gratis offerte of advies. 
-            Onze specialisten staan voor u klaar.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact Info */}
-          <div className="lg:col-span-1">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-              {contactInfo.map((info, index) => <Card key={info.title} className="group hover:construction-shadow transition-all duration-300 hover:-translate-y-1" style={{
-              animationDelay: `${index * 0.1}s`
-            }}>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <info.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                        <p className="text-sm text-muted-foreground mb-1">{info.content}</p>
-                        <p className="text-xs text-muted-foreground">{info.subtitle}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>)}
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section - Consistent with About and Projects */}
+      <section className="relative py-32 bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 animate-fade-in">
+              Contact
             </div>
+            
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight animate-slide-in">
+              Klaar voor uw
+              <br />
+              <span className="text-gradient">gevelproject?</span>
+            </h1>
+            
+            <p className="text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Neem vrijblijvend contact met ons op voor een gratis offerte of advies. 
+              Onze specialisten staan voor u klaar
+            </p>
           </div>
-
-          {/* Contact Form */}
-          <Card className="lg:col-span-2 construction-shadow">
-            <CardContent className="p-8">
-              <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-                Vraag een gratis offerte aan
-              </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Volledige naam *
-                    </label>
-                    <Input id="name" name="name" value={formData.name} onChange={handleInputChange} required className="h-12" placeholder="Uw naam" />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                      Telefoonnummer *
-                    </label>
-                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} required className="h-12" placeholder="Uw telefoonnummer" />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    E-mailadres *
-                  </label>
-                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} required className="h-12" placeholder="uw.email@voorbeeld.nl" />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Projectomschrijving *
-                  </label>
-                  <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required className="min-h-32" placeholder="Beschrijf uw project en wensen..." />
-                </div>
-                
-                <Button asChild type="button" size="lg" className="w-full gradient-primary text-white text-lg font-semibold">
-                  <Link to="/offerte">Gratis Offerte Aanvragen</Link>
-                </Button>
-                
-                <p className="text-xs text-muted-foreground text-center">
-                  Voor een gedetailleerde offerte kunt u ook ons uitgebreide offerteformulier invullen.
-                </p>
-              </form>
-            </CardContent>
-          </Card>
         </div>
-      </div>
-    </section>;
+      </section>
+
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Contact Info */}
+            <div className="lg:col-span-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+                {contactInfo.map((info, index) => (
+                  <Card 
+                    key={info.title} 
+                    className="group hover:construction-shadow transition-all duration-300 hover:-translate-y-1" 
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <info.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
+                          <p className="text-sm text-muted-foreground mb-1">{info.content}</p>
+                          <p className="text-xs text-muted-foreground">{info.subtitle}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <Card className="lg:col-span-2 construction-shadow">
+              <CardContent className="p-8">
+                <h3 className="font-display text-2xl font-bold text-foreground mb-6">
+                  Vraag een gratis offerte aan
+                </h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                        Volledige naam *
+                      </label>
+                      <Input 
+                        id="name" 
+                        name="name" 
+                        value={formData.name} 
+                        onChange={handleInputChange} 
+                        required 
+                        className="h-12" 
+                        placeholder="Uw naam" 
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                        Telefoonnummer *
+                      </label>
+                      <Input 
+                        id="phone" 
+                        name="phone" 
+                        type="tel" 
+                        value={formData.phone} 
+                        onChange={handleInputChange} 
+                        required 
+                        className="h-12" 
+                        placeholder="Uw telefoonnummer" 
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      E-mailadres *
+                    </label>
+                    <Input 
+                      id="email" 
+                      name="email" 
+                      type="email" 
+                      value={formData.email} 
+                      onChange={handleInputChange} 
+                      required 
+                      className="h-12" 
+                      placeholder="uw.email@voorbeeld.nl" 
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                      Projectomschrijving *
+                    </label>
+                    <Textarea 
+                      id="message" 
+                      name="message" 
+                      value={formData.message} 
+                      onChange={handleInputChange} 
+                      required 
+                      className="min-h-32" 
+                      placeholder="Beschrijf uw project en wensen..." 
+                    />
+                  </div>
+                  
+                  <Button 
+                    asChild 
+                    type="button" 
+                    size="lg" 
+                    className="w-full gradient-primary text-white text-lg font-semibold"
+                  >
+                    <Link to="/offerte">Gratis Offerte Aanvragen</Link>
+                  </Button>
+                  
+                  <p className="text-xs text-muted-foreground text-center">
+                    Voor een gedetailleerde offerte kunt u ook ons uitgebreide offerteformulier invullen.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
+
 export default Contact;

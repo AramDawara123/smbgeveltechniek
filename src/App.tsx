@@ -11,6 +11,7 @@ import AboutPage from "./pages/About";
 import ContactPage from "./pages/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import OffertePage from "./pages/OffertePage";
+import InnovatiePage from "./pages/InnovatiePage";
 import GevelrenovatiePage from "./pages/services/GevelrenovatiePage";
 import ScheurherstellPage from "./pages/services/ScheurherstellPage";
 import RenovatieankersPage from "./pages/services/RenovatieankersPage";
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/projecten" element={<ProjectsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/offerte" element={<OffertePage />} />
+            <Route path="/innovatie" element={<InnovatiePage />} />
             <Route path="/gevelrenovatie" element={<GevelrenovatiePage />} />
             <Route path="/scheurherstel" element={<ScheurherstellPage />} />
             <Route path="/renovatieankers" element={<RenovatieankersPage />} />

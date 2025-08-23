@@ -1,12 +1,12 @@
 
 import Navigation from "@/components/Navigation";
-import Projects from "@/components/Projects";
+import StickyScrollGallery from "@/components/ui/sticky-scroll";
 
 const ProjectsPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-construction-dark via-construction-medium to-construction-light">
+    <div className="min-h-screen">
       <Navigation />
-      <Projects />
+      <StickyScrollGallery />
     </div>
   );
 };

@@ -41,21 +41,25 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 flex-1 justify-end overflow-x-clip">
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-end">
             {navItems.map((item) => (
               item.hasDropdown ? (
                 <DropdownMenu key={item.label}>
-                  <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group shrink-0">
+                  <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap">
                     {item.label}
                     <ChevronDown className="w-4 h-4 ml-1 group-data-[state=open]:rotate-180 transition-transform duration-200" />
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="z-[9999] bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg rounded-lg min-w-[200px]">
+                  <DropdownMenuContent 
+                    className="z-[9999] bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg rounded-lg w-48" 
+                    align="center"
+                    sideOffset={8}
+                  >
                     {item.dropdownItems?.map((dropdownItem) => (
                       <DropdownMenuItem key={dropdownItem.label} asChild>
                         <Link 
                           to={dropdownItem.href}
-                          className="text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 cursor-pointer flex items-center px-3 py-2 text-sm font-medium"
+                          className="text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 cursor-pointer flex items-center px-3 py-2 text-sm font-medium w-full"
                         >
                           {dropdownItem.label}
                         </Link>
@@ -67,7 +71,7 @@ const Navigation = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group shrink-0"
+                  className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -76,7 +80,7 @@ const Navigation = () => {
             ))}
             <Button asChild
               variant="default" 
-              className="gradient-primary text-white hover:scale-105 transition-all duration-300 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0 shrink-0"
+              className="gradient-primary text-white hover:scale-105 transition-all duration-300 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0 whitespace-nowrap"
             >
               <Link to="/offerte">Offerte Aanvragen</Link>
             </Button>

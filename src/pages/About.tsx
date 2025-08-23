@@ -14,7 +14,7 @@ import { Helmet } from "react-helmet-async";
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden overscroll-x-none">
       <Helmet>
         <title>Over SMB Geveltechniek | Maikel Schouw | 25+ Jaar Gevelspecialist Noord-Holland</title>
         <meta name="description" content="Leer SMB Geveltechniek kennen. Opgericht door Maikel Schouw in 2018. 25+ jaar ervaring in gevelrenovatie Noord-Holland. Betrouwbaar, transparant, gecertificeerd." />

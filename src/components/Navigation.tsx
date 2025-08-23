@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -115,21 +116,30 @@ const Navigation = () => {
                   </div>
                 ) : (
                   <div key={item.label} className="space-y-2">
-                    <div className="text-gray-300 font-semibold text-xl py-2">
+                    <button
+                      className="text-gray-300 font-semibold text-xl py-2 flex items-center justify-between w-full hover:text-primary transition-colors duration-300"
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                    >
                       {item.label}
-                    </div>
-                    <div className="pl-4 space-y-2">
-                      {item.dropdownItems?.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.label}
-                          to={dropdownItem.href}
-                          className="text-gray-400 hover:text-primary transition-colors duration-300 py-1 block"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {dropdownItem.label}
-                        </Link>
-                      ))}
-                    </div>
+                      <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isServicesOpen && (
+                      <div className="pl-4 space-y-2 animate-fade-in">
+                        {item.dropdownItems?.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.label}
+                            to={dropdownItem.href}
+                            className="text-gray-400 hover:text-primary transition-colors duration-300 py-2 block text-lg"
+                            onClick={() => {
+                              setIsMenuOpen(false);
+                              setIsServicesOpen(false);
+                            }}
+                          >
+                            {dropdownItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )
               )}

@@ -29,7 +29,8 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/10">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-[1400px] w-full overflow-x-hidden">
+        {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group cursor-pointer flex-shrink-0">

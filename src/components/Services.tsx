@@ -1,13 +1,12 @@
-
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight } from "lucide-react";
+import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight, Send, Ruler, CheckCircle, Play, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Services = () => {
   const services = [
     {
       icon: Building2,
-      title: "Nieuwbouw",
+      title: "Nieuwbouw", 
       subtitle: "Vakmanschap en duurzaamheid",
       description: "SMB Geveltechniek staat garant voor hoogwaardige nieuwbouwprojecten waar vakmanschap en duurzaamheid samenkomen. Vanaf de fundering tot aan de laatste metselsteen streven wij naar perfectie.",
       features: ["Maatwerkoplossingen", "Topkwaliteit materialen", "Woningbouw & bedrijfspanden"],
@@ -45,6 +44,39 @@ const Services = () => {
     "Gevelreiniging en impregneren",
     "Graffiti verwijdering",
     "Monumentenzorg"
+  ];
+
+  const processSteps = [
+    {
+      icon: Send,
+      title: "Stuur een verzoek",
+      description: "Neem contact op via onze website of telefoon voor een vrijblijvende offerte",
+      color: "from-blue-500 to-blue-600"
+    },
+    {
+      icon: Ruler,
+      title: "Voer metingen uit",
+      description: "Onze experts komen ter plaatse voor een grondige inspectie en opmeting",
+      color: "from-indigo-500 to-indigo-600"
+    },
+    {
+      icon: CheckCircle,
+      title: "Keur het budget goed",
+      description: "U ontvangt een transparante offerte met alle kosten en werkzaamheden",
+      color: "from-green-500 to-green-600"
+    },
+    {
+      icon: Play,
+      title: "Start het project",
+      description: "We plannen de werkzaamheden en starten volgens afgesproken tijdlijn",
+      color: "from-orange-500 to-orange-600"
+    },
+    {
+      icon: Clock,
+      title: "Voltooi op tijd",
+      description: "Oplevering binnen de gestelde termijn met volledige garantie",
+      color: "from-purple-500 to-purple-600"
+    }
   ];
 
   return (
@@ -120,7 +152,6 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Additional Services */}
         <div className="bg-muted/30 rounded-3xl p-12 mb-16">
           <h3 className="font-display text-3xl font-bold text-foreground mb-8 text-center">
             Wat wij nog meer doen
@@ -135,30 +166,81 @@ const Services = () => {
           </div>
         </div>
 
-        {/* How it works section */}
         <div className="text-center mb-16">
-          <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-12">
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8 border border-primary/20">
+            Ons Werkproces
+          </div>
+          <h3 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
             Hoe het werkt
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-            {[
-              "Stuur een verzoek",
-              "Voer metingen uit", 
-              "Keur het budget goed",
-              "Start het project",
-              "Voltooi op tijd"
-            ].map((step, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">
-                  {index + 1}
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-16">
+            Van eerste contact tot oplevering: een transparant proces in 5 stappen
+          </p>
+
+          <div className="relative">
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 -translate-y-1/2"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
+              {processSteps.map((step, index) => (
+                <div 
+                  key={index} 
+                  className="relative group"
+                  style={{ 
+                    animationDelay: `${index * 0.2}s`,
+                    animation: 'fade-in 0.8s ease-out forwards'
+                  }}
+                >
+                  <div className="relative bg-card/50 backdrop-blur-sm rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:construction-shadow group">
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <div className="w-8 h-8 bg-background border-2 border-primary rounded-full flex items-center justify-center text-primary font-bold text-sm">
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 bg-gradient-to-br ${step.color} logo-shadow`}>
+                      <step.icon className="w-8 h-8 text-white" />
+                    </div>
+                    
+                    <h4 className="font-display text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                      {step.title}
+                    </h4>
+                    
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {step.description}
+                    </p>
+
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                  </div>
+
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
+                      <div className="w-4 h-4 bg-background border-2 border-primary rounded-full flex items-center justify-center">
+                        <ArrowRight className="w-2 h-2 text-primary" />
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <p className="font-semibold text-foreground">{step}</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { title: "Transparant", description: "Geen verborgen kosten of verrassingen" },
+              { title: "Betrouwbaar", description: "25+ jaar ervaring en tevreden klanten" },
+              { title: "Garantie", description: "Volledige garantie op al onze werkzaamheden" }
+            ].map((benefit, index) => (
+              <div key={index} className="flex items-center gap-4 p-6 bg-muted/20 rounded-xl">
+                <div className="w-3 h-3 gradient-primary rounded-full flex-shrink-0"></div>
+                <div className="text-left">
+                  <h5 className="font-semibold text-foreground">{benefit.title}</h5>
+                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Call to Action */}
         <div className="text-center">
           <Button 
             size="lg" 

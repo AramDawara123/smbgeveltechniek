@@ -1,7 +1,9 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,13 +31,13 @@ const Navigation = () => {
       <div className="container mx-auto px-4 overflow-hidden">
         <div className="flex items-center justify-between h-20 overflow-hidden">
           {/* Logo */}
-          <div className="flex items-center group cursor-pointer flex-shrink-0">
+          <Link to="/" className="flex items-center group cursor-pointer flex-shrink-0">
             <img 
               src="/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png" 
               alt="SMB Geveltechniek Logo" 
               className="h-12 w-auto transform transition-transform duration-300 group-hover:scale-105"
             />
-          </div>
+          </Link>
 
           {/* Enhanced Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 overflow-hidden">
@@ -50,25 +52,25 @@ const Navigation = () => {
                   <DropdownMenuContent className="bg-card/95 backdrop-blur-sm border border-border/20 z-50 min-w-max">
                     {item.dropdownItems?.map((dropdownItem) => (
                       <DropdownMenuItem key={dropdownItem.label} asChild>
-                        <a 
-                          href={dropdownItem.href}
+                        <Link 
+                          to={dropdownItem.href}
                           className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer whitespace-nowrap"
                         >
                           {dropdownItem.label}
-                        </a>
+                        </Link>
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
-                </a>
+                </Link>
               )
             ))}
             <Button 
@@ -96,13 +98,13 @@ const Navigation = () => {
                 !item.hasDropdown ? (
                   <div key={item.label}>
                     <div>
-                      <a
-                        href={item.href}
+                      <Link
+                        to={item.href}
                         className="text-gray-300 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ) : (
@@ -112,14 +114,14 @@ const Navigation = () => {
                     </div>
                     <div className="pl-4 space-y-2">
                       {item.dropdownItems?.map((dropdownItem) => (
-                        <a
+                        <Link
                           key={dropdownItem.label}
-                          href={dropdownItem.href}
+                          to={dropdownItem.href}
                           className="text-gray-400 hover:text-primary transition-colors duration-300 py-1 block"
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {dropdownItem.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>

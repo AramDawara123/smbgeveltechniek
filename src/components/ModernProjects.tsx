@@ -117,9 +117,8 @@ const ModernProjects = () => {
   const filteredProjects = selectedCategory === "all" ? projects : projects.filter(project => project.category === selectedCategory);
   return <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(120,119,198,0.3),transparent_50%)] opacity-70"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,165,0,0.2),transparent_50%)] opacity-50"></div>
+      <section className="relative py-24 md:py-32 min-h-[420px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
@@ -151,7 +150,7 @@ const ModernProjects = () => {
               label: "Vakspecialisten"
             }].map((stat, index) => <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
                   <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.number}</div>
-                  <div className="text-slate-300 text-sm md:text-base">{stat.label}</div>
+                  <div className="text-slate-200 text-sm md:text-base">{stat.label}</div>
                 </div>)}
             </div>
           </div>

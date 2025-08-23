@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,30 +17,10 @@ const Contact = () => {
   });
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: "Telefoon",
-      content: "06 123 456 789",
-      subtitle: "Ma-Vr 08:00 - 18:00"
-    },
-    {
-      icon: Mail,
-      title: "E-mail",
-      content: "info@smbgeveltechniek.nl",
-      subtitle: "We reageren binnen 24 uur"
-    },
-    {
-      icon: MapPin,
-      title: "Locatie",
-      content: "Noord-Holland",
-      subtitle: "Service in heel de regio"
-    },
-    {
-      icon: Clock,
-      title: "Spoeddienst",
-      content: "24/7 Beschikbaar",
-      subtitle: "Voor acute reparaties"
-    }
+    { icon: Phone, title: "Telefoon", content: "06 123 456 789", subtitle: "Ma-Vr 08:00 - 18:00" },
+    { icon: Mail, title: "E-mail", content: "info@smbgeveltechniek.nl", subtitle: "We reageren binnen 24 uur" },
+    { icon: MapPin, title: "Locatie", content: "Noord-Holland", subtitle: "Service in heel de regio" },
+    { icon: Clock, title: "Spoeddienst", content: "24/7 Beschikbaar", subtitle: "Voor acute reparaties" }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -50,25 +29,17 @@ const Contact = () => {
       title: "Bericht verzonden!",
       description: "We nemen zo snel mogelijk contact met u op."
     });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
     <div className="min-h-screen">
       {/* Hero Section - Consistent with About and Projects */}
-      <section className="relative py-32 bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
+      <section className="relative py-32 min-h-[420px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">

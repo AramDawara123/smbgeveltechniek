@@ -22,6 +22,7 @@ const Navigation = () => {
         { label: "Scheurherstel", href: "/scheurherstel" }
       ]
     },
+    { label: "Projecten", href: "/projecten" },
     { label: "Over ons", href: "/over-ons" },
     { label: "Contact", href: "/contact" }
   ];
@@ -31,7 +32,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center group cursor-pointer">
+          <Link to="/" className="flex items-center group cursor-pointer flex-shrink-0">
             <img 
               src="/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png" 
               alt="SMB Geveltechniek Logo" 
@@ -40,11 +41,11 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-end overflow-x-clip">
             {navItems.map((item) => (
               item.hasDropdown ? (
                 <DropdownMenu key={item.label}>
-                  <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group">
+                  <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group shrink-0">
                     {item.label}
                     <ChevronDown className="w-4 h-4 ml-1 group-data-[state=open]:rotate-180 transition-transform duration-200" />
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -66,7 +67,7 @@ const Navigation = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group"
+                  className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group shrink-0"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -75,7 +76,7 @@ const Navigation = () => {
             ))}
             <Button 
               variant="default" 
-              className="gradient-primary text-white hover:scale-105 transition-all duration-300 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0"
+              className="gradient-primary text-white hover:scale-105 transition-all duration-300 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0 shrink-0"
             >
               Offerte Aanvragen
             </Button>

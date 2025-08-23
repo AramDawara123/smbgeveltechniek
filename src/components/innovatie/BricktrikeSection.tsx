@@ -77,14 +77,14 @@ const BricktrikeSection = () => {
           </div>
 
           {/* Images Grid */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div>
             <div className="grid grid-cols-1 gap-6">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-construction-medium/20 rounded-2xl transform rotate-1"></div>
                 <img 
                   src="/lovable-uploads/a4221235-317d-4c20-989c-01ca60ac70f0.png" 
                   alt="Bricktrike - innovatieve stenenwagen" 
-                  className="relative w-full rounded-2xl shadow-xl construction-shadow transform -rotate-1 hover:rotate-0 transition-transform duration-500"
+                  className="relative w-full rounded-2xl shadow-xl construction-shadow"
                 />
               </div>
               
@@ -93,7 +93,7 @@ const BricktrikeSection = () => {
                 <img 
                   src="/lovable-uploads/03ea8a9d-4588-4202-b71d-6d2424dc61f6.png" 
                   alt="Bricktrike technische details" 
-                  className="relative w-full rounded-2xl shadow-xl construction-shadow transform rotate-1 hover:rotate-0 transition-transform duration-500"
+                  className="relative w-full rounded-2xl shadow-xl construction-shadow"
                 />
               </div>
             </div>

@@ -1,12 +1,12 @@
 
 import Navigation from "@/components/Navigation";
-import StickyScrollGallery from "@/components/ui/sticky-scroll";
+import ModernProjects from "@/components/ModernProjects";
 
 const ProjectsPage = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <StickyScrollGallery />
+      <ModernProjects />
     </div>
   );
 };

@@ -20,7 +20,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Telefoon",
-      content: "06 123 456 789",
+      content: "06-39 58 03 41",
       subtitle: "Ma-Vr 08:00 - 18:00"
     },
     {
@@ -59,6 +59,10 @@ const Contact = () => {
     }));
   };
 
+  const handlePhoneCall = () => {
+    window.location.href = "tel:0639580341";
+  };
+
   return (
     <section id="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -67,20 +71,26 @@ const Contact = () => {
             Contact & Offerte
           </div>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Klaar voor uw
+            Neem contact
             <br />
-            <span className="text-gradient">gevelproject?</span>
+            <span className="text-gradient">met ons op</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Overweeg je metselwerk, gevelrenovatie of nieuwbouw? SMB Geveltechniek staat paraat. 
-            Neem contact op en ontdek hoe we met vakmanschap en toewijding jouw bouwplannen tot realiteit kunnen maken.
+            Dank je wel dat je overweegt om met SMB Geveltechniek samen te werken voor het creëren van geweldige buitenruimtes. 
+            We kijken uit naar je bericht en helpen graag bij het realiseren van jouw ideeën.
           </p>
-          <div className="bg-primary/5 p-6 rounded-xl max-w-4xl mx-auto">
-            <p className="text-muted-foreground">
-              <strong className="text-foreground">Werkgebied:</strong> We verlenen onze diensten in heel Noord-Holland; 
-              van Den Helder tot Heemstede, zoals Alkmaar, Heiloo, Castricum, Bergen, Broek op Langedijk, etc.
-            </p>
-          </div>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+            Voel je vrij om contact met ons op te nemen via het invullen van het contactformulier of door ons te bellen!
+          </p>
+          
+          <Button 
+            onClick={handlePhoneCall}
+            size="lg" 
+            className="gradient-primary text-white text-lg font-semibold mb-8 hover:scale-105 transition-transform duration-300"
+          >
+            <Phone className="w-5 h-5 mr-2" />
+            Klik om te bellen
+          </Button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -114,7 +124,7 @@ const Contact = () => {
           <Card className="lg:col-span-2 construction-shadow">
             <CardContent className="p-8">
               <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-                Heeft u een vraag over metselwerk?
+                Neem contact op
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">

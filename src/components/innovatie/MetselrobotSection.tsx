@@ -1,4 +1,3 @@
-
 import { Zap, Target, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -11,7 +10,7 @@ const MetselrobotSection = () => {
     },
     {
       icon: Target,
-      title: "Constante Kwaliteit",
+      title: "Constante Kwaliteit", 
       description: "Zelfs bij grote projecten onder tijdsdruk"
     },
     {
@@ -89,4 +88,3 @@ const MetselrobotSection = () => {
 };
 
 export default MetselrobotSection;
-

@@ -13,7 +13,7 @@ const VoegrobotSection = () => {
               <img 
                 src="/lovable-uploads/b9e3a597-4b31-4822-91bf-5eb1ab8ac8d6.png" 
                 alt="Voegrobot prototype SMB Geveltechniek" 
-                className="relative w-full rounded-3xl shadow-2xl construction-shadow transform rotate-1 hover:rotate-0 transition-transform duration-500"
+                className="relative w-full rounded-3xl shadow-2xl construction-shadow"
               />
             </div>
           </div>

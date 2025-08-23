@@ -3,66 +3,68 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-/* SMB Geveltechniek Design System */
+/* SMB Geveltechniek Design System - Based on Logo Colors */
 @layer base {
   :root {
-    /* Brand Colors - Construction/Architecture Theme */
-    --primary: 16 85% 55%;           /* Construction Orange */
+    /* Brand Colors - From Logo */
+    --primary: 14 88% 60%;           /* Logo Orange/Coral */
     --primary-foreground: 0 0% 98%;
-    --secondary: 210 20% 15%;        /* Charcoal Grey */
+    --secondary: 210 25% 12%;        /* Deep Charcoal from logo */
     --secondary-foreground: 0 0% 98%;
-    --accent: 25 95% 85%;           /* Light Terracotta */
-    --accent-foreground: 210 20% 15%;
+    --accent: 14 88% 95%;           /* Very light orange tint */
+    --accent-foreground: 210 25% 12%;
     
-    /* Neutrals */
-    --background: 0 0% 99%;
-    --foreground: 210 20% 15%;
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 10% 45%;
+    /* Neutrals - Warmer to complement orange */
+    --background: 20 20% 98%;        /* Warm white */
+    --foreground: 210 25% 12%;       /* Dark charcoal */
+    --muted: 20 15% 95%;            /* Warm light grey */
+    --muted-foreground: 210 15% 35%; /* Medium grey */
     
     /* UI Elements */
     --card: 0 0% 100%;
-    --card-foreground: 210 20% 15%;
+    --card-foreground: 210 25% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 15%;
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 16 85% 55%;
+    --popover-foreground: 210 25% 12%;
+    --border: 20 20% 88%;           /* Warm border */
+    --input: 20 20% 90%;            /* Warm input background */
+    --ring: 14 88% 60%;             /* Logo orange for focus rings */
     
     /* Status Colors */
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
     
-    /* Construction Theme Specific */
+    /* Construction Theme Specific - Logo inspired */
     --construction-dark: 210 25% 8%;
     --construction-medium: 210 20% 25%;
-    --construction-light: 210 15% 85%;
-    --orange-gradient-start: 16 85% 55%;
-    --orange-gradient-end: 25 95% 50%;
+    --construction-light: 20 15% 92%;
+    --orange-gradient-start: 14 88% 60%;
+    --orange-gradient-end: 18 85% 55%;
+    --logo-orange: 14 88% 60%;
+    --logo-dark: 210 25% 12%;
     
     --radius: 0.75rem;
   }
 
   .dark {
     --background: 210 25% 8%;
-    --foreground: 210 15% 95%;
+    --foreground: 20 15% 95%;
     --card: 210 20% 12%;
-    --card-foreground: 210 15% 95%;
+    --card-foreground: 20 15% 95%;
     --popover: 210 20% 12%;
-    --popover-foreground: 210 15% 95%;
-    --primary: 16 85% 55%;
+    --popover-foreground: 20 15% 95%;
+    --primary: 14 88% 60%;
     --primary-foreground: 0 0% 98%;
     --secondary: 210 15% 20%;
-    --secondary-foreground: 210 15% 95%;
+    --secondary-foreground: 20 15% 95%;
     --muted: 210 15% 18%;
     --muted-foreground: 210 10% 65%;
     --accent: 210 15% 18%;
-    --accent-foreground: 210 15% 95%;
+    --accent-foreground: 20 15% 95%;
     --border: 210 15% 20%;
     --input: 210 15% 20%;
-    --ring: 16 85% 55%;
+    --ring: 14 88% 60%;
   }
 }
 
@@ -83,17 +85,30 @@
 
 @layer utilities {
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--orange-gradient-start)), hsl(var(--orange-gradient-end)));
+    background: linear-gradient(135deg, hsl(var(--logo-orange)), hsl(var(--orange-gradient-end)));
+  }
+  
+  .gradient-dark {
+    background: linear-gradient(135deg, hsl(var(--logo-dark)), hsl(var(--construction-medium)));
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--orange-gradient-start)), hsl(var(--orange-gradient-end)));
+    background: linear-gradient(135deg, hsl(var(--logo-orange)), hsl(var(--orange-gradient-end)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .construction-shadow {
-    box-shadow: 0 10px 40px -10px hsla(var(--primary), 0.2);
+    box-shadow: 0 20px 60px -10px hsla(var(--primary), 0.25);
+  }
+
+  .logo-shadow {
+    box-shadow: 0 10px 40px -10px hsla(var(--primary), 0.3);
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    background: hsla(var(--background), 0.8);
   }
 }

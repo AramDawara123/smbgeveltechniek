@@ -1,15 +1,66 @@
 
 import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
+import SEOOptimizedHero from "@/components/SEOOptimizedHero";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Gevelspecialist Noord-Holland | SMB Geveltechniek | 25+ Jaar Ervaring</title>
+        <meta name="description" content="SMB Geveltechniek - Dé gevelspecialist Noord-Holland. ✓ Gevelrenovatie ✓ Metselwerk ✓ Scheurherstel ✓ Renovatieankers ✓ 25+ jaar ervaring ✓ Gratis offerte!" />
+        <meta name="keywords" content="gevelspecialist noord-holland, gevelrenovatie, metselwerk, scheurherstel, renovatieankers, gevelreiniging, voegwerk" />
+        <link rel="canonical" href="https://smbgeveltechniek.nl/" />
+        <meta property="og:title" content="Gevelspecialist Noord-Holland | SMB Geveltechniek" />
+        <meta property="og:description" content="25+ jaar ervaring in gevelrenovatie, metselwerk en scheurherstel. Gecertificeerd voor renovatieankers. Gratis offerte!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://smbgeveltechniek.nl/" />
+        <meta name="geo.region" content="NL-NH" />
+        <meta name="geo.placename" content="Noord-Holland" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "SMB Geveltechniek",
+            "description": "Gevelspecialist Noord-Holland - Gevelrenovatie, metselwerk, scheurherstel en renovatieankers",
+            "url": "https://smbgeveltechniek.nl",
+            "telephone": "+31612345678",
+            "email": "info@smbgeveltechniek.nl",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "Noord-Holland",
+              "addressCountry": "NL"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "52.6297",
+              "longitude": "4.7544"
+            },
+            "areaServed": [
+              "Noord-Holland", "Alkmaar", "Heiloo", "Castricum", "Bergen", "Broek op Langedijk", "Den Helder", "Heemstede"
+            ],
+            "serviceType": [
+              "Gevelrenovatie", "Metselwerk", "Scheurherstel", "Renovatieankers", "Gevelreiniging", "Voegwerk"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Maikel Schouw"
+            },
+            "foundingDate": "2018-10",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "150"
+            }
+          })}
+        </script>
+      </Helmet>
+
       <Navigation />
-      <Hero />
+      <SEOOptimizedHero />
       <Services />
       <About />
       <Contact />

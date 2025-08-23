@@ -1,30 +1,19 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, Award } from "lucide-react";
-
 const Hero = () => {
   // Improved pattern for background
-  const patternSVG =
-    '<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ff5722" fill-opacity="0.03"><polygon points="30 0 60 30 30 60 0 30"/></g></g></svg>';
+  const patternSVG = '<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ff5722" fill-opacity="0.03"><polygon points="30 0 60 30 30 60 0 30"/></g></g></svg>';
   const encodedPattern = encodeURIComponent(patternSVG);
-
-  return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Enhanced Background with multiple layers */}
       <div className="absolute inset-0 gradient-dark"></div>
       
       {/* Pattern Overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,${encodedPattern}")`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "60px 60px",
-        }}
-      />
+      <div className="absolute inset-0" style={{
+      backgroundImage: `url("data:image/svg+xml,${encodedPattern}")`,
+      backgroundRepeat: "repeat",
+      backgroundSize: "60px 60px"
+    }} />
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-background/10 to-background/30"></div>
@@ -32,11 +21,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="max-w-5xl mx-auto text-center animate-fade-in">
           {/* Enhanced Badge */}
-          <div className="inline-flex items-center px-6 py-3 rounded-full glass-effect border border-primary/20 text-white text-sm font-semibold mb-8 logo-shadow">
-            <Award className="w-4 h-4 text-primary mr-2" />
-            Vakkundige geveltechnieken sinds 2010
-            <span className="w-2 h-2 bg-primary rounded-full ml-3 animate-pulse"></span>
-          </div>
+          
 
           {/* Improved Main Heading */}
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-[0.9] tracking-tight">
@@ -59,18 +44,11 @@ const Hero = () => {
 
           {/* Enhanced CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-            <Button
-              size="lg"
-              className="gradient-primary text-white px-10 py-5 text-xl font-bold rounded-2xl construction-shadow hover:scale-105 transition-all duration-500 group border-0"
-            >
+            <Button size="lg" className="gradient-primary text-white px-10 py-5 text-xl font-bold rounded-2xl construction-shadow hover:scale-105 transition-all duration-500 group border-0">
               Gratis Offerte Aanvragen
               <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-10 py-5 text-xl font-semibold border-2 border-white/30 text-white hover:bg-white hover:text-construction-dark transition-all duration-500 rounded-2xl glass-effect"
-            >
+            <Button variant="outline" size="lg" className="px-10 py-5 text-xl font-semibold border-2 border-white/30 text-white hover:bg-white hover:text-construction-dark transition-all duration-500 rounded-2xl glass-effect">
               Bekijk Onze Projecten
             </Button>
           </div>
@@ -105,8 +83,6 @@ const Hero = () => {
           <div className="w-1.5 h-4 bg-primary rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

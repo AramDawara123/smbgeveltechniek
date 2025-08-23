@@ -2,8 +2,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Users, Award, Star, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { useCountAnimation } from "@/hooks/useCountAnimation";
+
 const ModernProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  
+  // Animation hooks for stats
+  const projectsCount = useCountAnimation({ end: 150, suffix: "+" });
+  const experienceCount = useCountAnimation({ end: 25, suffix: "+" });
+  const satisfactionCount = useCountAnimation({ end: 98, suffix: "%" });
+  const specialistsCount = useCountAnimation({ end: 50, suffix: "+" });
+
   const projects = [{
     id: 1,
     title: "Renovatie Historisch Pand Amsterdam",
@@ -89,6 +98,7 @@ const ModernProjects = () => {
     featured: false,
     rating: 4.5
   }];
+
   const categories = [{
     value: "all",
     label: "Alle Projecten",
@@ -114,7 +124,9 @@ const ModernProjects = () => {
     label: "Metselwerk",
     count: projects.filter(p => p.category === "metselwerk").length
   }];
+
   const filteredProjects = selectedCategory === "all" ? projects : projects.filter(project => project.category === selectedCategory);
+
   return <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* Hero Section */}
       <section className="relative py-24 md:py-32 min-h-[420px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
@@ -134,24 +146,35 @@ const ModernProjects = () => {
               vakmanschap en innovatie samenbrengen voor uitzonderlijke resultaten.
             </p>
 
-            {/* Stats Cards */}
+            {/* Stats Cards with Animated Numbers */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
-              {[{
-              number: "150+",
-              label: "Voltooide Projecten"
-            }, {
-              number: "25+",
-              label: "Jaar Ervaring"
-            }, {
-              number: "98%",
-              label: "Klanttevredenheid"
-            }, {
-              number: "50+",
-              label: "Vakspecialisten"
-            }].map((stat, index) => <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.number}</div>
-                  <div className="text-slate-200 text-sm md:text-base">{stat.label}</div>
-                </div>)}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div ref={projectsCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {projectsCount.count}
+                </div>
+                <div className="text-slate-200 text-sm md:text-base">Voltooide Projecten</div>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div ref={experienceCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {experienceCount.count}
+                </div>
+                <div className="text-slate-200 text-sm md:text-base">Jaar Ervaring</div>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div ref={satisfactionCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {satisfactionCount.count}
+                </div>
+                <div className="text-slate-200 text-sm md:text-base">Klanttevredenheid</div>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div ref={specialistsCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {specialistsCount.count}
+                </div>
+                <div className="text-slate-200 text-sm md:text-base">Vakspecialisten</div>
+              </div>
             </div>
           </div>
         </div>
@@ -361,4 +384,5 @@ const ModernProjects = () => {
       </section>
     </div>;
 };
+
 export default ModernProjects;

@@ -31,15 +31,12 @@ const SEOOptimizedHero = () => {
           </div>
           
           <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-in">
-            Gevelspecialist
-            <br />
-            <span className="text-gradient">Noord-Holland</span>
+            Gevelspecialist Noord-Holland
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <strong>SMB Geveltechniek</strong> - Uw betrouwbare partner voor gevelrenovatie, metselwerk, scheurherstel en renovatieankers. 
-            <span className="text-primary font-semibold"> 25+ jaar ervaring</span> in heel Noord-Holland.
-          </p>
+          <h2 className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed max-w-4xl mx-auto animate-fade-in font-semibold" style={{ animationDelay: '0.2s' }}>
+            SMB Geveltechniek - 25+ jaar ervaring in gevelrenovatie, metselwerk, scheurherstel en renovatieankers
+          </h2>
 
           {/* Key Services */}
           <div className="flex flex-wrap justify-center gap-3 mb-10 animate-fade-in" style={{ animationDelay: '0.3s' }}>

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -22,7 +21,7 @@ const Navigation = () => {
       ]
     },
     { label: "Over ons", href: "/over-ons" },
-    { label: "Contact", href: "#contact" }
+    { label: "Contact", href: "/contact" }
   ];
 
   return (

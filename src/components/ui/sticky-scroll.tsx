@@ -70,9 +70,9 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
 
   return (
     <ReactLenis root>
-      <main className='bg-black' ref={ref}>
-        <div className='wrapper'>
-          <section className='text-white h-screen w-full bg-slate-950 grid place-content-center sticky top-0'>
+      <main className='bg-black overflow-x-hidden' ref={ref}>
+        <div className='wrapper overflow-x-hidden'>
+          <section className='text-white h-screen w-full bg-slate-950 grid place-content-center sticky top-0 overflow-x-hidden'>
             <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
 
             <h1 className='2xl:text-7xl text-5xl px-8 font-semibold text-center tracking-tight leading-[120%]'>
@@ -84,8 +84,8 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
           </section>
         </div>
 
-        <section className='text-white w-full bg-slate-950'>
-          <div className='grid grid-cols-12 gap-2 px-4'>
+        <section className='text-white w-full bg-slate-950 overflow-x-hidden'>
+          <div className='grid grid-cols-12 gap-2 px-4 max-w-full'>
             <div className='grid gap-2 col-span-12 md:col-span-4'>
               <figure className='w-full cursor-pointer' onClick={() => handleImageClick(0)}>
                 <img
@@ -186,7 +186,7 @@ const Component = forwardRef<HTMLElement>((props, ref) => {
           </div>
         </section>
 
-        <footer className='group bg-slate-950'>
+        <footer className='group bg-slate-950 overflow-x-hidden'>
           <h1 className='text-[16vw] translate-y-20 leading-[100%] uppercase font-semibold text-center bg-gradient-to-r from-gray-400 to-gray-800 bg-clip-text text-transparent transition-all ease-linear'>
             SMB Geveltechniek
           </h1>

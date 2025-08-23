@@ -42,8 +42,8 @@ const Navigation = () => {
             />
           </Link>
 
-          {/* Desktop Navigation - Now hidden on tablet and mobile */}
-          <div className="hidden xl:flex items-center space-x-8 flex-1 justify-end">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
             {navItems.map((item) => (
               item.hasDropdown ? (
                 <DropdownMenu key={item.label}>
@@ -88,18 +88,18 @@ const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile/Tablet Menu Button - Now shown on tablet and mobile */}
+          {/* Mobile Menu Button - Only shows mobile menu */}
           <button
-            className="xl:hidden p-3 text-white hover:text-primary transition-colors duration-300 rounded-xl hover:bg-white/10"
+            className="lg:hidden p-3 text-white hover:text-primary transition-colors duration-300 rounded-xl hover:bg-white/10"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
-        {/* Mobile/Tablet Menu - Now shown on tablet and mobile */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="xl:hidden bg-construction-dark/95 backdrop-blur-lg border-t border-white/10 animate-fade-in">
+          <div className="lg:hidden bg-construction-dark/95 backdrop-blur-lg border-t border-white/10 animate-fade-in">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => 
                 !item.hasDropdown ? (

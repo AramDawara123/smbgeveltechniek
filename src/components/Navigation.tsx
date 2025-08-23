@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -29,7 +30,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 max-w-[1400px] w-full overflow-x-hidden">
         {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
@@ -48,7 +49,7 @@ const Navigation = () => {
               item.hasDropdown ? (
                 <DropdownMenu key={item.label}>
                   <DropdownMenuTrigger asChild>
-                    <button className="flex items-center text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap focus:outline-none">
+                    <button className="flex items-center text-gray-700 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap focus:outline-none">
                       {item.label}
                       <ChevronDown className="w-4 h-4 ml-1 group-data-[state=open]:rotate-180 transition-transform duration-200" />
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -77,7 +78,7 @@ const Navigation = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap"
+                  className="text-gray-700 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -94,7 +95,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button - Only shows mobile menu */}
           <button
-            className="lg:hidden p-3 text-white hover:text-primary transition-colors duration-300 rounded-xl hover:bg-white/10"
+            className="lg:hidden p-3 text-gray-700 hover:text-primary transition-colors duration-300 rounded-xl hover:bg-gray-100"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -103,7 +104,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-construction-dark/95 backdrop-blur-lg border-t border-white/10 animate-fade-in">
+          <div className="lg:hidden bg-white border-t border-gray-200 animate-fade-in">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => 
                 !item.hasDropdown ? (
@@ -111,7 +112,7 @@ const Navigation = () => {
                     <div>
                       <Link
                         to={item.href}
-                        className="text-gray-300 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
+                        className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
@@ -121,7 +122,7 @@ const Navigation = () => {
                 ) : (
                   <div key={item.label} className="space-y-2">
                     <button
-                      className="text-gray-300 font-semibold text-xl py-2 flex items-center justify-between w-full hover:text-primary transition-colors duration-300"
+                      className="text-gray-700 font-semibold text-xl py-2 flex items-center justify-between w-full hover:text-primary transition-colors duration-300"
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
                     >
                       {item.label}
@@ -133,7 +134,7 @@ const Navigation = () => {
                           <Link
                             key={dropdownItem.label}
                             to={dropdownItem.href}
-                            className="text-gray-400 hover:text-primary transition-colors duration-300 py-2 block text-lg"
+                            className="text-gray-600 hover:text-primary transition-colors duration-300 py-2 block text-lg"
                             onClick={() => {
                               setIsMenuOpen(false);
                               setIsServicesOpen(false);

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -204,6 +203,35 @@ const Contact = () => {
                   Wij behandelen uw gegevens vertrouwelijk.
                 </p>
               </form>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Google Maps Section */}
+        <div className="mt-16">
+          <Card className="construction-shadow">
+            <CardContent className="p-8">
+              <div className="text-center mb-8">
+                <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+                  Onze Locatie
+                </h3>
+                <p className="text-muted-foreground">
+                  Bezoek ons of bekijk ons werkgebied in Noord-Holland
+                </p>
+              </div>
+              
+              <div className="relative overflow-hidden rounded-xl">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d880268.3053564903!2d3.755516738648631!3d52.45340603842448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47cf57483b6adf8f%3A0xa8cdfa892b55bf66!2sMetselbedrijf%20%7C%20SMB%20geveltechniek!5e0!3m2!1snl!2snl!4v1755964584044!5m2!1snl!2snl" 
+                  width="100%" 
+                  height="450" 
+                  style={{ border: 0 }}
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full"
+                />
+              </div>
             </CardContent>
           </Card>
         </div>

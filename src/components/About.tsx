@@ -1,14 +1,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Users, Award, Clock } from "lucide-react";
+import { CheckCircle, Users, Award, Clock, Shield } from "lucide-react";
 
 const About = () => {
   const stats = [
     { icon: Users, label: "Tevreden klanten", value: "500+" },
-    { icon: Award, label: "Jaar ervaring", value: "10+" },
+    { icon: Award, label: "Jaar ervaring", value: "25+" },
     { icon: CheckCircle, label: "Projecten voltooid", value: "1000+" },
-    { icon: Clock, label: "Service garantie", value: "24/7" }
+    { icon: Shield, label: "Gecertificeerd", value: "100%" }
   ];
 
   return (
@@ -22,23 +22,23 @@ const About = () => {
             </div>
             
             <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Vakmanschap en kwaliteit
+              Bouwen met vertrouwen
               <br />
-              <span className="text-gradient">sinds 2010</span>
+              <span className="text-gradient">sinds 1999</span>
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              SMB Geveltechniek is een betrouwbare partner voor al uw gevelwerkzaamheden. 
-              Met meer dan 10 jaar ervaring in de branche hebben wij ons ontwikkeld tot 
-              een specialist op het gebied van nieuwbouw, renovatie en onderhoud van gevels.
+              Met meer dan 25 jaar ervaring kunnen wij wel zeggen dat wij ons vak verstaan en altijd denken in oplossingen. 
+              Bij ons geen kleine lettertjes of verborgen kosten. Wij doen wat we zeggen en zeggen wat wij gaan doen.
             </p>
             
             <div className="space-y-4 mb-8">
               {[
-                "Gecertificeerde vakmensen met ruime ervaring",
-                "Gebruik van hoogwaardige, duurzame materialen",
-                "Persoonlijke begeleiding van A tot Z",
-                "Scherpe prijzen en transparante werkwijze"
+                "25+ jaar ervaring in geveltechniek en metselwerk",
+                "Samenwerking met betrouwbare leveranciers",
+                "Hoogwaardige en duurzame materialen",
+                "Transparante werkwijze zonder verborgen kosten",
+                "Gecertificeerd voor renovatieankers en scheurherstel"
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
@@ -46,13 +46,22 @@ const About = () => {
                 </div>
               ))}
             </div>
+
+            <div className="bg-muted/50 p-6 rounded-xl mb-8">
+              <h3 className="font-semibold text-foreground mb-3">De beste materialen</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                SMB Geveltechniek werkt samen met betrouwbare leveranciers die ons ook op de hoogte houden van de 
+                nieuwste ontwikkelingen op het gebied van isolatiematerialen, waterkeringen, verankeringen, bakstenen, etc. 
+                Op deze manier kunnen wij onze kwaliteit blijven waarborgen.
+              </p>
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="gradient-primary text-white">
                 Meer over ons
               </Button>
               <Button variant="outline" size="lg">
-                Download Brochure
+                Vraag offerte aan
               </Button>
             </div>
           </div>

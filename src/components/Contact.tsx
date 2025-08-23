@@ -31,9 +31,9 @@ const Contact = () => {
     },
     {
       icon: MapPin,
-      title: "Locatie",
-      content: "Noord-Holland",
-      subtitle: "Service in heel de regio"
+      title: "Werkgebied",
+      content: "Heel Noord-Holland",
+      subtitle: "Van Den Helder tot Heemstede"
     },
     {
       icon: Clock,
@@ -71,10 +71,16 @@ const Contact = () => {
             <br />
             <span className="text-gradient">gevelproject?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Neem vrijblijvend contact met ons op voor een gratis offerte of advies. 
-            Onze specialisten staan voor u klaar.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Overweeg je metselwerk, gevelrenovatie of nieuwbouw? SMB Geveltechniek staat paraat. 
+            Neem contact op en ontdek hoe we met vakmanschap en toewijding jouw bouwplannen tot realiteit kunnen maken.
           </p>
+          <div className="bg-primary/5 p-6 rounded-xl max-w-4xl mx-auto">
+            <p className="text-muted-foreground">
+              <strong className="text-foreground">Werkgebied:</strong> We verlenen onze diensten in heel Noord-Holland; 
+              van Den Helder tot Heemstede, zoals Alkmaar, Heiloo, Castricum, Bergen, Broek op Langedijk, etc.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -108,23 +114,39 @@ const Contact = () => {
           <Card className="lg:col-span-2 construction-shadow">
             <CardContent className="p-8">
               <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-                Vraag een gratis offerte aan
+                Heeft u een vraag over metselwerk?
               </h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Naam *
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="h-12"
+                    placeholder="Uw naam"
+                  />
+                </div>
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Volledige naam *
+                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                      Emailadres *
                     </label>
                     <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
                       onChange={handleInputChange}
                       required
                       className="h-12"
-                      placeholder="Uw naam"
+                      placeholder="uw.email@voorbeeld.nl"
                     />
                   </div>
                   <div>
@@ -145,24 +167,8 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    E-mailadres *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="h-12"
-                    placeholder="uw.email@voorbeeld.nl"
-                  />
-                </div>
-                
-                <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Projectomschrijving *
+                    Uw vraag of opmerking *
                   </label>
                   <Textarea
                     id="message"
@@ -180,7 +186,7 @@ const Contact = () => {
                   size="lg" 
                   className="w-full gradient-primary text-white text-lg font-semibold"
                 >
-                  Gratis Offerte Aanvragen
+                  Neem contact met ons op
                 </Button>
                 
                 <p className="text-xs text-muted-foreground text-center">

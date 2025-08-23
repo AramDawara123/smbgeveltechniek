@@ -1,6 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Wrench, Hammer, Shield, ArrowRight } from "lucide-react";
+import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Services = () => {
@@ -8,35 +8,43 @@ const Services = () => {
     {
       icon: Building2,
       title: "Nieuwbouw",
-      subtitle: "Complete geveloplossingen",
-      description: "Van ontwerp tot realisatie zorgen wij voor een perfecte afwerking die voldoet aan alle moderne normen en eisen voor nieuwbouwprojecten.",
-      features: ["Moderne gevelsystemen", "Energiezuinige oplossingen", "Duurzame materialen"],
+      subtitle: "Vakmanschap en duurzaamheid",
+      description: "SMB Geveltechniek staat garant voor hoogwaardige nieuwbouwprojecten waar vakmanschap en duurzaamheid samenkomen. Vanaf de fundering tot aan de laatste metselsteen streven wij naar perfectie.",
+      features: ["Maatwerkoplossingen", "Topkwaliteit materialen", "Woningbouw & bedrijfspanden"],
       color: "from-blue-500 to-blue-600"
     },
     {
       icon: Wrench,
-      title: "Renovatie",
-      subtitle: "Transformatie van bestaande gevels",
-      description: "Onze renovatiespecialisten transformeren verouderde gevels tot moderne, energiezuinige en esthetisch aantrekkelijke oplossingen.",
-      features: ["Gevelrenovatie", "Isolatie verbetering", "Monumentenzorg"],
+      title: "Gevelrenovatie",
+      subtitle: "Transformatie van uw gevel",
+      description: "Onze ervaren vakmensen analyseren grondig de staat van uw gevel en bieden op maat gemaakte renovatieoplossingen. Wij herstellen en vernieuwen met vakmanschap.",
+      features: ["Beschadigd metselwerk", "Verouderde voegen", "Structurele problemen"],
       color: "from-green-500 to-green-600"
     },
     {
-      icon: Hammer,
-      title: "Geveltechnieken",
-      subtitle: "Specialistische vakmanschap",
-      description: "Van metselwerk tot moderne composietpanelen, wij beheersen alle aspecten van de moderne geveltechniek voor elke uitdaging.",
-      features: ["Metselwerk", "Composiet gevels", "Natuursteen verwerking"],
+      icon: Anchor,
+      title: "Renovatieankers",
+      subtitle: "RVS ankers voor stabiliteit",
+      description: "Versterk uw gevel met RVS renovatieankers. SMB Geveltechniek biedt gecertificeerde plaatsing en voert trekproeven uit voor optimale stabiliteit en veiligheid.",
+      features: ["Gecertificeerde plaatsing", "Trekproeven", "Voor- en na-isolatie"],
       color: "from-purple-500 to-purple-600"
     },
     {
-      icon: Shield,
-      title: "Schadeherstel",
-      subtitle: "24/7 spoedhulp beschikbaar",
-      description: "Snelle en professionele reparatie van schade aan gevels. Wij herstellen storm-, brand- of andere schade snel en vakkundig.",
-      features: ["24/7 spoedhulp", "Verzekeringszaken", "Tijdelijke beveiligingen"],
+      icon: AlertTriangle,
+      title: "Scheurherstel",
+      subtitle: "Professionele scheuranalyse",
+      description: "Scheuren in de muur? Voorkom narigheid! Onze reparaties maken gebruik van hoogwaardige materialen zoals spiraalvormige RVS ankers en speciale mortel.",
+      features: ["Grondige inspectie", "Plan van aanpak", "Gecertificeerd herstel"],
       color: "from-red-500 to-red-600"
     }
+  ];
+
+  const additionalServices = [
+    "Metselwerk van verschillende verbanden",
+    "Traditioneel voegen en pointeren", 
+    "Gevelreiniging en impregneren",
+    "Graffiti verwijdering",
+    "Monumentenzorg"
   ];
 
   return (
@@ -51,13 +59,13 @@ const Services = () => {
             Onze Specialiteiten
           </div>
           <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight">
-            Professionele geveltechnieken
+            Kwalitatieve metseldiensten
             <br />
-            <span className="text-gradient">op maat gemaakt</span>
+            <span className="text-gradient">voor iedereen betaalbaar</span>
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-            Met meer dan 10 jaar ervaring bieden wij een breed scala aan geveltechnische diensten 
-            voor particulieren, bedrijven en overheden in heel Noord-Holland.
+            SMB Geveltechniek is gespecialiseerd in het vervaardigen van verschillende soorten metselwerk. 
+            Met 25+ jaar ervaring verlenen wij onze diensten in heel Noord-Holland.
           </p>
         </div>
 
@@ -83,7 +91,7 @@ const Services = () => {
                     {service.subtitle}
                   </p>
                   
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-6 text-sm">
                     {service.description}
                   </p>
 
@@ -110,6 +118,44 @@ const Services = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Additional Services */}
+        <div className="bg-muted/30 rounded-3xl p-12 mb-16">
+          <h3 className="font-display text-3xl font-bold text-foreground mb-8 text-center">
+            Wat wij nog meer doen
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {additionalServices.map((service, index) => (
+              <div key={index} className="flex items-center gap-3 p-4 bg-background/50 rounded-xl">
+                <div className="w-3 h-3 gradient-primary rounded-full flex-shrink-0"></div>
+                <span className="text-foreground font-medium">{service}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* How it works section */}
+        <div className="text-center mb-16">
+          <h3 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-12">
+            Hoe het werkt
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            {[
+              "Stuur een verzoek",
+              "Voer metingen uit", 
+              "Keur het budget goed",
+              "Start het project",
+              "Voltooi op tijd"
+            ].map((step, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-4 text-white font-bold text-xl">
+                  {index + 1}
+                </div>
+                <p className="font-semibold text-foreground">{step}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Call to Action */}

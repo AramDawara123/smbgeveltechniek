@@ -1,34 +1,28 @@
 
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", href: "#home" },
+    { label: "Home", href: "/" },
     { 
       label: "Diensten", 
-      href: "#services",
+      href: "#services", 
       hasDropdown: true,
       dropdownItems: [
-        { label: "Metselwerk", href: "#metselwerk" },
-        { label: "Nieuwbouw", href: "#nieuwbouw" },
-        { label: "Gevelrenovatie", href: "#gevelrenovatie" },
-        { label: "Renovatieankers", href: "#renovatieankers" },
-        { label: "Scheurherstel", href: "#scheurherstel" },
+        { label: "Metselwerk", href: "/metselwerk" },
+        { label: "Nieuwbouw", href: "/nieuwbouw" },
+        { label: "Gevelrenovatie", href: "/gevelrenovatie" },
+        { label: "Renovatieankers", href: "/renovatieankers" },
+        { label: "Scheurherstel", href: "/scheurherstel" }
       ]
     },
-    { label: "Over ons", href: "#about" },
-    { label: "Projecten", href: "#projects" },
-    { label: "Contact", href: "#contact" },
+    { label: "Over ons", href: "/over-ons" },
+    { label: "Contact", href: "#contact" }
   ];
 
   return (
@@ -40,7 +34,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png" 
               alt="SMB Geveltechniek Logo" 
-              className="h-12 w-auto group-hover:scale-105 transition-all duration-300"
+              className="h-12 w-auto transform transition-transform duration-300 group-hover:scale-105"
             />
           </div>
 
@@ -95,13 +89,13 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Enhanced Mobile Navigation */}
+        {/* Enhanced Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-6 border-t border-white/10 animate-fade-in glass-effect rounded-b-2xl">
-            <div className="flex flex-col space-y-6">
-              {navItems.map((item) => (
-                <div key={item.label}>
-                  {item.hasDropdown ? (
+          <div className="md:hidden bg-construction-dark/95 backdrop-blur-lg border-t border-white/10 animate-fade-in">
+            <div className="px-4 py-6 space-y-4">
+              {navItems.map((item) => 
+                !item.hasDropdown ? (
+                  <div key={item.label}>
                     <div>
                       <a
                         href={item.href}
@@ -110,33 +104,32 @@ const Navigation = () => {
                       >
                         {item.label}
                       </a>
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.dropdownItems?.map((dropdownItem) => (
-                          <a
-                            key={dropdownItem.label}
-                            href={dropdownItem.href}
-                            className="block text-gray-400 hover:text-primary transition-colors duration-300 font-medium text-lg py-1"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {dropdownItem.label}
-                          </a>
-                        ))}
-                      </div>
                     </div>
-                  ) : (
-                    <a
-                      href={item.href}
-                      className="text-gray-300 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                  </div>
+                ) : (
+                  <div key={item.label} className="space-y-2">
+                    <div className="text-gray-300 font-semibold text-xl py-2">
                       {item.label}
-                    </a>
-                  )}
-                </div>
-              ))}
+                    </div>
+                    <div className="pl-4 space-y-2">
+                      {item.dropdownItems?.map((dropdownItem) => (
+                        <a
+                          key={dropdownItem.label}
+                          href={dropdownItem.href}
+                          className="text-gray-400 hover:text-primary transition-colors duration-300 py-1 block"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {dropdownItem.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )
+              )}
               <Button 
                 variant="default" 
-                className="gradient-primary text-white mt-4 w-full py-4 text-lg font-bold rounded-xl construction-shadow"
+                className="w-full gradient-primary text-white mt-6 py-4 font-bold text-lg rounded-xl construction-shadow border-0"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Offerte Aanvragen
               </Button>

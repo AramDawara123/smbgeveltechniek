@@ -62,7 +62,7 @@ const SEOOptimizedHero = () => {
             <Button asChild size="lg" className="gradient-primary text-white px-8 py-4 text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300">
               <Link to="/offerte">Gratis Offerte Aanvragen</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-construction-dark px-8 py-4 text-lg font-bold rounded-xl backdrop-blur-sm">
+            <Button asChild size="lg" variant="outline" className="bg-white text-black border-2 border-white hover:bg-gray-100 px-8 py-4 text-lg font-bold rounded-xl backdrop-blur-sm">
               <a href="tel:06123456789">Direct Bellen: 06 123 456 789</a>
             </Button>
           </div>

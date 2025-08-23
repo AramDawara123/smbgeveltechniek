@@ -1,120 +1,121 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Users, Award, Star, ArrowRight } from "lucide-react";
 import { useState } from "react";
-
 const ModernProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const projects = [
-    {
-      id: 1,
-      title: "Renovatie Historisch Pand Amsterdam",
-      description: "Volledige gevelrenovatie van een 17e-eeuws monumentaal pand in het centrum van Amsterdam.",
-      image: "/lovable-uploads/7af29c8f-83cb-4315-9b65-268c3c983047.png",
-      location: "Amsterdam Centrum",
-      year: "2023",
-      category: "gevelrenovatie",
-      categoryLabel: "Gevelrenovatie",
-      teamSize: "8 specialisten",
-      duration: "6 maanden",
-      highlights: ["Monumentaal pand", "Handmatig metselwerk", "Originele technieken"],
-      featured: true,
-      rating: 5.0
-    },
-    {
-      id: 2,
-      title: "Nieuwbouw Wooncomplex Rotterdam",
-      description: "Modern wooncomplex met innovatieve geveltechnieken en duurzame materialen.",
-      image: "/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png",
-      location: "Rotterdam Zuid",
-      year: "2023",
-      category: "nieuwbouw",
-      categoryLabel: "Nieuwbouw",
-      teamSize: "12 specialisten",
-      duration: "10 maanden",
-      highlights: ["Duurzame materialen", "Moderne technieken", "Energiezuinig"],
-      featured: true,
-      rating: 4.9
-    },
-    {
-      id: 3,
-      title: "Scheurherstel Kantoorgebouw Den Haag",
-      description: "Professioneel scheurherstel en gevelonderhoud van een groot kantoorcomplex.",
-      image: "/lovable-uploads/7af29c8f-83cb-4315-9b65-268c3c983047.png",
-      location: "Den Haag",
-      year: "2022",
-      category: "scheurherstel",
-      categoryLabel: "Scheurherstel",
-      teamSize: "6 specialisten",
-      duration: "4 maanden",
-      highlights: ["Structureel herstel", "Preventief onderhoud", "Minimale hinder"],
-      featured: false,
-      rating: 4.8
-    },
-    {
-      id: 4,
-      title: "Renovatieankers Project Utrecht",
-      description: "Installatie van renovatieankers voor structurele versterking van een historisch gebouw.",
-      image: "/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png",
-      location: "Utrecht Centrum",
-      year: "2022",
-      category: "renovatieankers",
-      categoryLabel: "Renovatieankers",
-      teamSize: "5 specialisten",
-      duration: "3 maanden",
-      highlights: ["Structurele versterking", "Invisibele oplossing", "Duurzaam resultaat"],
-      featured: false,
-      rating: 4.7
-    },
-    {
-      id: 5,
-      title: "Metselwerk Woonwijk Almere",
-      description: "Uitgebreid metselwerk voor nieuwe woonwijk met traditionele en moderne technieken.",
-      image: "/lovable-uploads/7af29c8f-83cb-4315-9b65-268c3c983047.png",
-      location: "Almere Stad",
-      year: "2023",
-      category: "metselwerk",
-      categoryLabel: "Metselwerk",
-      teamSize: "15 specialisten",
-      duration: "12 maanden",
-      highlights: ["Grote schaal project", "Mixed technieken", "Teamwork"],
-      featured: false,
-      rating: 4.6
-    },
-    {
-      id: 6,
-      title: "Gevelrenovatie Bedrijfspand Eindhoven",
-      description: "Complete gevelrenovatie van een groot bedrijfspand met focus op duurzaamheid.",
-      image: "/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png",
-      location: "Eindhoven",
-      year: "2021",
-      category: "gevelrenovatie",
-      categoryLabel: "Gevelrenovatie",
-      teamSize: "10 specialisten",
-      duration: "8 maanden",
-      highlights: ["Bedrijfspand", "Duurzame upgrade", "Energiebesparing"],
-      featured: false,
-      rating: 4.5
-    }
-  ];
-
-  const categories = [
-    { value: "all", label: "Alle Projecten", count: projects.length },
-    { value: "gevelrenovatie", label: "Gevelrenovatie", count: projects.filter(p => p.category === "gevelrenovatie").length },
-    { value: "nieuwbouw", label: "Nieuwbouw", count: projects.filter(p => p.category === "nieuwbouw").length },
-    { value: "scheurherstel", label: "Scheurherstel", count: projects.filter(p => p.category === "scheurherstel").length },
-    { value: "renovatieankers", label: "Renovatieankers", count: projects.filter(p => p.category === "renovatieankers").length },
-    { value: "metselwerk", label: "Metselwerk", count: projects.filter(p => p.category === "metselwerk").length }
-  ];
-
-  const filteredProjects = selectedCategory === "all" 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+  const projects = [{
+    id: 1,
+    title: "Renovatie Historisch Pand Amsterdam",
+    description: "Volledige gevelrenovatie van een 17e-eeuws monumentaal pand in het centrum van Amsterdam.",
+    image: "/lovable-uploads/7af29c8f-83cb-4315-9b65-268c3c983047.png",
+    location: "Amsterdam Centrum",
+    year: "2023",
+    category: "gevelrenovatie",
+    categoryLabel: "Gevelrenovatie",
+    teamSize: "8 specialisten",
+    duration: "6 maanden",
+    highlights: ["Monumentaal pand", "Handmatig metselwerk", "Originele technieken"],
+    featured: true,
+    rating: 5.0
+  }, {
+    id: 2,
+    title: "Nieuwbouw Wooncomplex Rotterdam",
+    description: "Modern wooncomplex met innovatieve geveltechnieken en duurzame materialen.",
+    image: "/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png",
+    location: "Rotterdam Zuid",
+    year: "2023",
+    category: "nieuwbouw",
+    categoryLabel: "Nieuwbouw",
+    teamSize: "12 specialisten",
+    duration: "10 maanden",
+    highlights: ["Duurzame materialen", "Moderne technieken", "Energiezuinig"],
+    featured: true,
+    rating: 4.9
+  }, {
+    id: 3,
+    title: "Scheurherstel Kantoorgebouw Den Haag",
+    description: "Professioneel scheurherstel en gevelonderhoud van een groot kantoorcomplex.",
+    image: "/lovable-uploads/7af29c8f-83cb-4315-9b65-268c3c983047.png",
+    location: "Den Haag",
+    year: "2022",
+    category: "scheurherstel",
+    categoryLabel: "Scheurherstel",
+    teamSize: "6 specialisten",
+    duration: "4 maanden",
+    highlights: ["Structureel herstel", "Preventief onderhoud", "Minimale hinder"],
+    featured: false,
+    rating: 4.8
+  }, {
+    id: 4,
+    title: "Renovatieankers Project Utrecht",
+    description: "Installatie van renovatieankers voor structurele versterking van een historisch gebouw.",
+    image: "/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png",
+    location: "Utrecht Centrum",
+    year: "2022",
+    category: "renovatieankers",
+    categoryLabel: "Renovatieankers",
+    teamSize: "5 specialisten",
+    duration: "3 maanden",
+    highlights: ["Structurele versterking", "Invisibele oplossing", "Duurzaam resultaat"],
+    featured: false,
+    rating: 4.7
+  }, {
+    id: 5,
+    title: "Metselwerk Woonwijk Almere",
+    description: "Uitgebreid metselwerk voor nieuwe woonwijk met traditionele en moderne technieken.",
+    image: "/lovable-uploads/7af29c8f-83cb-4315-9b65-268c3c983047.png",
+    location: "Almere Stad",
+    year: "2023",
+    category: "metselwerk",
+    categoryLabel: "Metselwerk",
+    teamSize: "15 specialisten",
+    duration: "12 maanden",
+    highlights: ["Grote schaal project", "Mixed technieken", "Teamwork"],
+    featured: false,
+    rating: 4.6
+  }, {
+    id: 6,
+    title: "Gevelrenovatie Bedrijfspand Eindhoven",
+    description: "Complete gevelrenovatie van een groot bedrijfspand met focus op duurzaamheid.",
+    image: "/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png",
+    location: "Eindhoven",
+    year: "2021",
+    category: "gevelrenovatie",
+    categoryLabel: "Gevelrenovatie",
+    teamSize: "10 specialisten",
+    duration: "8 maanden",
+    highlights: ["Bedrijfspand", "Duurzame upgrade", "Energiebesparing"],
+    featured: false,
+    rating: 4.5
+  }];
+  const categories = [{
+    value: "all",
+    label: "Alle Projecten",
+    count: projects.length
+  }, {
+    value: "gevelrenovatie",
+    label: "Gevelrenovatie",
+    count: projects.filter(p => p.category === "gevelrenovatie").length
+  }, {
+    value: "nieuwbouw",
+    label: "Nieuwbouw",
+    count: projects.filter(p => p.category === "nieuwbouw").length
+  }, {
+    value: "scheurherstel",
+    label: "Scheurherstel",
+    count: projects.filter(p => p.category === "scheurherstel").length
+  }, {
+    value: "renovatieankers",
+    label: "Renovatieankers",
+    count: projects.filter(p => p.category === "renovatieankers").length
+  }, {
+    value: "metselwerk",
+    label: "Metselwerk",
+    count: projects.filter(p => p.category === "metselwerk").length
+  }];
+  const filteredProjects = selectedCategory === "all" ? projects : projects.filter(project => project.category === selectedCategory);
+  return <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(120,119,198,0.3),transparent_50%)] opacity-70"></div>
@@ -122,12 +123,7 @@ const ModernProjects = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm border border-primary/20">
-                <Star className="w-4 h-4 mr-2" />
-                Portfolio Showcase
-              </span>
-            </div>
+            
             
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
               Onze 
@@ -141,17 +137,22 @@ const ModernProjects = () => {
 
             {/* Stats Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
-              {[
-                { number: "150+", label: "Voltooide Projecten" },
-                { number: "25+", label: "Jaar Ervaring" },
-                { number: "98%", label: "Klanttevredenheid" },
-                { number: "50+", label: "Vakspecialisten" }
-              ].map((stat, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              {[{
+              number: "150+",
+              label: "Voltooide Projecten"
+            }, {
+              number: "25+",
+              label: "Jaar Ervaring"
+            }, {
+              number: "98%",
+              label: "Klanttevredenheid"
+            }, {
+              number: "50+",
+              label: "Vakspecialisten"
+            }].map((stat, index) => <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
                   <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.number}</div>
                   <div className="text-slate-300 text-sm md:text-base">{stat.label}</div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -161,33 +162,18 @@ const ModernProjects = () => {
       <section className="py-12 bg-white/80 backdrop-blur-sm sticky top-0 z-40 border-b border-slate-200">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <button
-                key={category.value}
-                onClick={() => setSelectedCategory(category.value)}
-                className={`group flex items-center px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  selectedCategory === category.value
-                    ? "bg-primary text-white shadow-lg shadow-primary/25 scale-105"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:scale-105"
-                }`}
-              >
+            {categories.map(category => <button key={category.value} onClick={() => setSelectedCategory(category.value)} className={`group flex items-center px-6 py-3 rounded-full font-medium transition-all duration-300 ${selectedCategory === category.value ? "bg-primary text-white shadow-lg shadow-primary/25 scale-105" : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:scale-105"}`}>
                 <span>{category.label}</span>
-                <span className={`ml-2 px-2 py-1 rounded-full text-xs font-bold ${
-                  selectedCategory === category.value
-                    ? "bg-white/20 text-white"
-                    : "bg-slate-200 text-slate-600 group-hover:bg-slate-300"
-                }`}>
+                <span className={`ml-2 px-2 py-1 rounded-full text-xs font-bold ${selectedCategory === category.value ? "bg-white/20 text-white" : "bg-slate-200 text-slate-600 group-hover:bg-slate-300"}`}>
                   {category.count}
                 </span>
-              </button>
-            ))}
+              </button>)}
           </div>
         </div>
       </section>
 
       {/* Featured Projects */}
-      {selectedCategory === "all" && (
-        <section className="py-20 bg-gradient-to-b from-white to-slate-50">
+      {selectedCategory === "all" && <section className="py-20 bg-gradient-to-b from-white to-slate-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm border border-primary/20 mb-6">
@@ -203,14 +189,9 @@ const ModernProjects = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-              {projects.filter(p => p.featured).map((project, index) => (
-                <Card key={project.id} className="group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-700 bg-white rounded-2xl">
+              {projects.filter(p => p.featured).map((project, index) => <Card key={project.id} className="group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-700 bg-white rounded-2xl">
                   <div className="relative overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                    <img src={project.image} alt={project.title} className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     
                     {/* Rating Badge */}
@@ -261,15 +242,9 @@ const ModernProjects = () => {
                         <span className="font-semibold text-slate-900">Hoogtepunten:</span>
                       </div>
                       <div className="flex flex-wrap gap-2">
-                        {project.highlights.map((highlight, idx) => (
-                          <Badge 
-                            key={idx} 
-                            variant="outline" 
-                            className="text-xs border-primary/30 text-slate-700 bg-primary/5 hover:bg-primary/10 transition-colors"
-                          >
+                        {project.highlights.map((highlight, idx) => <Badge key={idx} variant="outline" className="text-xs border-primary/30 text-slate-700 bg-primary/5 hover:bg-primary/10 transition-colors">
                             {highlight}
-                          </Badge>
-                        ))}
+                          </Badge>)}
                       </div>
                     </div>
                     
@@ -280,37 +255,25 @@ const ModernProjects = () => {
                       </button>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
-        </section>
-      )}
+        </section>}
 
       {/* All Projects Grid */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          {selectedCategory === "all" && (
-            <div className="text-center mb-16">
+          {selectedCategory === "all" && <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-slate-900 mb-4">Alle Projecten</h2>
               <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                 Een compleet overzicht van al onze voltooide projecten
               </p>
-            </div>
-          )}
+            </div>}
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {(selectedCategory === "all" ? projects.filter(p => !p.featured) : filteredProjects).map((project, index) => (
-              <Card 
-                key={project.id} 
-                className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-500 bg-white hover:-translate-y-2 rounded-xl"
-              >
+            {(selectedCategory === "all" ? projects.filter(p => !p.featured) : filteredProjects).map((project, index) => <Card key={project.id} className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-500 bg-white hover:-translate-y-2 rounded-xl">
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
                   <div className="absolute top-3 left-3">
@@ -349,45 +312,31 @@ const ModernProjects = () => {
                   </div>
                   
                   <div className="flex flex-wrap gap-1">
-                    {project.highlights.slice(0, 2).map((highlight, idx) => (
-                      <Badge 
-                        key={idx} 
-                        variant="outline" 
-                        className="text-xs border-primary/30 text-slate-700 bg-primary/5"
-                      >
+                    {project.highlights.slice(0, 2).map((highlight, idx) => <Badge key={idx} variant="outline" className="text-xs border-primary/30 text-slate-700 bg-primary/5">
                         {highlight}
-                      </Badge>
-                    ))}
-                    {project.highlights.length > 2 && (
-                      <Badge variant="outline" className="text-xs border-slate-300 text-slate-500">
+                      </Badge>)}
+                    {project.highlights.length > 2 && <Badge variant="outline" className="text-xs border-slate-300 text-slate-500">
                         +{project.highlights.length - 2}
-                      </Badge>
-                    )}
+                      </Badge>}
                   </div>
                   
                   <button className="w-full mt-4 px-4 py-2 bg-slate-100 hover:bg-primary hover:text-white text-slate-700 rounded-lg font-medium transition-all duration-300 hover:scale-105">
                     Meer Details
                   </button>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-20">
+          {filteredProjects.length === 0 && <div className="text-center py-20">
               <div className="w-24 h-24 mx-auto mb-6 bg-slate-200 rounded-full flex items-center justify-center">
                 <Award className="w-12 h-12 text-slate-400" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Geen projecten gevonden</h3>
               <p className="text-slate-600 mb-8">Probeer een andere categorie te selecteren.</p>
-              <button 
-                onClick={() => setSelectedCategory("all")}
-                className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:scale-105 transition-all duration-300"
-              >
+              <button onClick={() => setSelectedCategory("all")} className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:scale-105 transition-all duration-300">
                 Bekijk alle projecten
               </button>
-            </div>
-          )}
+            </div>}
         </div>
       </section>
 
@@ -427,8 +376,6 @@ const ModernProjects = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ModernProjects;

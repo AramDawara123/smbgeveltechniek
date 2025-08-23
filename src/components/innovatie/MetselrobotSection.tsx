@@ -72,13 +72,13 @@ const MetselrobotSection = () => {
           </div>
 
           {/* Image */}
-          <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-construction-medium/20 rounded-3xl transform rotate-2"></div>
               <img 
                 src="/lovable-uploads/8aaf3188-7878-4e8d-ab2c-9d43357b05e4.png" 
                 alt="Metselrobot in actie bij SMB Geveltechniek" 
-                className="relative w-full rounded-3xl shadow-2xl construction-shadow transform -rotate-1 hover:rotate-0 transition-transform duration-500"
+                className="relative w-full rounded-3xl shadow-2xl construction-shadow"
               />
             </div>
           </div>
@@ -89,3 +89,4 @@ const MetselrobotSection = () => {
 };
 
 export default MetselrobotSection;
+

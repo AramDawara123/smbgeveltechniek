@@ -50,12 +50,12 @@ const Navigation = () => {
                     <ChevronDown className="w-4 h-4 ml-1 group-data-[state=open]:rotate-180 transition-transform duration-200" />
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-card/95 backdrop-blur-sm border border-border/20 z-50">
+                  <DropdownMenuContent className="z-[9999] bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg rounded-lg min-w-[200px]">
                     {item.dropdownItems?.map((dropdownItem) => (
                       <DropdownMenuItem key={dropdownItem.label} asChild>
                         <Link 
                           to={dropdownItem.href}
-                          className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer"
+                          className="text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 cursor-pointer flex items-center px-3 py-2 text-sm font-medium"
                         >
                           {dropdownItem.label}
                         </Link>

@@ -29,7 +29,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/10 overflow-hidden">
       <div className="container mx-auto px-4 overflow-hidden">
-        <div className="flex items-center justify-between h-20 overflow-hidden">
+        <div className="flex items-center justify-between h-20 overflow-hidden min-w-0">
           {/* Logo */}
           <Link to="/" className="flex items-center group cursor-pointer flex-shrink-0">
             <img 
@@ -40,13 +40,13 @@ const Navigation = () => {
           </Link>
 
           {/* Enhanced Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 overflow-hidden">
+          <div className="hidden md:flex items-center space-x-8 overflow-hidden min-w-0">
             {navItems.map((item) => (
               item.hasDropdown ? (
                 <DropdownMenu key={item.label}>
                   <DropdownMenuTrigger className="flex items-center text-gray-300 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap">
                     {item.label}
-                    <ChevronDown className="w-4 h-4 ml-1 group-data-[state=open]:rotate-180 transition-transform duration-200" />
+                    <ChevronDown className="w-4 h-4 ml-1 group-data-[state=open]:rotate-180 transition-transform duration-200 flex-shrink-0" />
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-card/95 backdrop-blur-sm border border-border/20 z-50 min-w-max">

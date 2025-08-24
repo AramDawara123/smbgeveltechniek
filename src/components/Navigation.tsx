@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -30,8 +31,8 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      {/* Container zonder overflow-x-hidden */}
-      <div className="container mx-auto px-4 max-w-full w-full">
+      {/* Container met max-w-full */}
+      <div className="container mx-auto px-4 max-w-full w-full overflow-x-hidden">
         {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -44,7 +45,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
+          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end overflow-x-hidden">
             {navItems.map((item) => (
               item.hasDropdown ? (
                 <DropdownMenu key={item.label}>
@@ -102,7 +103,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 animate-fade-in">
+          <div className="lg:hidden bg-white border-t border-gray-200 animate-fade-in overflow-x-hidden">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => 
                 !item.hasDropdown ? (

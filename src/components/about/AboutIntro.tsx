@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Award, Users, Zap } from "lucide-react";
+
 const AboutIntro = () => {
   const highlights = [{
     icon: Building2,
@@ -8,7 +9,7 @@ const AboutIntro = () => {
     description: "Gestart vanuit passie voor vakmanschap"
   }, {
     icon: Award,
-    title: "Ervaring",
+    title: "Ervaring", 
     value: "25+ jaar",
     description: "Ruime expertise in geveltechniek"
   }, {
@@ -22,6 +23,7 @@ const AboutIntro = () => {
     value: "Toekomst",
     description: "Robotisering en moderne technieken"
   }];
+
   return <section className="py-24 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -31,18 +33,16 @@ const AboutIntro = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          
-          
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-8 leading-tight animate-slide-in">
-            Bouwen met 
-            <span className="text-gradient"> vertrouwen</span> sinds 1999
+            Het verhaal achter 
+            <span className="text-gradient"> SMB Geveltechniek</span>
           </h2>
           
           <p className="text-xl text-muted-foreground leading-relaxed animate-fade-in" style={{
           animationDelay: '0.2s'
         }}>
-            Met meer dan 25 jaar ervaring zijn wij uw betrouwbare partner voor alle geveltechnische werkzaamheden. 
-            Van traditioneel vakmanschap tot innovatieve oplossingen.
+            Opgericht door Maikel Schouw met een duidelijke visie: vakmanschap en betrouwbaarheid voorop. 
+            Vanuit jarenlange ervaring in de bouw ontstond de droom van een eigen bedrijf dat écht het verschil maakt.
           </p>
         </div>
 
@@ -69,4 +69,5 @@ const AboutIntro = () => {
       </div>
     </section>;
 };
+
 export default AboutIntro;

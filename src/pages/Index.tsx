@@ -1,14 +1,11 @@
-
 import Navigation from "@/components/Navigation";
 import SEOOptimizedHero from "@/components/SEOOptimizedHero";
 import Services from "@/components/Services";
 import ProjectShowcase from "@/components/ProjectShowcase";
 import About from "@/components/About";
 import { Helmet } from "react-helmet-async";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Helmet>
         <title>Gevelspecialist Noord-Holland | SMB Geveltechniek | 25+ Jaar Ervaring</title>
         <meta name="description" content="SMB Geveltechniek - Dé gevelspecialist Noord-Holland. ✓ Gevelrenovatie ✓ Metselwerk ✓ Scheurherstel ✓ Renovatieankers ✓ 25+ jaar ervaring ✓ Gratis offerte!" />
@@ -22,43 +19,39 @@ const Index = () => {
         <meta name="geo.placename" content="Noord-Holland" />
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "SMB Geveltechniek",
-            "description": "Gevelspecialist Noord-Holland - Gevelrenovatie, metselwerk, scheurherstel en renovatieankers",
-            "url": "https://smbgeveltechniek.nl",
-            "telephone": "+31639580341",
-            "email": "info@smbgeveltechniek.nl",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Tjalkstraat 25",
-              "postalCode": "1826 DT",
-              "addressLocality": "Alkmaar",
-              "addressRegion": "Noord-Holland",
-              "addressCountry": "NL"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "52.6297",
-              "longitude": "4.7544"
-            },
-            "areaServed": [
-              "Noord-Holland", "Alkmaar", "Heiloo", "Castricum", "Bergen", "Broek op Langedijk", "Den Helder", "Heemstede"
-            ],
-            "serviceType": [
-              "Gevelrenovatie", "Metselwerk", "Scheurherstel", "Renovatieankers", "Gevelreiniging", "Voegwerk"
-            ],
-            "founder": {
-              "@type": "Person",
-              "name": "Maikel Schouw"
-            },
-            "foundingDate": "2018-10",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "150"
-            }
-          })}
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "SMB Geveltechniek",
+          "description": "Gevelspecialist Noord-Holland - Gevelrenovatie, metselwerk, scheurherstel en renovatieankers",
+          "url": "https://smbgeveltechniek.nl",
+          "telephone": "+31639580341",
+          "email": "info@smbgeveltechniek.nl",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Tjalkstraat 25",
+            "postalCode": "1826 DT",
+            "addressLocality": "Alkmaar",
+            "addressRegion": "Noord-Holland",
+            "addressCountry": "NL"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "52.6297",
+            "longitude": "4.7544"
+          },
+          "areaServed": ["Noord-Holland", "Alkmaar", "Heiloo", "Castricum", "Bergen", "Broek op Langedijk", "Den Helder", "Heemstede"],
+          "serviceType": ["Gevelrenovatie", "Metselwerk", "Scheurherstel", "Renovatieankers", "Gevelreiniging", "Voegwerk"],
+          "founder": {
+            "@type": "Person",
+            "name": "Maikel Schouw"
+          },
+          "foundingDate": "2018-10",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "150"
+          }
+        })}
         </script>
       </Helmet>
 
@@ -115,12 +108,10 @@ const Index = () => {
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 SMB Geveltechniek. Alle rechten voorbehouden. | 25+ jaar ervaring sinds 1999</p>
+            <p>© 2025 SMB Geveltechniek. All rights reserved. | 25+ jaar ervaring sinds 1999</p>
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

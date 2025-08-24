@@ -5,54 +5,35 @@ import { AlertTriangle, Shield, CheckCircle, Phone, Thermometer, Wrench, Home, E
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AboutFooter from "@/components/about/AboutFooter";
-
 const ScheurherstellPage = () => {
-  const oorzaken = [
-    {
-      icon: Thermometer,
-      title: "Temperatuurverschillen",
-      description: "Grote temperatuurschommelingen van -10°C tot warme zomerdagen zorgen voor krimp en uitzetting van de gevel."
-    },
-    {
-      icon: Wrench,
-      title: "Roest en Corrosie", 
-      description: "Verzinkt staal kozijnankers die hun levensduur hebben bereikt of stalen lateien die vervangen moeten worden."
-    },
-    {
-      icon: Home,
-      title: "Funderingsproblemen",
-      description: "Trillingen van zwaar verkeer, ontwerpfouten en bomen die te dicht bij het gebouw staan."
-    }
-  ];
-
-  const werkwijze = [
-    {
-      step: "1",
-      title: "Gevelinspectie",
-      description: "Oppervlakkige inspectie bij kleine oneffenheden, of een uitgebreid rapport door een expert bij grotere uitdagingen."
-    },
-    {
-      step: "2", 
-      title: "Plan van Aanpak",
-      description: "U krijgt een duidelijke uitleg van ons plan, zodat u precies weet wat er met uw gevel gaat gebeuren."
-    },
-    {
-      step: "3",
-      title: "Offerte & Uitvoering",
-      description: "Een transparante offerte en bij goedkeuring de professionele uitvoering van de werkzaamheden."
-    }
-  ];
-
-  const materialen = [
-    "Spiraalvormige RVS ankers in verschillende hardheden en diktes",
-    "Speciaal samengestelde mortel voor duurzame verwerking",
-    "Op kleur gemengde steenpasta voor reparatie kleine scheurtjes", 
-    "Vervanging van aangetaste stenen indien noodzakelijk",
-    "Professionele afwerking van voegen"
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const oorzaken = [{
+    icon: Thermometer,
+    title: "Temperatuurverschillen",
+    description: "Grote temperatuurschommelingen van -10°C tot warme zomerdagen zorgen voor krimp en uitzetting van de gevel."
+  }, {
+    icon: Wrench,
+    title: "Roest en Corrosie",
+    description: "Verzinkt staal kozijnankers die hun levensduur hebben bereikt of stalen lateien die vervangen moeten worden."
+  }, {
+    icon: Home,
+    title: "Funderingsproblemen",
+    description: "Trillingen van zwaar verkeer, ontwerpfouten en bomen die te dicht bij het gebouw staan."
+  }];
+  const werkwijze = [{
+    step: "1",
+    title: "Gevelinspectie",
+    description: "Oppervlakkige inspectie bij kleine oneffenheden, of een uitgebreid rapport door een expert bij grotere uitdagingen."
+  }, {
+    step: "2",
+    title: "Plan van Aanpak",
+    description: "U krijgt een duidelijke uitleg van ons plan, zodat u precies weet wat er met uw gevel gaat gebeuren."
+  }, {
+    step: "3",
+    title: "Offerte & Uitvoering",
+    description: "Een transparante offerte en bij goedkeuring de professionele uitvoering van de werkzaamheden."
+  }];
+  const materialen = ["Spiraalvormige RVS ankers in verschillende hardheden en diktes", "Speciaal samengestelde mortel voor duurzame verwerking", "Op kleur gemengde steenpasta voor reparatie kleine scheurtjes", "Vervanging van aangetaste stenen indien noodzakelijk", "Professionele afwerking van voegen"];
+  return <div className="min-h-screen bg-background">
       <Helmet>
         <title>Scheurherstel Gevel Noord-Holland | SMB Geveltechniek | Gecertificeerd</title>
         <meta name="description" content="Help! Scheuren in de muur? SMB Geveltechniek helpt. ✓ Gecertificeerde specialisten ✓ Grondige gevelinspectie ✓ Beste materialen ✓ Garantie op werk. Bel direct!" />
@@ -67,10 +48,7 @@ const ScheurherstellPage = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-red-500/20 text-red-300 text-sm font-bold mb-8">
-              <AlertTriangle className="w-4 h-4 mr-2" />
-              Help! Scheuren in de muur, wat nu?
-            </div>
+            
             
             <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Scheurherstel Gevel
@@ -107,8 +85,7 @@ const ScheurherstellPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {oorzaken.map((oorzaak, index) => (
-              <Card key={index} className="hover:construction-shadow transition-all duration-300">
+            {oorzaken.map((oorzaak, index) => <Card key={index} className="hover:construction-shadow transition-all duration-300">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-50 rounded-xl flex items-center justify-center mb-4 mx-auto">
                     <oorzaak.icon className="w-8 h-8 text-red-600" />
@@ -120,8 +97,7 @@ const ScheurherstellPage = () => {
                     {oorzaak.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="bg-muted/30 rounded-2xl p-8 md:p-12 text-center">
@@ -148,8 +124,7 @@ const ScheurherstellPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {werkwijze.map((stap, index) => (
-              <Card key={index} className="hover:construction-shadow transition-all duration-300">
+            {werkwijze.map((stap, index) => <Card key={index} className="hover:construction-shadow transition-all duration-300">
                 <CardContent className="p-8 text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mb-4 mx-auto text-white font-bold text-xl">
                     {stap.step}
@@ -161,8 +136,7 @@ const ScheurherstellPage = () => {
                     {stap.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -184,12 +158,10 @@ const ScheurherstellPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <ul className="space-y-4">
-                  {materialen.map((materiaal, index) => (
-                    <li key={index} className="flex items-start gap-3">
+                  {materialen.map((materiaal, index) => <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                       <span className="text-muted-foreground">{materiaal}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
                 
                 <div className="mt-8 p-6 bg-muted/30 rounded-xl">
@@ -201,11 +173,7 @@ const ScheurherstellPage = () => {
               </div>
               
               <div className="relative">
-                <img 
-                  src="/lovable-uploads/84b9a8c0-fba1-489c-abc1-c60c655c3115.png"
-                  alt="Scheurherstel in bakstenen gevel door SMB Geveltechniek"
-                  className="rounded-xl shadow-2xl"
-                />
+                <img src="/lovable-uploads/84b9a8c0-fba1-489c-abc1-c60c655c3115.png" alt="Scheurherstel in bakstenen gevel door SMB Geveltechniek" className="rounded-xl shadow-2xl" />
               </div>
             </div>
           </div>
@@ -246,11 +214,7 @@ const ScheurherstellPage = () => {
               </div>
               
               <div className="relative">
-                <img 
-                  src="/lovable-uploads/9d85c687-d00d-4015-9008-c86fa021ee41.png"
-                  alt="SMB Geveltechniek certificering voor scheurherstel"
-                  className="rounded-xl shadow-2xl"
-                />
+                <img src="/lovable-uploads/9d85c687-d00d-4015-9008-c86fa021ee41.png" alt="SMB Geveltechniek certificering voor scheurherstel" className="rounded-xl shadow-2xl" />
               </div>
             </div>
           </div>
@@ -282,8 +246,6 @@ const ScheurherstellPage = () => {
       </section>
 
       <AboutFooter />
-    </div>
-  );
+    </div>;
 };
-
 export default ScheurherstellPage;

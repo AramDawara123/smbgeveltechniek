@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +9,7 @@ import AboutFooter from "@/components/about/AboutFooter";
 const GevelrenovatiePage = () => {
   const benefits = [
     "25+ jaar ervaring in gevelrenovatie Noord-Holland",
-    "Gecertificeerde specialisten voor alle renovatiewerk",
+    "Gecertificeerde specialisten voor alle renovatiewerk", 
     "Transparante prijzen zonder verborgen kosten",
     "Gratis inspectie en advies aan huis",
     "Hoogwaardige materialen van betrouwbare leveranciers",
@@ -23,11 +22,11 @@ const GevelrenovatiePage = () => {
       description: "Professioneel herstel van beschadigde gevels, losliggende stenen en constructieve problemen."
     },
     {
-      title: "Voegwerk Vernieuwen",
+      title: "Voegwerk Vernieuwen", 
       description: "Uitfrezen en vernieuwen van verouderde voegen voor optimale waterdichtheid."
     },
     {
-      title: "Gevel Isolatie Verbeteren", 
+      title: "Gevel Isolatie Verbeteren",
       description: "Moderne isolatietechnieken voor betere energieprestaties van uw gevel."
     },
     {
@@ -48,22 +47,21 @@ const GevelrenovatiePage = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-32 min-h-[600px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative py-32 min-h-[600px] bg-gradient-to-br from-primary/10 to-primary/5 overflow-hidden mt-20">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
+          <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/20 text-primary text-sm font-bold mb-8">
               <Shield className="w-4 h-4 mr-2" />
               Gecertificeerde Gevelspecialisten
             </div>
             
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
               Gevelrenovatie 
               <br />
               <span className="text-gradient">Noord-Holland</span>
             </h1>
             
-            <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
               Uw gevel toe aan renovatie? SMB Geveltechniek is dé specialist voor professionele gevelrenovatie in heel Noord-Holland. 
               Met 25+ jaar ervaring maken wij uw gevel weer als nieuw.
             </p>
@@ -181,4 +179,3 @@ const GevelrenovatiePage = () => {
 };
 
 export default GevelrenovatiePage;
-

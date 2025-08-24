@@ -1,5 +1,6 @@
+
 const InnovatieHero = () => {
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
       backgroundImage: "url('/lovable-uploads/25f7ee8d-9252-4eeb-b3c2-7f1fb255efbd.png')"

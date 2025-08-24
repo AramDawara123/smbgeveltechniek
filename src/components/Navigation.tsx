@@ -58,8 +58,10 @@ const Navigation = () => {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
                     className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2 mt-2"
-                    align="start"
+                    align="end"
                     sideOffset={8}
+                    avoidCollisions
+                    collisionPadding={16}
                   >
                     {item.dropdownItems?.map((dropdownItem) => (
                       <DropdownMenuItem key={dropdownItem.label} asChild className="focus:bg-gray-100 rounded-md">

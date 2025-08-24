@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,9 +18,9 @@ const Contact = () => {
   });
 
   const contactInfo = [
-    { icon: Phone, title: "Telefoon", content: "06 123 456 789", subtitle: "Ma-Vr 08:00 - 18:00" },
+    { icon: Phone, title: "Telefoon", content: "06-39 58 03 41", subtitle: "Ma-Vr 08:00 - 18:00" },
     { icon: Mail, title: "E-mail", content: "info@smbgeveltechniek.nl", subtitle: "We reageren binnen 24 uur" },
-    { icon: MapPin, title: "Locatie", content: "Noord-Holland", subtitle: "Service in heel de regio" },
+    { icon: MapPin, title: "Locatie", content: "Tjalkstraat 25, 1826 DT Alkmaar", subtitle: "Noord-Holland" },
     { icon: Clock, title: "Spoeddienst", content: "24/7 Beschikbaar", subtitle: "Voor acute reparaties" }
   ];
 

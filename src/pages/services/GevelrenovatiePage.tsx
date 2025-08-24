@@ -39,7 +39,7 @@ const GevelrenovatiePage = () => {
     <div className="min-h-screen bg-background">
       <Helmet>
         <title>Gevelrenovatie Noord-Holland | SMB Geveltechniek | 25+ Jaar Ervaring</title>
-        <meta name="description" content="Professionele gevelrenovatie in Noord-Holland. ✓ 25+ jaar ervaring ✓ Gecertificeerd ✓ Gratis offerte ✓ Transparante prijzen. Bel 06 123 456 789!" />
+        <meta name="description" content="Professionele gevelrenovatie in Noord-Holland. ✓ 25+ jaar ervaring ✓ Gecertificeerd ✓ Gratis offerte ✓ Transparante prijzen. Bel 06-39 58 03 41!" />
         <meta name="keywords" content="gevelrenovatie noord-holland, gevel renoveren, metselwerk renovatie, gevelspecialist, scheurherstel gevel" />
         <link rel="canonical" href="https://smbgeveltechniek.nl/gevelrenovatie" />
       </Helmet>
@@ -72,7 +72,7 @@ const GevelrenovatiePage = () => {
                 <Link to="/offerte">Gratis Offerte Aanvragen</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-construction-dark px-8 py-4 text-lg">
-                <a href="tel:06123456789">Direct Bellen: 06 123 456 789</a>
+                <a href="tel:0639580341">Direct Bellen: 06-39 58 03 41</a>
               </Button>
             </div>
           </div>

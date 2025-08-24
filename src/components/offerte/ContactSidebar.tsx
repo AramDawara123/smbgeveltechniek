@@ -7,7 +7,7 @@ const ContactSidebar = () => {
     {
       icon: Phone,
       title: "Direct Contact",
-      content: "06 123 456 789",
+      content: "06-39 58 03 41",
       subtitle: "Ma-Vr 08:00 - 18:00"
     },
     {
@@ -18,9 +18,9 @@ const ContactSidebar = () => {
     },
     {
       icon: MapPin,
-      title: "Werkgebied",
-      content: "Noord-Holland",
-      subtitle: "Van Den Helder tot Heemstede"
+      title: "Locatie",
+      content: "Tjalkstraat 25, 1826 DT Alkmaar",
+      subtitle: "Noord-Holland"
     },
     {
       icon: Clock,

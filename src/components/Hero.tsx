@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, Award } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -61,7 +62,7 @@ const Hero = () => {
               </div>
               <div className="text-left">
                 <p className="text-sm text-gray-400 font-medium">Direct bereikbaar</p>
-                <p className="text-lg font-bold text-white">06 123 456 789</p>
+                <p className="text-lg font-bold text-white">06-39 58 03 41</p>
               </div>
             </div>
             <div className="flex items-center gap-3 group cursor-pointer">

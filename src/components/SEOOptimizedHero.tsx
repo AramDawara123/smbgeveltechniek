@@ -54,7 +54,7 @@ const SEOOptimizedHero = () => {
               <Link to="/offerte">Gratis Offerte Aanvragen</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="bg-white text-black border-2 border-white hover:bg-gray-100 px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg font-bold rounded-xl backdrop-blur-sm w-full max-w-xs sm:max-w-sm md:w-auto">
-              <a href="tel:06123456789">Direct Bellen: 06 123 456 789</a>
+              <a href="tel:0639580341">Direct Bellen: 06-39 58 03 41</a>
             </Button>
           </div>
 

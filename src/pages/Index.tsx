@@ -26,10 +26,13 @@ const Index = () => {
             "name": "SMB Geveltechniek",
             "description": "Gevelspecialist Noord-Holland - Gevelrenovatie, metselwerk, scheurherstel en renovatieankers",
             "url": "https://smbgeveltechniek.nl",
-            "telephone": "+31612345678",
+            "telephone": "+31639580341",
             "email": "info@smbgeveltechniek.nl",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Tjalkstraat 25",
+              "postalCode": "1826 DT",
+              "addressLocality": "Alkmaar",
               "addressRegion": "Noord-Holland",
               "addressCountry": "NL"
             },
@@ -98,9 +101,10 @@ const Index = () => {
             <div>
               <h4 className="font-semibold text-lg mb-4">Contact</h4>
               <div className="space-y-2 text-gray-300">
-                <p>06 123 456 789</p>
+                <p>06-39 58 03 41</p>
                 <p>info@smbgeveltechniek.nl</p>
-                <p>Noord-Holland</p>
+                <p>Tjalkstraat 25</p>
+                <p>1826 DT Alkmaar</p>
                 <p className="text-sm text-gray-400 mt-4">
                   Gecertificeerd voor renovatieankers en scheurherstel
                 </p>

@@ -7,6 +7,7 @@ import VoegrobotSection from "@/components/innovatie/VoegrobotSection";
 import PartnershipsSection from "@/components/innovatie/PartnershipsSection";
 import BricktrikeSection from "@/components/innovatie/BricktrikeSection";
 import InnovatieCTA from "@/components/innovatie/InnovatieCTA";
+import AboutFooter from "@/components/about/AboutFooter";
 
 const InnovatiePage = () => {
   return (
@@ -24,6 +25,7 @@ const InnovatiePage = () => {
       <PartnershipsSection />
       <BricktrikeSection />
       <InnovatieCTA />
+      <AboutFooter />
     </>
   );
 };

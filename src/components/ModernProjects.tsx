@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
@@ -110,6 +111,36 @@ const ModernProjects = () => {
       id: 19,
       image: "/lovable-uploads/12c70662-1f12-4cba-bbbe-61cb244498f1.png",
       alt: "Zwembad installatie"
+    },
+    {
+      id: 20,
+      image: "/lovable-uploads/95193751-381c-411e-a58c-fd77f0bd426a.png",
+      alt: "Nieuwbouw constructie"
+    },
+    {
+      id: 21,
+      image: "/lovable-uploads/0fbf0757-e622-45ef-b1e4-f3632b027f3c.png",
+      alt: "Gevelrenovatie met steiger"
+    },
+    {
+      id: 22,
+      image: "/lovable-uploads/7891a0e6-f6ae-456e-87f0-bdb9bb398830.png",
+      alt: "Moderne gevel met ramen"
+    },
+    {
+      id: 23,
+      image: "/lovable-uploads/4f54975d-3102-45a9-a43c-c3401288e5d1.png",
+      alt: "Vakman aan het werk"
+    },
+    {
+      id: 24,
+      image: "/lovable-uploads/4aee0701-ae5b-4e4c-8609-2304d895f478.png",
+      alt: "Schoorsteenonderhoud"
+    },
+    {
+      id: 25,
+      image: "/lovable-uploads/2ed6b6ec-c9bd-4f5a-87c6-2035e2686846.png",
+      alt: "Modern wooncomplex aan het water"
     }
   ];
 
@@ -205,3 +236,4 @@ const ModernProjects = () => {
 };
 
 export default ModernProjects;
+

@@ -1,8 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Hero = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Enhanced Background with multiple layers */}
@@ -18,8 +16,8 @@ const Hero = () => {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-background/10 to-background/30"></div>
 
-      <div className="w-full px-4 py-32 relative z-10">
-        <div className="max-w-full mx-auto text-center animate-fade-in">
+      <div className="container mx-auto px-4 py-32 relative z-10">
+        <div className="max-w-5xl mx-auto text-center animate-fade-in">
           {/* Enhanced Badge */}
           
 
@@ -35,7 +33,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-full mx-auto leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
             Met meer dan 25 jaar ervaring in geveltechniek en metselwerk kunnen wij wel zeggen dat wij ons vak verstaan. 
             <span className="text-primary font-semibold"> Wij denken altijd in oplossingen.</span>
           </p>
@@ -87,5 +85,4 @@ const Hero = () => {
       </div>
     </section>;
 };
-
 export default Hero;

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -31,8 +30,8 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      {/* Container zonder max-width beperkingen */}
-      <div className="w-full px-4 overflow-x-hidden">
+      {/* Container zonder overflow-x-hidden */}
+      <div className="container mx-auto px-4 max-w-full w-full">
         {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -45,7 +44,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end overflow-x-hidden">
+          <div className="hidden lg:flex items-center space-x-8 flex-1 justify-end">
             {navItems.map((item) => (
               item.hasDropdown ? (
                 <DropdownMenu key={item.label}>
@@ -58,10 +57,8 @@ const Navigation = () => {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
                     className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2 mt-2"
-                    align="end"
+                    align="start"
                     sideOffset={8}
-                    avoidCollisions
-                    collisionPadding={16}
                   >
                     {item.dropdownItems?.map((dropdownItem) => (
                       <DropdownMenuItem key={dropdownItem.label} asChild className="focus:bg-gray-100 rounded-md">
@@ -105,7 +102,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 animate-fade-in overflow-x-hidden">
+          <div className="lg:hidden bg-white border-t border-gray-200 animate-fade-in">
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item) => 
                 !item.hasDropdown ? (

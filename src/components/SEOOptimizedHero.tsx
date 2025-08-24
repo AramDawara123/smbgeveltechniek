@@ -21,9 +21,9 @@ const SEOOptimizedHero = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full opacity-50 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full opacity-50 blur-3xl"></div>
       
-      {/* Content - Full width zonder container beperkingen */}
-      <div className="w-full px-3 sm:px-4 md:px-6 relative z-10 py-8 mt-20 sm:mt-16 md:mt-12">
-        <div className="max-w-full mx-auto text-center text-white">
+      {/* Content */}
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 py-8 mt-20 sm:mt-16 md:mt-12">
+        <div className="max-w-5xl mx-auto text-center text-white">
           {/* Trust Indicators */}
           
           
@@ -31,7 +31,7 @@ const SEOOptimizedHero = () => {
             Gevelspecialist Noord-Holland
           </h1>
           
-          <h2 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 sm:mb-6 md:mb-8 leading-relaxed max-w-full mx-auto animate-fade-in font-semibold px-1 sm:px-2" style={{
+          <h2 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 sm:mb-6 md:mb-8 leading-relaxed max-w-4xl mx-auto animate-fade-in font-semibold px-1 sm:px-2" style={{
           animationDelay: '0.2s'
         }}>
             SMB Geveltechniek - 25+ jaar ervaring in gevelrenovatie, metselwerk, scheurherstel en renovatieankers

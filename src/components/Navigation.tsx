@@ -1,19 +1,23 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
-  const navItems = [
-    { label: "Home", href: "/" },
+  const serviceItems = [
     { label: "Metselwerk", href: "/metselwerk" },
     { label: "Nieuwbouw", href: "/nieuwbouw" },
     { label: "Gevelrenovatie", href: "/gevelrenovatie" },
     { label: "Renovatieankers", href: "/renovatieankers" },
     { label: "Scheurherstel", href: "/scheurherstel" },
+  ];
+
+  const otherNavItems = [
+    { label: "Home", href: "/" },
     { label: "Projecten", href: "/projecten" },
     { label: "Innovatie", href: "/innovatie" },
     { label: "Over ons", href: "/over-ons" },
@@ -36,7 +40,48 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center justify-center flex-1">
             <ul className="flex items-center space-x-6">
-              {navItems.map((item) => (
+              {otherNavItems.slice(0, 1).map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
+                    className="text-gray-700 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap"
+                  >
+                    {item.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                  </Link>
+                </li>
+              ))}
+              
+              {/* Services Dropdown */}
+              <li 
+                className="relative group"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <div className="text-gray-700 hover:text-primary transition-all duration-300 font-semibold text-lg relative whitespace-nowrap cursor-pointer flex items-center">
+                  Services
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                </div>
+                
+                {/* Dropdown Menu */}
+                {isServicesOpen && (
+                  <ul className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    {serviceItems.map((item) => (
+                      <li key={item.label}>
+                        <Link
+                          to={item.href}
+                          className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 first:rounded-t-lg last:rounded-b-lg"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+
+              {otherNavItems.slice(1).map((item) => (
                 <li key={item.label}>
                   <Link
                     to={item.href}
@@ -74,7 +119,7 @@ const Navigation = () => {
           <div className="lg:hidden bg-white border-t border-gray-200 animate-fade-in">
             <div className="px-4 py-6">
               <ul className="space-y-4">
-                {navItems.map((item) => (
+                {otherNavItems.map((item) => (
                   <li key={item.label}>
                     <Link
                       to={item.href}
@@ -85,6 +130,22 @@ const Navigation = () => {
                     </Link>
                   </li>
                 ))}
+                <li className="border-t pt-4">
+                  <div className="text-gray-800 font-semibold text-xl mb-2">Services</div>
+                  <ul className="ml-4 space-y-2">
+                    {serviceItems.map((item) => (
+                      <li key={item.label}>
+                        <Link
+                          to={item.href}
+                          className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium text-lg py-1 block"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
               </ul>
               <Button asChild
                 variant="default" 

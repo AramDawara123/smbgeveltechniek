@@ -5,38 +5,22 @@ import { Anchor, Shield, CheckCircle, Award, AlertTriangle, Home, Phone } from "
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AboutFooter from "@/components/about/AboutFooter";
-
 const RenovatieankersPage = () => {
-  const problemen = [
-    {
-      title: "Verzwakte Spouwankers",
-      description: "Verzinkte stalen ankers verliezen in de loop der jaren hun kracht, vooral in kustgebieden."
-    },
-    {
-      title: "Na-isolatie Risico's",
-      description: "Isolatievlokken elimineren spouwventilatie, waardoor vocht de ankers sneller aantast."
-    },
-    {
-      title: "Instortingsgevaar",
-      description: "Buitengevel kan loskomen van binnengevel met instortingsgevaar tot gevolg."
-    },
-    {
-      title: "Vochtproblemen",
-      description: "Vocht vindt zijn weg naar binnen, wat schimmel- en vochtproblemen veroorzaakt."
-    }
-  ];
-
-  const certificering = [
-    "Gecertificeerd volgens BRL 2810",
-    "Erkend installateur renovatieankers",
-    "Trekproeven volgens NEN normen",
-    "Gebruik van A4 RVS materialen",
-    "Volledige garantie op bevestiging",
-    "Rapportage van alle uitgevoerde tests"
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const problemen = [{
+    title: "Verzwakte Spouwankers",
+    description: "Verzinkte stalen ankers verliezen in de loop der jaren hun kracht, vooral in kustgebieden."
+  }, {
+    title: "Na-isolatie Risico's",
+    description: "Isolatievlokken elimineren spouwventilatie, waardoor vocht de ankers sneller aantast."
+  }, {
+    title: "Instortingsgevaar",
+    description: "Buitengevel kan loskomen van binnengevel met instortingsgevaar tot gevolg."
+  }, {
+    title: "Vochtproblemen",
+    description: "Vocht vindt zijn weg naar binnen, wat schimmel- en vochtproblemen veroorzaakt."
+  }];
+  const certificering = ["Gecertificeerd volgens BRL 2810", "Erkend installateur renovatieankers", "Trekproeven volgens NEN normen", "Gebruik van A4 RVS materialen", "Volledige garantie op bevestiging", "Rapportage van alle uitgevoerde tests"];
+  return <div className="min-h-screen">
       <Helmet>
         <title>Renovatieankers Plaatsen Noord-Holland | SMB Geveltechniek | Gecertificeerd</title>
         <meta name="description" content="Professioneel renovatieankers plaatsen Noord-Holland. ✓ Gecertificeerd BRL 2810 ✓ RVS ankers ✓ Trekproeven ✓ Garantie. Vraag offerte aan!" />
@@ -47,7 +31,7 @@ const RenovatieankersPage = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-32 min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 mt-20">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 mt-20">
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-4xl mx-auto">
@@ -94,11 +78,7 @@ const RenovatieankersPage = () => {
 
           <div className="max-w-4xl mx-auto">
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img 
-                src="/lovable-uploads/17e490e9-7b20-456d-86e0-975804e3d4a8.png"
-                alt="RVS renovatieanker boor - professioneel gereedschap voor ankerplaatsing"
-                className="w-full h-auto object-cover"
-              />
+              <img src="/lovable-uploads/17e490e9-7b20-456d-86e0-975804e3d4a8.png" alt="RVS renovatieanker boor - professioneel gereedschap voor ankerplaatsing" className="w-full h-auto object-cover" />
             </div>
             <div className="text-center mt-6">
               <p className="text-muted-foreground">
@@ -191,8 +171,7 @@ const RenovatieankersPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {problemen.map((probleem, index) => (
-              <Card key={index} className="hover:construction-shadow transition-all duration-300">
+            {problemen.map((probleem, index) => <Card key={index} className="hover:construction-shadow transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-4">
                     <AlertTriangle className="w-6 h-6 text-white" />
@@ -204,8 +183,7 @@ const RenovatieankersPage = () => {
                     {probleem.description}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
 
           <div className="bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded-2xl p-8">
@@ -323,12 +301,10 @@ const RenovatieankersPage = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {certificering.map((item, index) => (
-                <div key={index} className="flex items-center gap-3">
+              {certificering.map((item, index) => <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   <span className="text-muted-foreground">{item}</span>
-                </div>
-              ))}
+                </div>)}
             </div>
 
             <div className="bg-white/50 rounded-xl p-6 mt-8">
@@ -357,13 +333,23 @@ const RenovatieankersPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            {[
-              { step: "1", title: "Inspectie & Advies", desc: "Grondige analyse van uw gevelconstructie" },
-              { step: "2", title: "Offerte & Planning", desc: "Transparante prijzen en duidelijke planning" },
-              { step: "3", title: "Professionele Installatie", desc: "Plaatsing volgens BRL 2810 richtlijnen" },
-              { step: "4", title: "Trekproeven & Rapportage", desc: "Kwaliteitscontrole en uitgebreide rapportage" }
-            ].map((item, index) => (
-              <Card key={index} className="hover:construction-shadow transition-all duration-300">
+            {[{
+            step: "1",
+            title: "Inspectie & Advies",
+            desc: "Grondige analyse van uw gevelconstructie"
+          }, {
+            step: "2",
+            title: "Offerte & Planning",
+            desc: "Transparante prijzen en duidelijke planning"
+          }, {
+            step: "3",
+            title: "Professionele Installatie",
+            desc: "Plaatsing volgens BRL 2810 richtlijnen"
+          }, {
+            step: "4",
+            title: "Trekproeven & Rapportage",
+            desc: "Kwaliteitscontrole en uitgebreide rapportage"
+          }].map((item, index) => <Card key={index} className="hover:construction-shadow transition-all duration-300">
                 <CardContent className="p-6">
                   <div className="w-12 h-12 gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg">
                     {item.step}
@@ -375,8 +361,7 @@ const RenovatieankersPage = () => {
                     {item.desc}
                   </p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -408,17 +393,12 @@ const RenovatieankersPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
             <div className="md:col-span-2">
               <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                <img 
-                  src="/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png" 
-                  alt="SMB Geveltechniek Logo" 
-                  className="h-8 w-auto"
-                />
+                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">SMB</span>
+                </div>
                 <span className="font-display font-bold text-xl">SMB Geveltechniek</span>
               </div>
-              <p className="text-gray-300 leading-relaxed mb-4">
-                Uw betrouwbare partner voor professionele geveltechnieken in Noord-Holland. 
-                Met 25+ jaar ervaring denken wij altijd in oplossingen.
-              </p>
+              
               <p className="text-gray-400 text-sm">
                 Werkgebied: Van Den Helder tot Heemstede - Alkmaar, Heiloo, Castricum, Bergen, Broek op Langedijk en omgeving.
               </p>
@@ -455,8 +435,6 @@ const RenovatieankersPage = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default RenovatieankersPage;

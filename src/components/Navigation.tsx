@@ -54,18 +54,21 @@ const Navigation = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Logo - optimized for consistent display */}
+            {/* Logo - optimized for consistent display across browsers */}
             <Link to="/" className="flex items-center group cursor-pointer flex-shrink-0 relative">
               <img 
-                src="/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png" 
+                src={`${import.meta.env.BASE_URL}lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png`}
                 alt="SMB Geveltechniek Logo" 
-                className="h-12 w-auto transform transition-transform duration-200 group-hover:scale-105"
+                className="transform transition-transform duration-200 group-hover:scale-105"
                 loading="eager"
                 decoding="async"
+                width="96"
+                height="48"
                 style={{ 
                   imageRendering: 'crisp-edges',
                   backfaceVisibility: 'hidden',
-                  transform: 'translateZ(0)'
+                  transform: 'translateZ(0)',
+                  willChange: 'auto'
                 }}
               />
             </Link>

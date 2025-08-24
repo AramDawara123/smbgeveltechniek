@@ -31,8 +31,8 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      {/* Container met max-w-full */}
-      <div className="container mx-auto px-4 max-w-full w-full overflow-x-hidden">
+      {/* Container zonder max-width beperkingen */}
+      <div className="w-full px-4 overflow-x-hidden">
         {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}

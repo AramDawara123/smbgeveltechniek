@@ -77,8 +77,9 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     overflow-x: hidden;
-    /* Voorkom horizontale “jump” bij het openen van dropdowns door stabiele scrollbar-ruimte */
-    scrollbar-gutter: stable;
+    /* Zorg dat verticale scrollbar-ruimte altijd gereserveerd blijft om “jumps” te voorkomen */
+    overflow-y: auto;
+    scrollbar-gutter: stable both-edges;
   }
   
   h1, h2, h3, h4, h5, h6 {

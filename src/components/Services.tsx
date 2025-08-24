@@ -64,9 +64,7 @@ const Services = () => {
       <div className="container mx-auto px-4 relative">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16 lg:mb-20 animate-fade-in min-h-[200px] flex flex-col justify-center">
-          <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-bold mb-4 md:mb-6 border border-primary/20">
-            Onze Specialiteiten
-          </div>
+          
           <h2 className="font-display text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground mb-4 md:mb-6 lg:mb-8 leading-tight px-4">
             Kwalitatieve metseldiensten
             <br />

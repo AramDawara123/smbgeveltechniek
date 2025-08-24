@@ -106,26 +106,26 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Process Section - Using "Ons verhaal" design */}
-        <div className="py-24 bg-background animate-slide-in">
+        {/* Process Section - Using "Ons verhaal" design with enhanced animations */}
+        <div className="py-24 bg-background">
           <div className="container mx-auto px-4">
             {/* Section Header */}
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <div className="max-w-4xl mx-auto text-center mb-16 opacity-0 animate-[fade-in_0.8s_ease-out_0.2s_forwards]">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 transform translate-y-4 opacity-0 animate-[fade-in_0.6s_ease-out_0.4s_forwards]">
                 Onze werkwijze
               </div>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight transform translate-y-6 opacity-0 animate-[fade-in_0.8s_ease-out_0.6s_forwards]">
                 Hoe het <span className="text-gradient">werkt</span>
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed transform translate-y-8 opacity-0 animate-[fade-in_0.8s_ease-out_0.8s_forwards]">
                 Van eerste contact tot oplevering: een transparant proces in 5 stappen
               </p>
             </div>
 
             {/* Timeline */}
             <div className="relative max-w-4xl mx-auto">
-              {/* Central timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-primary/50 to-primary/20 hidden md:block"></div>
+              {/* Central timeline line with animation */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-primary/50 to-primary/20 hidden md:block opacity-0 animate-[fade-in_1s_ease-out_1s_forwards] scale-y-0 origin-top animate-[scale-in_1.2s_ease-out_1.2s_forwards]"></div>
               
               <div className="space-y-16">
                 {processSteps.map((step, index) => (
@@ -133,20 +133,22 @@ const Services = () => {
                     key={index}
                     className={`relative flex items-center ${
                       index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } flex-col md:gap-12 gap-8 animate-fade-in`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    } flex-col md:gap-12 gap-8 opacity-0 transform translate-y-12`}
+                    style={{ 
+                      animation: `fade-in 0.8s ease-out ${1.4 + index * 0.3}s forwards`,
+                    }}
                   >
                     {/* Content */}
                     <div className="flex-1 md:max-w-md">
-                      <div className={`p-8 bg-background border border-border/50 rounded-2xl shadow-sm hover:construction-shadow transition-all duration-300 hover:-translate-y-1 ${
+                      <div className={`p-8 bg-background border border-border/50 rounded-2xl shadow-sm hover:construction-shadow transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${
                         index % 2 === 0 ? 'md:text-right' : 'md:text-left'
-                      } text-center`}>
+                      } text-center transform`}>
                         <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-primary mb-4 ${
                           index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'
-                        } mx-auto`}>
+                        } mx-auto transition-transform duration-300 hover:rotate-6 hover:scale-110`}>
                           <step.icon className="w-6 h-6 text-white" />
                         </div>
-                        <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                        <h3 className="font-display text-xl font-bold text-foreground mb-3 transition-colors duration-300 hover:text-primary">
                           {step.title}
                         </h3>
                         <p className="text-muted-foreground mb-4 leading-relaxed">
@@ -158,14 +160,22 @@ const Services = () => {
                       </div>
                     </div>
 
-                    {/* Timeline node */}
+                    {/* Timeline node with enhanced animations */}
                     <div className="relative flex-shrink-0 order-first md:order-none">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg border-4 border-background relative z-10">
-                        <span className="text-white font-bold text-lg">{index + 1}</span>
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg border-4 border-background relative z-10 transition-all duration-500 hover:scale-125 hover:rotate-12 hover:shadow-2xl transform">
+                        <span className="text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">{index + 1}</span>
+                        {/* Pulse animation ring */}
+                        <div className="absolute inset-0 rounded-full bg-primary/20 animate-ping opacity-75"></div>
+                        <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse"></div>
                       </div>
-                      {/* Connector line for mobile */}
+                      {/* Connector line for mobile with animation */}
                       {index < processSteps.length - 1 && (
-                        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-primary/50 to-primary/20 md:hidden"></div>
+                        <div 
+                          className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-primary/50 to-primary/20 md:hidden opacity-0 scale-y-0 origin-top"
+                          style={{
+                            animation: `fade-in 0.6s ease-out ${1.8 + index * 0.3}s forwards, scale-in 0.8s ease-out ${1.9 + index * 0.3}s forwards`
+                          }}
+                        ></div>
                       )}
                     </div>
 

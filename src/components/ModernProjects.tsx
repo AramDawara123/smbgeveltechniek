@@ -1,14 +1,6 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import ImageModal from "@/components/ui/image-modal";
 
 const ModernProjects = () => {
@@ -67,11 +59,6 @@ const ModernProjects = () => {
       id: 9,
       image: "/lovable-uploads/bdf44d7c-06d7-4735-948e-e6eae1be0a5c.png",
       alt: "Project 9"
-    },
-    {
-      id: 10,
-      image: "/lovable-uploads/2379fd3a-90bb-4195-8c79-6711d24b21f7.png",
-      alt: "Project 10"
     }
   ];
 
@@ -132,31 +119,27 @@ const ModernProjects = () => {
         </div>
       </section>
 
-      {/* Projects Carousel */}
+      {/* Projects Grid */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <Carousel className="max-w-7xl mx-auto">
-            <CarouselContent className="-ml-4">
-              {projects.map((project, index) => (
-                <CarouselItem key={project.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card 
-                    className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-500 bg-white hover:-translate-y-2 rounded-xl cursor-pointer"
-                    onClick={() => handleImageClick(index)}
-                  >
-                    <div className="relative overflow-hidden">
-                      <img 
-                        src={project.image} 
-                        alt={project.alt}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+          <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {projects.map((project, index) => (
+              <Card 
+                key={project.id} 
+                className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-500 bg-white hover:-translate-y-2 rounded-xl cursor-pointer"
+                onClick={() => handleImageClick(index)}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.alt}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 

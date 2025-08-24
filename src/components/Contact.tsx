@@ -6,37 +6,43 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
+
 const Contact = () => {
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: ""
   });
-  const contactInfo = [{
-    icon: Phone,
-    title: "Telefoon",
-    content: "06-39 58 03 41",
-    subtitle: "Ma-Vr 08:00 - 18:00"
-  }, {
-    icon: Mail,
-    title: "E-mail",
-    content: "info@smbgeveltechniek.nl",
-    subtitle: "We reageren binnen 24 uur"
-  }, {
-    icon: MapPin,
-    title: "Locatie",
-    content: "Tjalkstraat 25, 1826 DT Alkmaar",
-    subtitle: "Noord-Holland"
-  }, {
-    icon: Clock,
-    title: "Spoeddienst",
-    content: "24/7 Beschikbaar",
-    subtitle: "Voor acute reparaties"
-  }];
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Telefoon",
+      content: "06-39 58 03 41",
+      subtitle: "Ma-Vr 08:00 - 18:00"
+    },
+    {
+      icon: Mail,
+      title: "E-mail",
+      content: "info@smbgeveltechniek.nl",
+      subtitle: "We reageren binnen 24 uur"
+    },
+    {
+      icon: MapPin,
+      title: "Locatie",
+      content: "Tjalkstraat 25, 1826 DT Alkmaar",
+      subtitle: "Noord-Holland"
+    },
+    {
+      icon: Clock,
+      title: "Spoeddienst",
+      content: "24/7 Beschikbaar",
+      subtitle: "Voor acute reparaties"
+    }
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -50,20 +56,21 @@ const Contact = () => {
       message: ""
     });
   };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-  return <div className="min-h-screen">
-      {/* Hero Section - Consistent with About and Projects */}
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section - Consistent with About */}
       <section className="relative py-32 min-h-[420px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            
-            
+          <div className="max-w-4xl mx-auto text-center text-white flex flex-col justify-center min-h-[350px] md:min-h-[400px]">
             <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight animate-slide-in">
               Klaar voor uw
               <br />
@@ -71,8 +78,8 @@ const Contact = () => {
             </h1>
             
             <p className="text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{
-            animationDelay: '0.2s'
-          }}>
+              animationDelay: '0.2s'
+            }}>
               Neem vrijblijvend contact met ons op voor een gratis offerte of advies. 
               Onze specialisten staan voor u klaar
             </p>
@@ -80,6 +87,7 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Contact Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -161,6 +169,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Contact;

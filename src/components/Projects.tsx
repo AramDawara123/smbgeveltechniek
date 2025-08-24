@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Users, Award } from "lucide-react";
@@ -81,8 +80,8 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Consistent with About and Contact */}
-      <section className="relative py-32 bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
+      {/* Hero Section - Consistent met About en Contact */}
+      <section className="relative py-32 min-h-[600px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
@@ -104,6 +103,7 @@ const Projects = () => {
         </div>
       </section>
 
+      {/* Statistieken + Grid + CTA */}
       <div className="bg-background py-16">
         <div className="container mx-auto px-4">
           {/* Stats Section */}

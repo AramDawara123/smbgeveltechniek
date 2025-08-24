@@ -1,8 +1,10 @@
+
 import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight, Send, Ruler, CheckCircle, Play, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "./services/ServiceCard";
 import ProcessStep from "./services/ProcessStep";
 import BenefitsGrid from "./services/BenefitsGrid";
+
 const Services = () => {
   const services = [{
     icon: Building2,
@@ -29,7 +31,9 @@ const Services = () => {
     description: "Scheuren in de muur? Voorkom narigheid! Onze reparaties maken gebruik van hoogwaardige materialen.",
     features: ["Grondige inspectie", "Plan van aanpak", "Gecertificeerd herstel"]
   }];
+
   const additionalServices = ["Metselwerk van verschillende verbanden", "Traditioneel voegen en pointeren", "Gevelreiniging en impregneren", "Graffiti verwijdering", "Monumentenzorg"];
+
   const processSteps = [{
     icon: Send,
     title: "Stuur een verzoek",
@@ -56,7 +60,9 @@ const Services = () => {
     description: "Wanneer we het project starten, maken we er prioriteit van om het op tijd af te ronden.",
     detailedDescription: "We begrijpen hoe belangrijk het is om deadlines te halen. U kunt erop vertrouwen dat wij het harde werk en de toewijding leveren die nodig zijn."
   }];
-  return <section id="services" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+
+  return (
+    <section id="services" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full opacity-50 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-48 h-48 md:w-80 md:h-80 bg-gradient-to-tr from-primary/5 to-primary/10 rounded-full opacity-50 blur-3xl"></div>
@@ -80,7 +86,9 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12 md:mb-16">
-          {services.map((service, index) => <ServiceCard key={service.title} {...service} index={index} />)}
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} {...service} index={index} />
+          ))}
         </div>
 
         {/* Additional Services */}
@@ -89,33 +97,49 @@ const Services = () => {
             Wat wij nog meer doen
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-            {additionalServices.map((service, index) => <div key={index} className="flex items-center gap-3 p-3 md:p-4 bg-background/50 rounded-lg md:rounded-xl">
+            {additionalServices.map((service, index) => (
+              <div key={index} className="flex items-center gap-3 p-3 md:p-4 bg-background/50 rounded-lg md:rounded-xl">
                 <div className="w-2 h-2 md:w-3 md:h-3 bg-gradient-to-r from-primary to-primary/80 rounded-full flex-shrink-0"></div>
                 <span className="text-foreground font-medium text-sm md:text-base">{service}</span>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Process Section */}
         <div className="relative mb-12 md:mb-16 lg:mb-20">
-          {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16 lg:mb-20">
-            
-            <h3 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 md:mb-6 leading-tight px-4">
-              Hoe het werkt
-            </h3>
-            <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed px-4">
-              Van eerste contact tot oplevering: een transparant proces in 5 stappen
-            </p>
+          {/* Wrapper met 'Ons verhaal' look & feel */}
+          <div className="bg-gradient-to-br from-background via-muted/10 to-background rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12">
+            {/* Section Header - Consistent met AboutTimeline */}
+            <div className="max-w-4xl mx-auto text-center mb-10 md:mb-14">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-bold mb-4 border border-primary/20 animate-fade-in">
+                Onze werkwijze
+              </div>
+              <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 leading-tight animate-fade-in" style={{ animationDelay: '0.05s' }}>
+                Hoe het <span className="text-gradient">werkt</span>
+              </h3>
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                Van eerste contact tot oplevering: een transparant proces in 5 stappen
+              </p>
+            </div>
+
+            {/* Process Steps */}
+            <div className="space-y-16 md:space-y-20 lg:space-y-24">
+              {processSteps.map((step, index) => (
+                <ProcessStep
+                  key={index}
+                  {...step}
+                  index={index}
+                  isLast={index === processSteps.length - 1}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* Process Steps */}
-          <div className="space-y-16 md:space-y-20 lg:space-y-24 mb-16 md:mb-20 lg:mb-24">
-            {processSteps.map((step, index) => <ProcessStep key={index} {...step} index={index} isLast={index === processSteps.length - 1} />)}
+          {/* Benefits Grid (ongewijzigd) */}
+          <div className="mt-12 md:mt-16 lg:mt-20">
+            <BenefitsGrid />
           </div>
-
-          {/* Benefits Grid */}
-          <BenefitsGrid />
         </div>
 
         {/* CTA Button */}
@@ -126,6 +150,8 @@ const Services = () => {
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Services;

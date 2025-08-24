@@ -1,10 +1,10 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertTriangle, Shield, CheckCircle, Phone, Thermometer, Wrench, Home, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import AboutFooter from "@/components/about/AboutFooter";
 
 const ScheurherstellPage = () => {
   const oorzaken = [
@@ -280,6 +280,8 @@ const ScheurherstellPage = () => {
           </div>
         </div>
       </section>
+
+      <AboutFooter />
     </div>
   );
 };

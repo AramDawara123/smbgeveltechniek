@@ -5,6 +5,7 @@ import { Anchor, Shield, CheckCircle, Award, AlertTriangle, Home, Phone } from "
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AboutFooter from "@/components/about/AboutFooter";
+
 const RenovatieankersPage = () => {
   const problemen = [{
     title: "Verzwakte Spouwankers",
@@ -399,9 +400,14 @@ const RenovatieankersPage = () => {
                 <span className="font-display font-bold text-xl">SMB Geveltechniek</span>
               </div>
               
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-400 text-sm mb-4">
                 Werkgebied: Van Den Helder tot Heemstede - Alkmaar, Heiloo, Castricum, Bergen, Broek op Langedijk en omgeving.
               </p>
+              
+              <div className="text-gray-400 text-sm space-y-1">
+                <p>KVK: 72794070</p>
+                <p>BTW: NL002121697B26</p>
+              </div>
             </div>
             
             <div>

@@ -71,9 +71,9 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-construction-dark text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 text-center lg:text-left">
+            <div className="lg:col-span-2">
+              <div className="flex items-center justify-center lg:justify-start space-x-2 mb-4">
                 <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-sm">SMB</span>
                 </div>

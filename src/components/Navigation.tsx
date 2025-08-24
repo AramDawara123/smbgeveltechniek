@@ -55,7 +55,7 @@ const Navigation = () => {
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
-                    className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2 max-w-full"
+                    className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2 max-w-full mt-2"
                     align="start"
                     sideOffset={8}
                   >
@@ -90,7 +90,7 @@ const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button - Only shows mobile menu */}
+          {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-3 text-gray-700 hover:text-primary transition-colors duration-300 rounded-xl hover:bg-gray-100"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -106,15 +106,13 @@ const Navigation = () => {
               {navItems.map((item) => 
                 !item.hasDropdown ? (
                   <div key={item.label}>
-                    <div>
-                      <Link
-                        to={item.href}
-                        className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    </div>
+                    <Link
+                      to={item.href}
+                      className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
                   </div>
                 ) : (
                   <div key={item.label} className="space-y-2">

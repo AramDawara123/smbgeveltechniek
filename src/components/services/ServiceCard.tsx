@@ -15,12 +15,12 @@ interface ServiceCardProps {
 const ServiceCard = ({ icon: Icon, title, subtitle, description, features, index }: ServiceCardProps) => {
   return (
     <Card 
-      className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-0 bg-card/80 backdrop-blur-sm overflow-hidden h-full"
+      className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-0 bg-card/80 backdrop-blur-sm overflow-hidden h-full min-h-[450px] flex flex-col"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <CardContent className="p-0 h-full flex flex-col">
-        {/* Card Header with Icon */}
-        <div className="p-6 pb-4 flex-shrink-0">
+        {/* Card Header with Icon - Fixed height */}
+        <div className="p-6 pb-4 flex-shrink-0 min-h-[140px] flex flex-col justify-center">
           <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg">
             <Icon className="w-8 h-8 text-white" />
           </div>
@@ -34,27 +34,31 @@ const ServiceCard = ({ icon: Icon, title, subtitle, description, features, index
           </p>
         </div>
 
-        {/* Card Content */}
+        {/* Card Content - Flexible height with consistent structure */}
         <div className="px-6 flex-1 flex flex-col">
-          <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
-            {description}
-          </p>
+          <div className="min-h-[60px] flex items-start">
+            <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
+              {description}
+            </p>
+          </div>
 
-          <ul className="space-y-2 mb-6 flex-1">
-            {features.map((feature) => (
-              <li key={feature} className="flex items-start text-sm text-muted-foreground">
-                <div className="w-1.5 h-1.5 bg-gradient-to-r from-primary to-primary/80 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                <span className="font-medium leading-relaxed">{feature}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="flex-1 min-h-[120px]">
+            <ul className="space-y-2 mb-6">
+              {features.map((feature) => (
+                <li key={feature} className="flex items-start text-sm text-muted-foreground min-h-[24px]">
+                  <div className="w-1.5 h-1.5 bg-gradient-to-r from-primary to-primary/80 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span className="font-medium leading-relaxed">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Card Footer */}
-        <div className="p-6 pt-0">
+        {/* Card Footer - Fixed height */}
+        <div className="p-6 pt-0 mt-auto">
           <Button 
             variant="ghost" 
-            className="w-full group-hover:bg-primary group-hover:text-white transition-all duration-300 font-semibold text-sm"
+            className="w-full group-hover:bg-primary group-hover:text-white transition-all duration-300 font-semibold text-sm h-12"
           >
             Meer info
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

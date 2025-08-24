@@ -69,7 +69,7 @@ const Services = () => {
       
       <div className="container mx-auto px-4 relative">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16 lg:mb-20 animate-fade-in">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20 animate-fade-in min-h-[200px] flex flex-col justify-center">
           <div className="inline-flex items-center px-4 md:px-6 py-2 md:py-3 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-bold mb-4 md:mb-6 border border-primary/20">
             Onze Specialiteiten
           </div>
@@ -84,21 +84,23 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Uniform heights */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12 md:mb-16">
           {services.map((service, index) => (
-            <ServiceCard key={service.title} {...service} index={index} />
+            <div key={service.title} className="h-full">
+              <ServiceCard {...service} index={index} />
+            </div>
           ))}
         </div>
 
-        {/* Additional Services */}
-        <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 mb-12 md:mb-16 lg:mb-20">
+        {/* Additional Services - Fixed height */}
+        <div className="bg-muted/30 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 mb-12 md:mb-16 lg:mb-20 min-h-[280px] flex flex-col justify-center">
           <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-6 md:mb-8 text-center">
             Wat wij nog meer doen
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             {additionalServices.map((service, index) => (
-              <div key={index} className="flex items-center gap-3 p-3 md:p-4 bg-background/50 rounded-lg md:rounded-xl">
+              <div key={index} className="flex items-center gap-3 p-3 md:p-4 bg-background/50 rounded-lg md:rounded-xl h-16">
                 <div className="w-2 h-2 md:w-3 md:h-3 bg-gradient-to-r from-primary to-primary/80 rounded-full flex-shrink-0"></div>
                 <span className="text-foreground font-medium text-sm md:text-base">{service}</span>
               </div>
@@ -106,11 +108,11 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Process Section - Using "Ons verhaal" design */}
+        {/* Process Section - Uniform heights and spacing */}
         <div className="py-24 bg-background animate-slide-in">
           <div className="container mx-auto px-4">
-            {/* Section Header */}
-            <div className="max-w-4xl mx-auto text-center mb-16">
+            {/* Section Header - Fixed height */}
+            <div className="max-w-4xl mx-auto text-center mb-16 min-h-[200px] flex flex-col justify-center">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 Onze werkwijze
               </div>
@@ -122,23 +124,23 @@ const Services = () => {
               </p>
             </div>
 
-            {/* Timeline */}
+            {/* Timeline - Consistent spacing and heights */}
             <div className="relative max-w-4xl mx-auto">
               {/* Central timeline line */}
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-primary/50 to-primary/20 hidden md:block"></div>
               
-              <div className="space-y-16">
+              <div className="space-y-24">
                 {processSteps.map((step, index) => (
                   <div 
                     key={index}
                     className={`relative flex items-center ${
                       index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } flex-col md:gap-12 gap-8 animate-fade-in`}
+                    } flex-col md:gap-12 gap-8 animate-fade-in min-h-[300px]`}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    {/* Content */}
-                    <div className="flex-1 md:max-w-md">
-                      <div className={`p-8 bg-background border border-border/50 rounded-2xl shadow-sm hover:construction-shadow transition-all duration-300 hover:-translate-y-1 ${
+                    {/* Content - Fixed dimensions */}
+                    <div className="flex-1 md:max-w-md h-full flex items-center">
+                      <div className={`p-8 bg-background border border-border/50 rounded-2xl shadow-sm hover:construction-shadow transition-all duration-300 hover:-translate-y-1 w-full min-h-[280px] flex flex-col justify-center ${
                         index % 2 === 0 ? 'md:text-right' : 'md:text-left'
                       } text-center`}>
                         <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-primary mb-4 ${
@@ -158,14 +160,14 @@ const Services = () => {
                       </div>
                     </div>
 
-                    {/* Timeline node */}
+                    {/* Timeline node - Fixed size */}
                     <div className="relative flex-shrink-0 order-first md:order-none">
                       <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg border-4 border-background relative z-10">
                         <span className="text-white font-bold text-lg">{index + 1}</span>
                       </div>
                       {/* Connector line for mobile */}
                       {index < processSteps.length - 1 && (
-                        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-primary/50 to-primary/20 md:hidden"></div>
+                        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-24 bg-gradient-to-b from-primary/50 to-primary/20 md:hidden"></div>
                       )}
                     </div>
 
@@ -178,13 +180,13 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Benefits Grid */}
+        {/* Benefits Grid - Consistent height */}
         <div className="mt-16">
           <BenefitsGrid />
         </div>
 
-        {/* CTA Button */}
-        <div className="text-center mt-16">
+        {/* CTA Button - Fixed section height */}
+        <div className="text-center mt-16 min-h-[120px] flex items-center justify-center">
           <Button size="lg" className="bg-gradient-to-r from-primary to-primary/90 text-white px-8 md:px-12 py-4 md:py-6 text-base md:text-xl font-bold rounded-xl md:rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
             Bekijk Al Onze Diensten
             <ArrowRight className="ml-2 md:ml-3 w-5 h-5 md:w-6 md:h-6" />

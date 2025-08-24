@@ -45,7 +45,7 @@ const ProcessStep = ({ icon: Icon, title, description, detailedDescription, inde
       </div>
 
       {/* Content */}
-      <div className={`flex-1 ${isEven ? 'lg:text-left' : 'lg:text-right'} text-center max-w-2xl`}>
+      <div className={`flex-1 text-center ${isEven ? 'lg:text-left' : 'lg:text-right'} max-w-2xl`}>
         <div className="space-y-6">
           <h4 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
             {title}

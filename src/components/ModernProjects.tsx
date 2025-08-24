@@ -152,7 +152,7 @@ const ModernProjects = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 min-h-[420px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
+      <section className="relative py-24 md:py-32 min-h-[600px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="container mx-auto px-4 relative z-10">

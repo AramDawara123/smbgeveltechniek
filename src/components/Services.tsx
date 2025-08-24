@@ -106,44 +106,85 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Process Section */}
-        <div className="relative mb-12 md:mb-16 lg:mb-20">
-          {/* Wrapper met 'Ons verhaal' look & feel */}
-          <div className="bg-gradient-to-br from-background via-muted/10 to-background rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12">
-            {/* Section Header - Consistent met AboutTimeline */}
-            <div className="max-w-4xl mx-auto text-center mb-10 md:mb-14">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-bold mb-4 border border-primary/20 animate-fade-in">
+        {/* Process Section - Using "Ons verhaal" design */}
+        <div className="py-24 bg-background animate-slide-in">
+          <div className="container mx-auto px-4">
+            {/* Section Header */}
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 Onze werkwijze
               </div>
-              <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 leading-tight animate-fade-in" style={{ animationDelay: '0.05s' }}>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
                 Hoe het <span className="text-gradient">werkt</span>
-              </h3>
-              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Van eerste contact tot oplevering: een transparant proces in 5 stappen
               </p>
             </div>
 
-            {/* Process Steps */}
-            <div className="space-y-16 md:space-y-20 lg:space-y-24">
-              {processSteps.map((step, index) => (
-                <ProcessStep
-                  key={index}
-                  {...step}
-                  index={index}
-                  isLast={index === processSteps.length - 1}
-                />
-              ))}
-            </div>
-          </div>
+            {/* Timeline */}
+            <div className="relative max-w-4xl mx-auto">
+              {/* Central timeline line */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-primary/50 to-primary/20 hidden md:block"></div>
+              
+              <div className="space-y-16">
+                {processSteps.map((step, index) => (
+                  <div 
+                    key={index}
+                    className={`relative flex items-center ${
+                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    } flex-col md:gap-12 gap-8 animate-fade-in`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    {/* Content */}
+                    <div className="flex-1 md:max-w-md">
+                      <div className={`p-8 bg-background border border-border/50 rounded-2xl shadow-sm hover:construction-shadow transition-all duration-300 hover:-translate-y-1 ${
+                        index % 2 === 0 ? 'md:text-right' : 'md:text-left'
+                      } text-center`}>
+                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-primary mb-4 ${
+                          index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'
+                        } mx-auto`}>
+                          <step.icon className="w-6 h-6 text-white" />
+                        </div>
+                        <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                          {step.title}
+                        </h3>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          {step.description}
+                        </p>
+                        <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                          {step.detailedDescription}
+                        </p>
+                      </div>
+                    </div>
 
-          {/* Benefits Grid (ongewijzigd) */}
-          <div className="mt-12 md:mt-16 lg:mt-20">
-            <BenefitsGrid />
+                    {/* Timeline node */}
+                    <div className="relative flex-shrink-0 order-first md:order-none">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center shadow-lg border-4 border-background relative z-10">
+                        <span className="text-white font-bold text-lg">{index + 1}</span>
+                      </div>
+                      {/* Connector line for mobile */}
+                      {index < processSteps.length - 1 && (
+                        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-16 bg-gradient-to-b from-primary/50 to-primary/20 md:hidden"></div>
+                      )}
+                    </div>
+
+                    {/* Spacer for desktop layout */}
+                    <div className="flex-1 md:max-w-md hidden md:block"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
+        {/* Benefits Grid */}
+        <div className="mt-16">
+          <BenefitsGrid />
+        </div>
+
         {/* CTA Button */}
-        <div className="text-center">
+        <div className="text-center mt-16">
           <Button size="lg" className="bg-gradient-to-r from-primary to-primary/90 text-white px-8 md:px-12 py-4 md:py-6 text-base md:text-xl font-bold rounded-xl md:rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
             Bekijk Al Onze Diensten
             <ArrowRight className="ml-2 md:ml-3 w-5 h-5 md:w-6 md:h-6" />

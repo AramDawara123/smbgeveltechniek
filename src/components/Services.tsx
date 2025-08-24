@@ -1,34 +1,41 @@
 import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight, Send, Ruler, CheckCircle, Play, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import ServiceCard from "./services/ServiceCard";
 import ProcessStep from "./services/ProcessStep";
 import BenefitsGrid from "./services/BenefitsGrid";
+
 const Services = () => {
   const services = [{
     icon: Building2,
     title: "Nieuwbouw",
-    subtitle: "Vakmanschap en duurzaamheid",
+    subtitle: "Vakmanschap en duurzaamheid", 
     description: "SMB Geveltechniek staat garant voor hoogwaardige nieuwbouwprojecten waar vakmanschap en duurzaamheid samenkomen.",
-    features: ["Maatwerkoplossingen", "Topkwaliteit materialen", "Woningbouw & bedrijfspanden"]
+    features: ["Maatwerkoplossingen", "Topkwaliteit materialen", "Woningbouw & bedrijfspanden"],
+    href: "/nieuwbouw"
   }, {
     icon: Wrench,
     title: "Gevelrenovatie",
     subtitle: "Transformatie van uw gevel",
     description: "Onze ervaren vakmensen analyseren grondig de staat van uw gevel en bieden op maat gemaakte renovatieoplossingen.",
-    features: ["Beschadigd metselwerk", "Verouderde voegen", "Structurele problemen"]
+    features: ["Beschadigd metselwerk", "Verouderde voegen", "Structurele problemen"],
+    href: "/gevelrenovatie"
   }, {
     icon: Anchor,
     title: "Renovatieankers",
     subtitle: "RVS ankers voor stabiliteit",
     description: "Versterk uw gevel met RVS renovatieankers. SMB Geveltechniek biedt gecertificeerde plaatsing en voert trekproeven uit.",
-    features: ["Gecertificeerde plaatsing", "Trekproeven", "Voor- en na-isolatie"]
+    features: ["Gecertificeerde plaatsing", "Trekproeven", "Voor- en na-isolatie"],
+    href: "/renovatieankers"
   }, {
     icon: AlertTriangle,
     title: "Scheurherstel",
     subtitle: "Professionele scheuranalyse",
     description: "Scheuren in de muur? Voorkom narigheid! Onze reparaties maken gebruik van hoogwaardige materialen.",
-    features: ["Grondige inspectie", "Plan van aanpak", "Gecertificeerd herstel"]
+    features: ["Grondige inspectie", "Plan van aanpak", "Gecertificeerd herstel"],
+    href: "/scheurherstel"
   }];
+
   const additionalServices = ["Metselwerk van verschillende verbanden", "Traditioneel voegen en pointeren", "Gevelreiniging en impregneren", "Graffiti verwijdering", "Monumentenzorg"];
   const processSteps = [{
     icon: Send,
@@ -56,6 +63,7 @@ const Services = () => {
     description: "Wanneer we het project starten, maken we er prioriteit van om het op tijd af te ronden.",
     detailedDescription: "We begrijpen hoe belangrijk het is om deadlines te halen. U kunt erop vertrouwen dat wij het harde werk en de toewijding leveren die nodig zijn."
   }];
+
   return <section id="services" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full opacity-50 blur-3xl"></div>
@@ -78,9 +86,11 @@ const Services = () => {
 
         {/* Services Grid - Uniform heights */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12 md:mb-16">
-          {services.map((service, index) => <div key={service.title} className="h-full">
+          {services.map((service, index) => (
+            <Link key={service.title} to={service.href} className="h-full group">
               <ServiceCard {...service} index={index} />
-            </div>)}
+            </Link>
+          ))}
         </div>
 
         {/* Additional Services - Fixed height */}
@@ -161,12 +171,15 @@ const Services = () => {
 
         {/* CTA Button - Fixed section height */}
         <div className="text-center mt-16 min-h-[120px] flex items-center justify-center">
-          <Button size="lg" className="bg-gradient-to-r from-primary to-primary/90 text-white px-8 md:px-12 py-4 md:py-6 text-base md:text-xl font-bold rounded-xl md:rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
-            Bekijk Al Onze Diensten
-            <ArrowRight className="ml-2 md:ml-3 w-5 h-5 md:w-6 md:h-6" />
+          <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary/90 text-white px-8 md:px-12 py-4 md:py-6 text-base md:text-xl font-bold rounded-xl md:rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
+            <Link to="/metselwerk">
+              Bekijk Al Onze Diensten
+              <ArrowRight className="ml-2 md:ml-3 w-5 h-5 md:w-6 md:h-6" />
+            </Link>
           </Button>
         </div>
       </div>
     </section>;
 };
+
 export default Services;

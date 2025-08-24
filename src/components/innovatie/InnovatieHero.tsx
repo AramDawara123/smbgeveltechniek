@@ -1,7 +1,7 @@
 
 const InnovatieHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative py-32 min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -18,8 +18,8 @@ const InnovatieHero = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full opacity-50 blur-3xl"></div>
       
       {/* Content */}
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 py-8 mt-20 sm:mt-16 md:mt-12">
-        <div className="max-w-5xl mx-auto text-center text-white">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 py-8">
+        <div className="max-w-5xl mx-auto text-center text-white flex flex-col justify-center min-h-[500px]">
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/20 text-primary text-sm font-medium mb-8 animate-fade-in">
             INNOVATIE
           </div>

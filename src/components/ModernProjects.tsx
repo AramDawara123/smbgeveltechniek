@@ -1,5 +1,3 @@
-
-
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
@@ -152,11 +150,11 @@ const ModernProjects = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 min-h-[600px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
+      <section className="relative py-32 min-h-[600px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center flex flex-col justify-center min-h-[500px]">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
               Onze 
               <span className="bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent"> Projecten</span>
@@ -236,4 +234,3 @@ const ModernProjects = () => {
 };
 
 export default ModernProjects;
-

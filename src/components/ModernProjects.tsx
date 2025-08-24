@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
@@ -59,6 +60,56 @@ const ModernProjects = () => {
       id: 9,
       image: "/lovable-uploads/bdf44d7c-06d7-4735-948e-e6eae1be0a5c.png",
       alt: "Project 9"
+    },
+    {
+      id: 10,
+      image: "/lovable-uploads/3155a046-52b4-45e5-9861-1c1ae1031e0e.png",
+      alt: "Metselwerk terras project"
+    },
+    {
+      id: 11,
+      image: "/lovable-uploads/bd356fc2-1168-4160-ae62-6b853398e271.png",
+      alt: "Modern wooncomplex"
+    },
+    {
+      id: 12,
+      image: "/lovable-uploads/49877ecb-b4bc-42cf-96da-95933b391f51.png",
+      alt: "Nieuwbouw appartementencomplex"
+    },
+    {
+      id: 13,
+      image: "/lovable-uploads/824c6627-9866-433a-8fd1-8039948624d2.png",
+      alt: "Bouwplaats met hijskraan"
+    },
+    {
+      id: 14,
+      image: "/lovable-uploads/84b88dcf-de71-466f-8e60-869e0e982d13.png",
+      alt: "Schoorsteenrenovatie"
+    },
+    {
+      id: 15,
+      image: "/lovable-uploads/2155a827-f98a-48ee-820e-cea78274d2a7.png",
+      alt: "Metselwerk fundering"
+    },
+    {
+      id: 16,
+      image: "/lovable-uploads/75844152-afb8-4b35-a20d-16d62c17228f.png",
+      alt: "Precisie metselwerk"
+    },
+    {
+      id: 17,
+      image: "/lovable-uploads/5df69e77-1f02-40ea-bdca-60c1809f692f.png",
+      alt: "Historische trap restauratie"
+    },
+    {
+      id: 18,
+      image: "/lovable-uploads/5ad4fda3-14a2-497d-a46d-6b7e8f0d7df7.png",
+      alt: "Moderne aanbouw"
+    },
+    {
+      id: 19,
+      image: "/lovable-uploads/12c70662-1f12-4cba-bbbe-61cb244498f1.png",
+      alt: "Zwembad installatie"
     }
   ];
 
@@ -122,7 +173,7 @@ const ModernProjects = () => {
       {/* Projects Grid */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <Card 
                 key={project.id} 

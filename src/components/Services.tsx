@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import ServiceCard from "./services/ServiceCard";
 import ProcessStep from "./services/ProcessStep";
 import BenefitsGrid from "./services/BenefitsGrid";
-
 const Services = () => {
   const services = [{
     icon: Building2,
     title: "Nieuwbouw",
-    subtitle: "Vakmanschap en duurzaamheid", 
+    subtitle: "Vakmanschap en duurzaamheid",
     description: "SMB Geveltechniek staat garant voor hoogwaardige nieuwbouwprojecten waar vakmanschap en duurzaamheid samenkomen.",
     features: ["Maatwerkoplossingen", "Topkwaliteit materialen", "Woningbouw & bedrijfspanden"],
     href: "/nieuwbouw"
@@ -35,7 +34,6 @@ const Services = () => {
     features: ["Grondige inspectie", "Plan van aanpak", "Gecertificeerd herstel"],
     href: "/scheurherstel"
   }];
-
   const additionalServices = ["Metselwerk van verschillende verbanden", "Traditioneel voegen en pointeren", "Gevelreiniging en impregneren", "Graffiti verwijdering", "Monumentenzorg"];
   const processSteps = [{
     icon: Send,
@@ -63,7 +61,6 @@ const Services = () => {
     description: "Wanneer we het project starten, maken we er prioriteit van om het op tijd af te ronden.",
     detailedDescription: "We begrijpen hoe belangrijk het is om deadlines te halen. U kunt erop vertrouwen dat wij het harde werk en de toewijding leveren die nodig zijn."
   }];
-
   return <section id="services" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full opacity-50 blur-3xl"></div>
@@ -86,11 +83,9 @@ const Services = () => {
 
         {/* Services Grid - Uniform heights */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12 md:mb-16">
-          {services.map((service, index) => (
-            <Link key={service.title} to={service.href} className="h-full group">
+          {services.map((service, index) => <Link key={service.title} to={service.href} className="h-full group">
               <ServiceCard {...service} index={index} />
-            </Link>
-          ))}
+            </Link>)}
         </div>
 
         {/* Additional Services - Fixed height */}
@@ -135,13 +130,13 @@ const Services = () => {
                         <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-primary mb-4 ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'} mx-auto`}>
                           <step.icon className="w-6 h-6 text-white" />
                         </div>
-                        <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                        <h3 className="font-display text-xl font-bold text-foreground mb-3 text-left">
                           {step.title}
                         </h3>
-                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                        <p className="text-muted-foreground mb-4 leading-relaxed text-left">
                           {step.description}
                         </p>
-                        <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                        <p className="text-sm text-muted-foreground/80 leading-relaxed text-left">
                           {step.detailedDescription}
                         </p>
                       </div>
@@ -181,5 +176,4 @@ const Services = () => {
       </div>
     </section>;
 };
-
 export default Services;

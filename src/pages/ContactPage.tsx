@@ -1,6 +1,7 @@
 
 import Navigation from "@/components/Navigation";
 import Contact from "@/components/Contact";
+import AboutFooter from "@/components/about/AboutFooter";
 
 const ContactPage = () => {
   return (
@@ -9,6 +10,7 @@ const ContactPage = () => {
       <main className="pt-20">
         <Contact />
       </main>
+      <AboutFooter />
     </div>
   );
 };

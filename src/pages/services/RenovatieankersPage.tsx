@@ -1,8 +1,7 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Anchor, Shield, CheckCircle, Award, AlertTriangle, Home } from "lucide-react";
+import { Anchor, Shield, CheckCircle, Award, AlertTriangle, Home, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AboutFooter from "@/components/about/AboutFooter";
@@ -37,7 +36,7 @@ const RenovatieankersPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Helmet>
         <title>Renovatieankers Plaatsen Noord-Holland | SMB Geveltechniek | Gecertificeerd</title>
         <meta name="description" content="Professioneel renovatieankers plaatsen Noord-Holland. ✓ Gecertificeerd BRL 2810 ✓ RVS ankers ✓ Trekproeven ✓ Garantie. Vraag offerte aan!" />
@@ -46,35 +45,66 @@ const RenovatieankersPage = () => {
       </Helmet>
 
       <Navigation />
-      
+
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/20 text-primary text-sm font-bold mb-8">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 mt-20">
+        
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6 border border-primary/20">
               <Award className="w-4 h-4 mr-2" />
               Gecertificeerd BRL 2810
             </div>
             
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              RVS Renovatieankers
-              <br />
-              <span className="text-gradient">Professioneel Geplaatst</span>
+            <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+              RVS Renovatieankers Noord-Holland
             </h1>
             
-            <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
               SMB Geveltechniek is gecertificeerd voor het plaatsen van RVS renovatieankers in Noord-Holland. 
-              Versterk uw gevel met onze professionele ankerinstallatie inclusief trekproeven.
+              Versterk uw gevel met onze professionele ankerinstallatie inclusief trekproeven volgens alle normen.
             </p>
-
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="gradient-primary text-white px-8 py-4 text-lg">
+              <Button asChild size="lg" className="gradient-primary text-white px-8 py-4 text-lg font-bold rounded-xl shadow-xl hover:scale-105 transition-all duration-300">
                 <Link to="/offerte">Gratis Offerte Aanvragen</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-construction-dark px-8 py-4 text-lg">
-                <a href="tel:0639580341">Bellen: 06-39 58 03 41</a>
+              <Button asChild size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-lg font-bold rounded-xl">
+                <a href="tel:0639580341">
+                  <Phone className="mr-2 h-5 w-5" />
+                  06-39 58 03 41
+                </a>
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Showcase Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Professioneel <span className="text-primary">Gereedschap</span>
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Specialistische boren en gereedschappen voor het vakkundig plaatsen van RVS renovatieankers.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="/lovable-uploads/17e490e9-7b20-456d-86e0-975804e3d4a8.png"
+                alt="RVS renovatieanker boor - professioneel gereedschap voor ankerplaatsing"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div className="text-center mt-6">
+              <p className="text-muted-foreground">
+                <strong>Specialistisch Gereedschap:</strong> Professionele boren speciaal ontworpen voor het nauwkeurig plaatsen van RVS renovatieankers 
+                volgens BRL 2810 normen.
+              </p>
             </div>
           </div>
         </div>
@@ -127,15 +157,20 @@ const RenovatieankersPage = () => {
             </div>
 
             <div className="relative">
-              <img 
-                src="/lovable-uploads/17e490e9-7b20-456d-86e0-975804e3d4a8.png"
-                alt="RVS renovatieanker boor - professioneel gereedschap voor ankerplaatsing"
-                className="w-full h-auto object-cover rounded-2xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-2xl"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <p className="text-lg font-semibold mb-2">Professioneel Gereedschap</p>
-                <p className="text-sm text-gray-200">Specialistische boren voor RVS ankerplaatsing</p>
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8 border border-primary/10">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-2xl font-bold text-foreground mb-2">
+                      Spouwventilatie
+                    </h3>
+                    <p className="text-muted-foreground">
+                      De spouw zorgt voor ventilatie waardoor vocht weinig kans krijgt om ankers aan te tasten.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -367,7 +402,57 @@ const RenovatieankersPage = () => {
         </div>
       </section>
 
-      <AboutFooter />
+      {/* Footer */}
+      <footer className="bg-construction-dark text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
+            <div className="md:col-span-2">
+              <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">SMB</span>
+                </div>
+                <span className="font-display font-bold text-xl">SMB Geveltechniek</span>
+              </div>
+              <p className="text-gray-300 leading-relaxed mb-4">
+                Uw betrouwbare partner voor professionele geveltechnieken in Noord-Holland. 
+                Met 25+ jaar ervaring denken wij altijd in oplossingen.
+              </p>
+              <p className="text-gray-400 text-sm">
+                Werkgebied: Van Den Helder tot Heemstede - Alkmaar, Heiloo, Castricum, Bergen, Broek op Langedijk en omgeving.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold text-lg mb-4">Diensten</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li>Nieuwbouw metselwerk</li>
+                <li>Gevelrenovatie</li>
+                <li>Renovatieankers (RVS)</li>
+                <li>Scheurherstel</li>
+                <li>Gevelreiniging</li>
+                <li>Voegen & pointeren</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold text-lg mb-4">Contact</h4>
+              <div className="space-y-2 text-gray-300">
+                <p>06-39 58 03 41</p>
+                <p>info@smbgeveltechniek.nl</p>
+                <p>Tjalkstraat 25</p>
+                <p>1826 DT Alkmaar</p>
+                <p className="text-sm text-gray-400 mt-4">
+                  Gecertificeerd voor renovatieankers en scheurherstel
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 SMB Geveltechniek. Alle rechten voorbehouden. | 25+ jaar ervaring sinds 1999</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -409,9 +408,11 @@ const RenovatieankersPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-left">
             <div className="md:col-span-2">
               <div className="flex items-center justify-center md:justify-start space-x-2 mb-4">
-                <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">SMB</span>
-                </div>
+                <img 
+                  src="/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png" 
+                  alt="SMB Geveltechniek Logo" 
+                  className="h-8 w-auto"
+                />
                 <span className="font-display font-bold text-xl">SMB Geveltechniek</span>
               </div>
               <p className="text-gray-300 leading-relaxed mb-4">

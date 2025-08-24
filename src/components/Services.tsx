@@ -1,4 +1,3 @@
-
 import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight, Send, Ruler, CheckCircle, Play, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -36,16 +35,33 @@ const Services = () => {
     features: ["Grondige inspectie", "Plan van aanpak", "Gecertificeerd herstel"],
     href: "/scheurherstel"
   }];
-  
   const additionalServices = ["Metselwerk van verschillende verbanden", "Traditioneel voegen en pointeren", "Gevelreiniging en impregneren", "Graffiti verwijdering", "Monumentenzorg"];
-  
-  const processSteps = [
-    { number: "01", title: "Contact opnemen", description: "Bel of mail ons voor een vrijblijvende afspraak" },
-    { number: "02", title: "Locatie bezoek", description: "Wij komen langs voor een grondige inspectie" },
-    { number: "03", title: "Offerte opstellen", description: "U ontvangt een heldere, gedetailleerde offerte" },
-    { number: "04", title: "Project uitvoeren", description: "Vakkundige uitvoering volgens planning" },
-    { number: "05", title: "Oplevering", description: "Controle en overdracht van het eindresultaat" }
-  ];
+  const processSteps = [{
+    icon: Send,
+    title: "Stuur een verzoek",
+    description: "Hier legt u uit welke service u nodig heeft.",
+    detailedDescription: "Neem contact met ons op en beschrijf welke geveltechnische werkzaamheden u nodig heeft. Wij luisteren naar uw wensen en geven advies over de beste aanpak."
+  }, {
+    icon: Ruler,
+    title: "Voer metingen uit",
+    description: "Zodra u uw verzoek naar ons heeft verzonden, nemen wij contact met u op.",
+    detailedDescription: "Wij beoordelen verschillende zaken, zoals de locatie, de projectomvang en de hoeveelheid voorbereidend werk. Ook zal het team de exacte afmetingen van uw project opnemen."
+  }, {
+    icon: CheckCircle,
+    title: "Keur het budget goed",
+    description: "Nadat we de site hebben bezocht, zullen we een offerte opstellen.",
+    detailedDescription: "Wij zorgen ervoor dat we een nauwkeurige offerte opmaken op basis van de omvang van uw project. Bovendien zijn we transparant en houden we geen prijzen achter."
+  }, {
+    icon: Play,
+    title: "Start het project",
+    description: "Zodra u onze offerte heeft ontvangen en goedkeurt, starten we het project.",
+    detailedDescription: "Wij houden u van tijd tot tijd op de hoogte van de voortgang. Ons doel is om u bij elke stap van uw project te betrekken."
+  }, {
+    icon: Clock,
+    title: "Voltooi op tijd",
+    description: "Wanneer we het project starten, maken we er prioriteit van om het op tijd af te ronden.",
+    detailedDescription: "We begrijpen hoe belangrijk het is om deadlines te halen. U kunt erop vertrouwen dat wij het harde werk en de toewijding leveren die nodig zijn."
+  }];
 
   return (
     <section id="services" className="py-8 sm:py-12 md:py-16 lg:py-24 xl:py-32 bg-background relative overflow-hidden">
@@ -91,55 +107,100 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Simple Process Section */}
-        <div className="mb-8 sm:mb-12 md:mb-16">
-          <div className="text-center mb-8 sm:mb-12">
-            <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Hoe het werkt
-            </h3>
-            <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto">
-              Een transparant proces in 5 eenvoudige stappen
-            </p>
-          </div>
+        {/* Redesigned Process Section - Mobile First */}
+        <div className="py-8 sm:py-12 md:py-16 lg:py-20 bg-background">
+          <div className="container mx-auto px-3 sm:px-4">
+            {/* Section Header */}
+            <div className="text-center mb-8 sm:mb-12 md:mb-16">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
+                Hoe het <span className="text-gradient">werkt</span>
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed px-2 max-w-2xl mx-auto">
+                Van eerste contact tot oplevering: een transparant proces in 5 stappen
+              </p>
+            </div>
 
-          {/* Mobile: Vertical List */}
-          <div className="block md:hidden space-y-4">
-            {processSteps.map((step, index) => (
-              <div key={index} className="flex gap-4 p-4 bg-card/50 rounded-lg border border-border/20">
-                <div className="flex-shrink-0">
-                  <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
-                    {step.number}
+            {/* Mobile-First Process Steps */}
+            <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-5 md:gap-4 lg:gap-6">
+              {processSteps.map((step, index) => (
+                <div key={index} className="relative group">
+                  {/* Mobile Layout */}
+                  <div className="md:hidden bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="relative flex-shrink-0">
+                        {/* Modern gradient circle with icon */}
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary via-primary to-primary/80 rounded-2xl flex items-center justify-center shadow-lg">
+                          <step.icon className="w-8 h-8 text-white" />
+                        </div>
+                        {/* Step number badge */}
+                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                          {index + 1}
+                        </div>
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-display text-lg font-bold text-foreground mb-2 leading-tight">
+                          {step.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Expandable details */}
+                    <div className="bg-muted/30 rounded-xl p-4">
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        {step.detailedDescription}
+                      </p>
+                    </div>
+                    
+                    {/* Progress indicator for mobile */}
+                    {index < processSteps.length - 1 && (
+                      <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-0.5 h-6 bg-gradient-to-b from-primary/50 to-transparent"></div>
+                    )}
+                  </div>
+
+                  {/* Desktop Layout */}
+                  <div className="hidden md:block text-center">
+                    {/* Desktop step circle */}
+                    <div className="relative mx-auto mb-4 group">
+                      <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-primary via-primary to-primary/80 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 mx-auto">
+                        <step.icon className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+                      </div>
+                      {/* Step number badge */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-sm lg:text-base shadow-lg">
+                        {index + 1}
+                      </div>
+                      
+                      {/* Connecting arrow */}
+                      {index < processSteps.length - 1 && (
+                        <div className="absolute top-1/2 -right-2 lg:-right-3 transform -translate-y-1/2 translate-x-full">
+                          <ArrowRight className="w-6 h-6 lg:w-8 lg:h-8 text-primary/60" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Desktop content */}
+                    <div className="space-y-3">
+                      <h3 className="font-display text-base lg:text-lg font-bold text-foreground leading-tight">
+                        {step.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {step.description}
+                      </p>
+                      
+                      {/* Hover details */}
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-card/90 backdrop-blur-sm border border-border/50 rounded-xl p-4 mt-3">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {step.detailedDescription}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">{step.title}</h4>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Desktop: Horizontal Flow */}
-          <div className="hidden md:flex justify-between items-center max-w-5xl mx-auto">
-            {processSteps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center relative">
-                {/* Connecting Line */}
-                {index < processSteps.length - 1 && (
-                  <div className="absolute top-5 left-full w-full h-px bg-border/30 z-0"></div>
-                )}
-                
-                {/* Step Circle */}
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-3 relative z-10">
-                  {step.number}
-                </div>
-                
-                {/* Step Content */}
-                <div className="max-w-[140px]">
-                  <h4 className="font-semibold text-foreground mb-2 text-sm">{step.title}</h4>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{step.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 

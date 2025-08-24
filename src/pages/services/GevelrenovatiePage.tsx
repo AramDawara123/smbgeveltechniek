@@ -1,10 +1,10 @@
-
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, Clock, Award, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import AboutFooter from "@/components/about/AboutFooter";
 
 const GevelrenovatiePage = () => {
   const benefits = [
@@ -144,6 +144,8 @@ const GevelrenovatiePage = () => {
           </div>
         </div>
       </section>
+
+      <AboutFooter />
     </div>
   );
 };

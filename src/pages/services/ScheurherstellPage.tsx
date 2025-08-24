@@ -5,10 +5,11 @@ import { AlertTriangle, Shield, CheckCircle, Phone, Thermometer, Wrench, Home, E
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import AboutFooter from "@/components/about/AboutFooter";
+
 const ScheurherstellPage = () => {
   const oorzaken = [{
     icon: Thermometer,
-    title: "Temperatuurverschillen",
+    title: "Temperatuurverschillen", 
     description: "Grote temperatuurschommelingen van -10°C tot warme zomerdagen zorgen voor krimp en uitzetting van de gevel."
   }, {
     icon: Wrench,
@@ -19,12 +20,13 @@ const ScheurherstellPage = () => {
     title: "Funderingsproblemen",
     description: "Trillingen van zwaar verkeer, ontwerpfouten en bomen die te dicht bij het gebouw staan."
   }];
+
   const werkwijze = [{
     step: "1",
     title: "Gevelinspectie",
     description: "Oppervlakkige inspectie bij kleine oneffenheden, of een uitgebreid rapport door een expert bij grotere uitdagingen."
   }, {
-    step: "2",
+    step: "2", 
     title: "Plan van Aanpak",
     description: "U krijgt een duidelijke uitleg van ons plan, zodat u precies weet wat er met uw gevel gaat gebeuren."
   }, {
@@ -32,8 +34,11 @@ const ScheurherstellPage = () => {
     title: "Offerte & Uitvoering",
     description: "Een transparante offerte en bij goedkeuring de professionele uitvoering van de werkzaamheden."
   }];
+
   const materialen = ["Spiraalvormige RVS ankers in verschillende hardheden en diktes", "Speciaal samengestelde mortel voor duurzame verwerking", "Op kleur gemengde steenpasta voor reparatie kleine scheurtjes", "Vervanging van aangetaste stenen indien noodzakelijk", "Professionele afwerking van voegen"];
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-background">
       <Helmet>
         <title>Scheurherstel Gevel Noord-Holland | SMB Geveltechniek | Gecertificeerd</title>
         <meta name="description" content="Help! Scheuren in de muur? SMB Geveltechniek helpt. ✓ Gecertificeerde specialisten ✓ Grondige gevelinspectie ✓ Beste materialen ✓ Garantie op werk. Bel direct!" />
@@ -44,19 +49,17 @@ const ScheurherstellPage = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-32 bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative py-32 min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 mt-20">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
+          <div className="max-w-4xl mx-auto text-center">
             
-            
-            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight text-foreground">
               Scheurherstel Gevel
               <br />
               <span className="text-gradient">Noord-Holland</span>
             </h1>
             
-            <p className="text-xl text-gray-200 mb-8 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
               Een scheur in de muur kan heel onschuldig zijn, maar door het op tijd te laten inspecteren en te laten repareren kunt u een hoop narigheid voorkomen.
             </p>
 
@@ -64,7 +67,7 @@ const ScheurherstellPage = () => {
               <Button asChild size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg">
                 <a href="tel:0639580341">Direct Bellen: 06-39 58 03 41</a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="bg-white text-black hover:bg-gray-100 hover:text-black px-8 py-4 text-lg">
+              <Button asChild variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-lg">
                 <Link to="/offerte">Gratis Gevelinspectie</Link>
               </Button>
             </div>
@@ -246,6 +249,8 @@ const ScheurherstellPage = () => {
       </section>
 
       <AboutFooter />
-    </div>;
+    </div>
+  );
 };
+
 export default ScheurherstellPage;

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -31,7 +30,7 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="container mx-auto px-4 max-w-[1400px] w-full overflow-hidden">
+      <div className="container mx-auto px-4 max-w-[1400px] w-full overflow-x-hidden">
         {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -56,11 +55,9 @@ const Navigation = () => {
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
-                    className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2" 
-                    align="center"
-                    sideOffset={12}
-                    avoidCollisions={true}
-                    collisionPadding={20}
+                    className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2 max-w-full"
+                    align="start"
+                    sideOffset={8}
                   >
                     {item.dropdownItems?.map((dropdownItem) => (
                       <DropdownMenuItem key={dropdownItem.label} asChild className="focus:bg-gray-100 rounded-md">

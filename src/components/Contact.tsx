@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,43 +6,37 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: ""
   });
-
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Telefoon",
-      content: "06-39 58 03 41",
-      subtitle: "Ma-Vr 08:00 - 18:00"
-    },
-    {
-      icon: Mail,
-      title: "E-mail",
-      content: "info@smbgeveltechniek.nl",
-      subtitle: "We reageren binnen 24 uur"
-    },
-    {
-      icon: MapPin,
-      title: "Locatie",
-      content: "Tjalkstraat 25, 1826 DT Alkmaar",
-      subtitle: "Noord-Holland"
-    },
-    {
-      icon: Clock,
-      title: "Spoeddienst",
-      content: "24/7 Beschikbaar",
-      subtitle: "Voor acute reparaties"
-    }
-  ];
-
+  const contactInfo = [{
+    icon: Phone,
+    title: "Telefoon",
+    content: "06-39 58 03 41",
+    subtitle: "Ma-Vr 08:00 - 18:00"
+  }, {
+    icon: Mail,
+    title: "E-mail",
+    content: "info@smbgeveltechniek.nl",
+    subtitle: "We reageren binnen 24 uur"
+  }, {
+    icon: MapPin,
+    title: "Locatie",
+    content: "Tjalkstraat 25, 1826 DT Alkmaar",
+    subtitle: "Noord-Holland"
+  }, {
+    icon: Clock,
+    title: "Spoeddienst",
+    content: "24/7 Beschikbaar",
+    subtitle: "Voor acute reparaties"
+  }];
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -57,16 +50,13 @@ const Contact = () => {
       message: ""
     });
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section - Same height as About */}
       <section className="relative py-32 min-h-[600px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
@@ -79,11 +69,10 @@ const Contact = () => {
             </h1>
             
             <p className="text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{
-              animationDelay: '0.2s'
-            }}>
-              Neem vrijblijvend contact met ons op voor een gratis offerte of advies. 
-              Onze specialisten staan voor u klaar
-            </p>
+            animationDelay: '0.2s'
+          }}>Neem vrijblijvend contact met ons op voor een gratis offerte of advies.
+
+          </p>
           </div>
         </div>
       </section>
@@ -170,8 +159,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;

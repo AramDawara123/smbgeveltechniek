@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const SEOOptimizedHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative py-32 min-h-[600px] overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -22,7 +22,7 @@ const SEOOptimizedHero = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full opacity-50 blur-3xl"></div>
       
       {/* Content */}
-      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 py-8 mt-20 sm:mt-16 md:mt-12">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center text-white">
           {/* Trust Indicators */}
           

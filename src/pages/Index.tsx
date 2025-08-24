@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import SEOOptimizedHero from "@/components/SEOOptimizedHero";
 import Services from "@/components/Services";
@@ -63,7 +62,17 @@ const Index = () => {
       </Helmet>
 
       <Navigation />
-      <SEOOptimizedHero />
+
+      {/* Wrapper toegevoegd zodat de hoogte gelijk is aan AboutHero */}
+      <section
+        id="home"
+        className="relative py-32 min-h-[600px] flex items-center justify-center overflow-hidden"
+      >
+        <div className="w-full">
+          <SEOOptimizedHero />
+        </div>
+      </section>
+
       <Services />
       <ProjectShowcase />
       <About />

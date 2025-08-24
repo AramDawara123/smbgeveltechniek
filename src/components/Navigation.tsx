@@ -31,7 +31,7 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="container mx-auto px-4 max-w-[1400px] w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 max-w-[1400px] w-full overflow-hidden">
         {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -56,17 +56,17 @@ const Navigation = () => {
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
-                    className="z-[99999] bg-white/98 backdrop-blur-md border border-gray-200/50 shadow-xl rounded-lg w-52 p-2" 
+                    className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2" 
                     align="center"
                     sideOffset={12}
                     avoidCollisions={true}
                     collisionPadding={20}
                   >
                     {item.dropdownItems?.map((dropdownItem) => (
-                      <DropdownMenuItem key={dropdownItem.label} asChild className="focus:bg-gray-100/80 rounded-md">
+                      <DropdownMenuItem key={dropdownItem.label} asChild className="focus:bg-gray-100 rounded-md">
                         <Link 
                           to={dropdownItem.href}
-                          className="text-gray-700 hover:text-primary hover:bg-gray-100/60 transition-all duration-200 cursor-pointer flex items-center px-3 py-3 text-sm font-medium w-full rounded-md"
+                          className="text-gray-700 hover:text-primary hover:bg-gray-100 transition-all duration-200 cursor-pointer flex items-center px-3 py-3 text-sm font-medium w-full rounded-md"
                         >
                           {dropdownItem.label}
                         </Link>

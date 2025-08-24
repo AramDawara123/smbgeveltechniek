@@ -1,10 +1,8 @@
-
 import { Building2, Wrench, Anchor, AlertTriangle, ArrowRight, Send, Ruler, CheckCircle, Play, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "./services/ServiceCard";
 import ProcessStep from "./services/ProcessStep";
 import BenefitsGrid from "./services/BenefitsGrid";
-
 const Services = () => {
   const services = [{
     icon: Building2,
@@ -31,9 +29,7 @@ const Services = () => {
     description: "Scheuren in de muur? Voorkom narigheid! Onze reparaties maken gebruik van hoogwaardige materialen.",
     features: ["Grondige inspectie", "Plan van aanpak", "Gecertificeerd herstel"]
   }];
-
   const additionalServices = ["Metselwerk van verschillende verbanden", "Traditioneel voegen en pointeren", "Gevelreiniging en impregneren", "Graffiti verwijdering", "Monumentenzorg"];
-
   const processSteps = [{
     icon: Send,
     title: "Stuur een verzoek",
@@ -60,9 +56,7 @@ const Services = () => {
     description: "Wanneer we het project starten, maken we er prioriteit van om het op tijd af te ronden.",
     detailedDescription: "We begrijpen hoe belangrijk het is om deadlines te halen. U kunt erop vertrouwen dat wij het harde werk en de toewijding leveren die nodig zijn."
   }];
-
-  return (
-    <section id="services" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+  return <section id="services" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full opacity-50 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-48 h-48 md:w-80 md:h-80 bg-gradient-to-tr from-primary/5 to-primary/10 rounded-full opacity-50 blur-3xl"></div>
@@ -86,11 +80,9 @@ const Services = () => {
 
         {/* Services Grid - Uniform heights */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 mb-12 md:mb-16">
-          {services.map((service, index) => (
-            <div key={service.title} className="h-full">
+          {services.map((service, index) => <div key={service.title} className="h-full">
               <ServiceCard {...service} index={index} />
-            </div>
-          ))}
+            </div>)}
         </div>
 
         {/* Additional Services - Fixed height */}
@@ -99,12 +91,10 @@ const Services = () => {
             Wat wij nog meer doen
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="flex items-center gap-3 p-3 md:p-4 bg-background/50 rounded-lg md:rounded-xl h-16">
+            {additionalServices.map((service, index) => <div key={index} className="flex items-center gap-3 p-3 md:p-4 bg-background/50 rounded-lg md:rounded-xl h-16">
                 <div className="w-2 h-2 md:w-3 md:h-3 bg-gradient-to-r from-primary to-primary/80 rounded-full flex-shrink-0"></div>
                 <span className="text-foreground font-medium text-sm md:text-base">{service}</span>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
@@ -113,9 +103,7 @@ const Services = () => {
           <div className="container mx-auto px-4">
             {/* Section Header - Fixed height */}
             <div className="max-w-4xl mx-auto text-center mb-16 min-h-[200px] flex flex-col justify-center">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                Onze werkwijze
-              </div>
+              
               <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-8 leading-tight">
                 Hoe het <span className="text-gradient">werkt</span>
               </h2>
@@ -130,22 +118,13 @@ const Services = () => {
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-primary/50 to-primary/20 hidden md:block"></div>
               
               <div className="space-y-24">
-                {processSteps.map((step, index) => (
-                  <div 
-                    key={index}
-                    className={`relative flex items-center ${
-                      index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                    } flex-col md:gap-12 gap-8 animate-fade-in min-h-[300px]`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
+                {processSteps.map((step, index) => <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col md:gap-12 gap-8 animate-fade-in min-h-[300px]`} style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                     {/* Content - Fixed dimensions */}
                     <div className="flex-1 md:max-w-md h-full flex items-center">
-                      <div className={`p-8 bg-background border border-border/50 rounded-2xl shadow-sm hover:construction-shadow transition-all duration-300 hover:-translate-y-1 w-full min-h-[280px] flex flex-col justify-center ${
-                        index % 2 === 0 ? 'md:text-right' : 'md:text-left'
-                      } text-center`}>
-                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-primary mb-4 ${
-                          index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'
-                        } mx-auto`}>
+                      <div className={`p-8 bg-background border border-border/50 rounded-2xl shadow-sm hover:construction-shadow transition-all duration-300 hover:-translate-y-1 w-full min-h-[280px] flex flex-col justify-center ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center`}>
+                        <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl gradient-primary mb-4 ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'} mx-auto`}>
                           <step.icon className="w-6 h-6 text-white" />
                         </div>
                         <h3 className="font-display text-xl font-bold text-foreground mb-3">
@@ -166,15 +145,12 @@ const Services = () => {
                         <span className="text-white font-bold text-lg">{index + 1}</span>
                       </div>
                       {/* Connector line for mobile */}
-                      {index < processSteps.length - 1 && (
-                        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-24 bg-gradient-to-b from-primary/50 to-primary/20 md:hidden"></div>
-                      )}
+                      {index < processSteps.length - 1 && <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-24 bg-gradient-to-b from-primary/50 to-primary/20 md:hidden"></div>}
                     </div>
 
                     {/* Spacer for desktop layout */}
                     <div className="flex-1 md:max-w-md hidden md:block"></div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -193,8 +169,6 @@ const Services = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Services;

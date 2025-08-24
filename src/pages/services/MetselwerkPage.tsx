@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -71,6 +72,36 @@ const MetselwerkPage = () => {
                   06-39 58 03 41
                 </a>
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Showcase Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Vakmanschap in <span className="text-primary">Actie</span>
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Een voorbeeld van ons recente metselwerk - moderne woninguitbreiding met hoogwaardige bakstenen en professionele afwerking.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <img 
+                src="/lovable-uploads/b360fc74-035a-4d4b-892a-fc10e9755d56.png" 
+                alt="Modern metselwerk project - woninguitbreiding met bakstenen gevel en grote ramen"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div className="text-center mt-6">
+              <p className="text-muted-foreground">
+                <strong>Recent Project:</strong> Woninguitbreiding met traditioneel metselwerk en moderne glaspartijen - 
+                een perfecte combinatie van vakmanschap en hedendaags design.
+              </p>
             </div>
           </div>
         </div>

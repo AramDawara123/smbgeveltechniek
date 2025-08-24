@@ -2,9 +2,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import ImageModal from "@/components/ui/image-modal";
 
 const ModernProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   
   // Animation hooks for stats
   const projectsCount = useCountAnimation({ end: 150, suffix: "+" });
@@ -16,44 +26,59 @@ const ModernProjects = () => {
     {
       id: 1,
       image: "/lovable-uploads/fc711684-8a80-49b5-b184-19609995bd41.png",
+      alt: "Project 1"
     },
     {
       id: 2,
       image: "/lovable-uploads/0d9254c6-335e-4a52-9f81-65b316ddb5cd.png",
+      alt: "Project 2"
     },
     {
       id: 3,
       image: "/lovable-uploads/8f95b7ae-3490-4862-9558-c1a4be4eabde.png",
+      alt: "Project 3"
     },
     {
       id: 4,
       image: "/lovable-uploads/d19f88ed-78c0-40b1-8152-5db0ae9c9762.png",
+      alt: "Project 4"
     },
     {
       id: 5,
       image: "/lovable-uploads/07abfffe-f53a-4f3e-b336-2da01c426550.png",
+      alt: "Project 5"
     },
     {
       id: 6,
       image: "/lovable-uploads/2b60a42a-bd4b-4d02-87de-a5ef2c7899cf.png",
+      alt: "Project 6"
     },
     {
       id: 7,
       image: "/lovable-uploads/05bed40a-d094-42df-ad9e-225bb2992f7a.png",
+      alt: "Project 7"
     },
     {
       id: 8,
       image: "/lovable-uploads/6dd99701-5e85-4184-a91f-179f75af4dfa.png",
+      alt: "Project 8"
     },
     {
       id: 9,
       image: "/lovable-uploads/bdf44d7c-06d7-4735-948e-e6eae1be0a5c.png",
+      alt: "Project 9"
     },
     {
       id: 10,
       image: "/lovable-uploads/2379fd3a-90bb-4195-8c79-6711d24b21f7.png",
+      alt: "Project 10"
     }
   ];
+
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+    setModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
@@ -107,28 +132,40 @@ const ModernProjects = () => {
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* Projects Carousel */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {projects.map((project, index) => (
-              <Card 
-                key={project.id} 
-                className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-500 bg-white hover:-translate-y-2 rounded-xl"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={`Project ${project.id}`}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-              </Card>
-            ))}
-          </div>
+          <Carousel className="max-w-7xl mx-auto">
+            <CarouselContent className="-ml-4">
+              {projects.map((project, index) => (
+                <CarouselItem key={project.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card 
+                    className="group overflow-hidden border-0 shadow-md hover:shadow-xl transition-all duration-500 bg-white hover:-translate-y-2 rounded-xl cursor-pointer"
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <div className="relative overflow-hidden">
+                      <img 
+                        src={project.image} 
+                        alt={project.alt}
+                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
+
+      <ImageModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        images={projects.map(project => ({ src: project.image, alt: project.alt }))}
+        initialIndex={selectedImageIndex}
+      />
     </div>
   );
 };

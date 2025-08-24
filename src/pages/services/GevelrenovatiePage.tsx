@@ -72,7 +72,7 @@ const GevelrenovatiePage = () => {
               <Button asChild size="lg" className="gradient-primary text-white px-8 py-4 text-lg">
                 <Link to="/offerte">Gratis Offerte Aanvragen</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-construction-dark px-8 py-4 text-lg">
+              <Button asChild variant="outline" size="lg" className="bg-white text-black hover:bg-gray-100 hover:text-black px-8 py-4 text-lg">
                 <a href="tel:0639580341">Direct Bellen: 06-39 58 03 41</a>
               </Button>
             </div>

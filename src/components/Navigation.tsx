@@ -1,4 +1,5 @@
 
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -7,6 +8,7 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
   const serviceItems = [
     { label: "Metselwerk", href: "/metselwerk" },
@@ -119,7 +121,47 @@ const Navigation = () => {
           <div className="lg:hidden bg-white border-t border-gray-200 animate-fade-in">
             <div className="px-4 py-6">
               <ul className="space-y-4">
-                {otherNavItems.map((item) => (
+                {/* Home first, same order as desktop */}
+                <li>
+                  <Link
+                    to="/"
+                    className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                </li>
+                
+                {/* Services dropdown in mobile, same position as desktop */}
+                <li>
+                  <div 
+                    className="flex items-center justify-between cursor-pointer"
+                    onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                  >
+                    <span className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2">
+                      Services
+                    </span>
+                    <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                  </div>
+                  {isMobileServicesOpen && (
+                    <ul className="ml-4 mt-2 space-y-2 border-l-2 border-gray-100 pl-4">
+                      {serviceItems.map((item) => (
+                        <li key={item.label}>
+                          <Link
+                            to={item.href}
+                            className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium text-lg py-1 block"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+
+                {/* Rest of navigation items in same order */}
+                {otherNavItems.slice(1).map((item) => (
                   <li key={item.label}>
                     <Link
                       to={item.href}
@@ -130,23 +172,9 @@ const Navigation = () => {
                     </Link>
                   </li>
                 ))}
-                <li className="border-t pt-4">
-                  <div className="text-gray-800 font-semibold text-xl mb-2">Services</div>
-                  <ul className="ml-4 space-y-2">
-                    {serviceItems.map((item) => (
-                      <li key={item.label}>
-                        <Link
-                          to={item.href}
-                          className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium text-lg py-1 block"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
               </ul>
+              
+              {/* CTA Button in mobile */}
               <Button asChild
                 variant="default" 
                 className="w-full gradient-primary text-white mt-6 py-4 font-bold text-lg rounded-xl construction-shadow border-0"
@@ -163,3 +191,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+

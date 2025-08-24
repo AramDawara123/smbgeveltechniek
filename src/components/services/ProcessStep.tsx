@@ -46,21 +46,23 @@ const ProcessStep = ({ icon: Icon, title, description, detailedDescription, inde
 
       {/* Content */}
       <div className={`flex-1 ${isEven ? 'lg:text-left' : 'lg:text-right'} text-center max-w-2xl`}>
-        <div className="space-y-4">
+        <div className="space-y-6">
           <h4 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
             {title}
           </h4>
           
-          <div className="space-y-3">
+          <div className="space-y-4">
             <p className="text-base md:text-lg text-primary font-semibold leading-relaxed">
               {description}
             </p>
             
             <div className={`w-16 h-1 bg-gradient-to-r from-primary to-primary/80 rounded-full ${isEven ? 'mx-auto lg:mx-0' : 'mx-auto lg:ml-auto lg:mr-0'}`} />
             
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              {detailedDescription}
-            </p>
+            <div className="bg-muted/50 p-6 rounded-xl border border-border/50">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                {detailedDescription}
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -67,22 +67,28 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 auto-rows-fr items-stretch">
                 {contactInfo.map((info, index) => (
                   <Card 
                     key={info.title} 
-                    className="group hover:construction-shadow transition-all duration-300 hover:-translate-y-1" 
+                    className="group hover:construction-shadow transition-all duration-300 hover:-translate-y-1 h-full flex flex-col" 
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
+                    <CardContent className="p-6 h-full flex">
+                      <div className="flex items-start gap-4 w-full">
                         <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                           <info.icon className="w-6 h-6 text-white" />
                         </div>
-                        <div>
-                          <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                          <p className="text-sm text-muted-foreground mb-1">{info.content}</p>
-                          <p className="text-xs text-muted-foreground">{info.subtitle}</p>
+                        <div className="flex-1 flex flex-col">
+                          <h3 className="font-semibold text-foreground mb-1 min-h-[1.5rem]">
+                            {info.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground mb-1 min-h-[1.25rem]">
+                            {info.content}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-auto">
+                            {info.subtitle}
+                          </p>
                         </div>
                       </div>
                     </CardContent>
@@ -92,7 +98,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <Card className="lg:col-span-2 construction-shadow">
+            <Card className="lg:col-span-2 construction-shadow h-full">
               <CardContent className="p-8">
                 <h3 className="font-display text-2xl font-bold text-foreground mb-6">
                   Vraag een gratis offerte aan

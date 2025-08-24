@@ -1,12 +1,21 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const location = useLocation();
+
+  // Close all menus when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+    setIsMobileServicesOpen(false);
+  }, [location.pathname]);
 
   const serviceItems = [
     { label: "Metselwerk", href: "/metselwerk" },
@@ -50,7 +59,7 @@ const Navigation = () => {
               <img 
                 src="/lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png" 
                 alt="SMB Geveltechniek Logo" 
-                className="h-12 w-auto transform transition-transform duration-300 group-hover:scale-105"
+                className="h-12 w-auto transform transition-transform duration-200 group-hover:scale-105"
               />
             </Link>
 
@@ -61,10 +70,10 @@ const Navigation = () => {
                   <li key={item.label}>
                     <Link
                       to={item.href}
-                      className="text-gray-700 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap"
+                      className="text-gray-700 hover:text-primary transition-colors duration-200 font-semibold text-lg relative group whitespace-nowrap"
                     >
                       {item.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full rounded-full"></span>
                     </Link>
                   </li>
                 ))}
@@ -72,17 +81,17 @@ const Navigation = () => {
                 {/* Services Dropdown */}
                 <li className="relative">
                   <div 
-                    className="text-gray-700 hover:text-primary transition-all duration-300 font-semibold text-lg relative whitespace-nowrap cursor-pointer flex items-center group"
+                    className="text-gray-700 hover:text-primary transition-colors duration-200 font-semibold text-lg relative whitespace-nowrap cursor-pointer flex items-center group"
                     onClick={handleServicesClick}
                   >
                     Services
                     <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full rounded-full"></span>
                   </div>
                   
                   {/* Dropdown Menu */}
                   {isServicesOpen && (
-                    <ul className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    <ul className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-fade-in">
                       {serviceItems.map((item) => (
                         <li key={item.label}>
                           <Link
@@ -102,10 +111,10 @@ const Navigation = () => {
                   <li key={item.label}>
                     <Link
                       to={item.href}
-                      className="text-gray-700 hover:text-primary transition-all duration-300 font-semibold text-lg relative group whitespace-nowrap"
+                      className="text-gray-700 hover:text-primary transition-colors duration-200 font-semibold text-lg relative group whitespace-nowrap"
                     >
                       {item.label}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-200 group-hover:w-full rounded-full"></span>
                     </Link>
                   </li>
                 ))}
@@ -116,7 +125,7 @@ const Navigation = () => {
             <div className="hidden lg:flex">
               <Button asChild
                 variant="default" 
-                className="gradient-primary text-white hover:scale-105 transition-all duration-300 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0 whitespace-nowrap"
+                className="gradient-primary text-white hover:scale-105 transition-transform duration-200 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0 whitespace-nowrap"
               >
                 <Link to="/offerte">Offerte Aanvragen</Link>
               </Button>
@@ -124,7 +133,7 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-3 text-gray-700 hover:text-primary transition-colors duration-300 rounded-xl hover:bg-gray-100"
+              className="lg:hidden p-3 text-gray-700 hover:text-primary transition-colors duration-200 rounded-xl hover:bg-gray-100"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -140,7 +149,7 @@ const Navigation = () => {
                   <li>
                     <Link
                       to="/"
-                      className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
+                      className="text-gray-700 hover:text-primary transition-colors duration-200 font-semibold text-xl py-2 block"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Home
@@ -153,18 +162,18 @@ const Navigation = () => {
                       className="flex items-center justify-between cursor-pointer"
                       onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                     >
-                      <span className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2">
+                      <span className="text-gray-700 hover:text-primary transition-colors duration-200 font-semibold text-xl py-2">
                         Services
                       </span>
                       <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
                     </div>
                     {isMobileServicesOpen && (
-                      <ul className="ml-4 mt-2 space-y-2 border-l-2 border-gray-100 pl-4">
+                      <ul className="ml-4 mt-2 space-y-2 border-l-2 border-gray-100 pl-4 animate-fade-in">
                         {serviceItems.map((item) => (
                           <li key={item.label}>
                             <Link
                               to={item.href}
-                              className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium text-lg py-1 block"
+                              className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium text-lg py-1 block"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {item.label}
@@ -180,7 +189,7 @@ const Navigation = () => {
                     <li key={item.label}>
                       <Link
                         to={item.href}
-                        className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
+                        className="text-gray-700 hover:text-primary transition-colors duration-200 font-semibold text-xl py-2 block"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}

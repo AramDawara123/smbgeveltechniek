@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
@@ -46,13 +45,6 @@ const MetselwerkPage = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 mt-20">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{
-            backgroundImage: "url('/lovable-uploads/765079dc-be50-4289-89e6-38a44c8678d0.png')"
-          }}
-        ></div>
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <div className="max-w-4xl mx-auto">

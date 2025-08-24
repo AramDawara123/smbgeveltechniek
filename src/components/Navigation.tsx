@@ -30,7 +30,8 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-      <div className="container mx-auto px-4 max-w-[1400px] w-full overflow-x-hidden">
+      {/* Container zonder overflow-x-hidden */}
+      <div className="container mx-auto px-4 max-w-full w-full">
         {/* bovenste rij */}
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -55,7 +56,7 @@ const Navigation = () => {
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
-                    className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2 max-w-full mt-2"
+                    className="z-[99999] bg-white border border-gray-200 shadow-xl rounded-lg w-52 p-2 mt-2"
                     align="start"
                     sideOffset={8}
                   >
@@ -106,13 +107,15 @@ const Navigation = () => {
               {navItems.map((item) => 
                 !item.hasDropdown ? (
                   <div key={item.label}>
-                    <Link
-                      to={item.href}
-                      className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
+                    <div>
+                      <Link
+                        to={item.href}
+                        className="text-gray-700 hover:text-primary transition-colors duration-300 font-semibold text-xl py-2 block"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    </div>
                   </div>
                 ) : (
                   <div key={item.label} className="space-y-2">

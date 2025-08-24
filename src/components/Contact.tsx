@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -7,46 +6,63 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
-
 const Contact = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: ""
   });
-
-  const contactInfo = [
-    { icon: Phone, title: "Telefoon", content: "06-39 58 03 41", subtitle: "Ma-Vr 08:00 - 18:00" },
-    { icon: Mail, title: "E-mail", content: "info@smbgeveltechniek.nl", subtitle: "We reageren binnen 24 uur" },
-    { icon: MapPin, title: "Locatie", content: "Tjalkstraat 25, 1826 DT Alkmaar", subtitle: "Noord-Holland" },
-    { icon: Clock, title: "Spoeddienst", content: "24/7 Beschikbaar", subtitle: "Voor acute reparaties" }
-  ];
-
+  const contactInfo = [{
+    icon: Phone,
+    title: "Telefoon",
+    content: "06-39 58 03 41",
+    subtitle: "Ma-Vr 08:00 - 18:00"
+  }, {
+    icon: Mail,
+    title: "E-mail",
+    content: "info@smbgeveltechniek.nl",
+    subtitle: "We reageren binnen 24 uur"
+  }, {
+    icon: MapPin,
+    title: "Locatie",
+    content: "Tjalkstraat 25, 1826 DT Alkmaar",
+    subtitle: "Noord-Holland"
+  }, {
+    icon: Clock,
+    title: "Spoeddienst",
+    content: "24/7 Beschikbaar",
+    subtitle: "Voor acute reparaties"
+  }];
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Bericht verzonden!",
       description: "We nemen zo snel mogelijk contact met u op."
     });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: ""
+    });
   };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* Hero Section - Consistent with About and Projects */}
       <section className="relative py-32 min-h-[420px] md:min-h-[480px] bg-gradient-to-br from-construction-dark via-construction-medium to-construction-dark overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 animate-fade-in">
-              Contact
-            </div>
+            
             
             <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight animate-slide-in">
               Klaar voor uw
@@ -54,7 +70,9 @@ const Contact = () => {
               <span className="text-gradient">gevelproject?</span>
             </h1>
             
-            <p className="text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl text-gray-200 mb-8 leading-relaxed animate-fade-in" style={{
+            animationDelay: '0.2s'
+          }}>
               Neem vrijblijvend contact met ons op voor een gratis offerte of advies. 
               Onze specialisten staan voor u klaar
             </p>
@@ -68,12 +86,9 @@ const Contact = () => {
             {/* Contact Info */}
             <div className="lg:col-span-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 auto-rows-fr items-stretch">
-                {contactInfo.map((info, index) => (
-                  <Card 
-                    key={info.title} 
-                    className="group hover:construction-shadow transition-all duration-300 hover:-translate-y-1 h-full flex flex-col" 
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
+                {contactInfo.map((info, index) => <Card key={info.title} className="group hover:construction-shadow transition-all duration-300 hover:-translate-y-1 h-full flex flex-col" style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                     <CardContent className="p-6 h-full flex">
                       <div className="flex items-start gap-4 w-full">
                         <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -92,8 +107,7 @@ const Contact = () => {
                         </div>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
 
@@ -110,30 +124,13 @@ const Contact = () => {
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                         Volledige naam *
                       </label>
-                      <Input 
-                        id="name" 
-                        name="name" 
-                        value={formData.name} 
-                        onChange={handleInputChange} 
-                        required 
-                        className="h-12" 
-                        placeholder="Uw naam" 
-                      />
+                      <Input id="name" name="name" value={formData.name} onChange={handleInputChange} required className="h-12" placeholder="Uw naam" />
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                         Telefoonnummer *
                       </label>
-                      <Input 
-                        id="phone" 
-                        name="phone" 
-                        type="tel" 
-                        value={formData.phone} 
-                        onChange={handleInputChange} 
-                        required 
-                        className="h-12" 
-                        placeholder="Uw telefoonnummer" 
-                      />
+                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleInputChange} required className="h-12" placeholder="Uw telefoonnummer" />
                     </div>
                   </div>
                   
@@ -141,39 +138,17 @@ const Contact = () => {
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       E-mailadres *
                     </label>
-                    <Input 
-                      id="email" 
-                      name="email" 
-                      type="email" 
-                      value={formData.email} 
-                      onChange={handleInputChange} 
-                      required 
-                      className="h-12" 
-                      placeholder="uw.email@voorbeeld.nl" 
-                    />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleInputChange} required className="h-12" placeholder="uw.email@voorbeeld.nl" />
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                       Projectomschrijving *
                     </label>
-                    <Textarea 
-                      id="message" 
-                      name="message" 
-                      value={formData.message} 
-                      onChange={handleInputChange} 
-                      required 
-                      className="min-h-32" 
-                      placeholder="Beschrijf uw project en wensen..." 
-                    />
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required className="min-h-32" placeholder="Beschrijf uw project en wensen..." />
                   </div>
                   
-                  <Button 
-                    asChild 
-                    type="button" 
-                    size="lg" 
-                    className="w-full gradient-primary text-white text-lg font-semibold"
-                  >
+                  <Button asChild type="button" size="lg" className="w-full gradient-primary text-white text-lg font-semibold">
                     <Link to="/offerte">Gratis Offerte Aanvragen</Link>
                   </Button>
                   
@@ -186,8 +161,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;

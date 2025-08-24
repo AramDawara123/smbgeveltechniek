@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import OfferteHero from "@/components/offerte/OfferteHero";
 import ContactSidebar from "@/components/offerte/ContactSidebar";
 import OfferteForm from "@/components/offerte/OfferteForm";
+import AboutFooter from "@/components/about/AboutFooter";
 
 const OffertePage = () => {
   return (
@@ -30,6 +31,8 @@ const OffertePage = () => {
           </div>
         </div>
       </section>
+
+      <AboutFooter />
     </div>
   );
 };

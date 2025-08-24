@@ -104,7 +104,7 @@ const RenovatieankersPage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 gap-12 items-center">
             <div>
               <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-l-4 border-amber-500 p-6 rounded-lg mb-8">
                 <div className="flex items-center gap-3 mb-4">

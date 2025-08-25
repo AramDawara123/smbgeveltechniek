@@ -1,12 +1,15 @@
+
 import { Button } from "@/components/ui/button";
 import { Shield, Star, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+
 const SEOOptimizedHero = () => {
-  return <section className="relative py-32 min-h-[600px] overflow-hidden">
+  return (
+    <section className="relative py-32 min-h-[600px] overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-      backgroundImage: "url('/lovable-uploads/95de0640-fc57-4770-b4ec-0f3553690264.png')"
-    }}></div>
+        backgroundImage: "url('/lovable-uploads/95de0640-fc57-4770-b4ec-0f3553690264.png')"
+      }}></div>
       
       {/* Dark Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/60"></div>
@@ -17,7 +20,7 @@ const SEOOptimizedHero = () => {
       
       {/* Content */}
       <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
-        <div className="max-w-5xl mx-auto text-center text-white">
+        <div className="max-w-5xl mx-auto text-center text-white flex flex-col items-center justify-center min-h-[500px]">
           {/* Trust Indicators */}
           
           
@@ -26,8 +29,8 @@ const SEOOptimizedHero = () => {
           </h1>
           
           <h2 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 sm:mb-6 md:mb-8 leading-relaxed max-w-4xl mx-auto animate-fade-in font-semibold px-1 sm:px-2" style={{
-          animationDelay: '0.2s'
-        }}>
+            animationDelay: '0.2s'
+          }}>
             SMB Geveltechniek - 25+ jaar ervaring in gevelrenovatie, metselwerk, scheurherstel en renovatieankers
           </h2>
 
@@ -36,8 +39,8 @@ const SEOOptimizedHero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 justify-center items-center animate-fade-in px-2 sm:px-4" style={{
-          animationDelay: '0.4s'
-        }}>
+            animationDelay: '0.4s'
+          }}>
             <Button asChild size="lg" className="gradient-primary text-white px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg font-bold rounded-xl shadow-2xl hover:scale-105 transition-all duration-300 w-full max-w-xs sm:max-w-sm md:w-auto">
               <Link to="/offerte">Gratis Offerte Aanvragen</Link>
             </Button>
@@ -47,13 +50,15 @@ const SEOOptimizedHero = () => {
           </div>
 
           {/* Location Coverage */}
-          <p className="text-xs sm:text-sm text-gray-300 mt-4 sm:mt-6 md:mt-8 animate-fade-in px-1 sm:px-2 leading-relaxed" style={{
-          animationDelay: '0.5s'
-        }}>
+          <p className="text-xs sm:text-sm text-gray-300 mt-4 sm:mt-6 md:mt-8 animate-fade-in px-1 sm:px-2 leading-relaxed text-center" style={{
+            animationDelay: '0.5s'
+          }}>
             Werkgebied: Alkmaar • Heiloo • Castricum • Bergen • Broek op Langedijk • Den Helder • Heemstede
           </p>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default SEOOptimizedHero;

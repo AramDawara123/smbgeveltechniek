@@ -1,18 +1,12 @@
-
 import { Button } from "@/components/ui/button";
 import { Shield, Star, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const SEOOptimizedHero = () => {
-  return (
-    <section className="relative py-32 min-h-[600px] overflow-hidden">
+  return <section className="relative py-32 min-h-[600px] overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/lovable-uploads/95de0640-fc57-4770-b4ec-0f3553690264.png')"
-        }}
-      ></div>
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: "url('/lovable-uploads/95de0640-fc57-4770-b4ec-0f3553690264.png')"
+    }}></div>
       
       {/* Dark Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/60"></div>
@@ -38,13 +32,7 @@ const SEOOptimizedHero = () => {
           </h2>
 
           {/* Key Services */}
-          <div className="flex flex-wrap justify-center gap-1 sm:gap-2 md:gap-3 mb-6 sm:mb-8 md:mb-10 animate-fade-in px-1 sm:px-2" style={{
-          animationDelay: '0.3s'
-        }}>
-            {["Gevelrenovatie", "Metselwerk", "Scheurherstel", "Renovatieankers", "Gevelreiniging", "Voegwerk"].map((service, index) => <span key={index} className="px-2 py-0.5 sm:px-3 sm:py-1 md:px-4 md:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium border border-white/20">
-                {service}
-              </span>)}
-          </div>
+          
           
           {/* CTA Buttons */}
           <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 justify-center items-center animate-fade-in px-2 sm:px-4" style={{
@@ -66,8 +54,6 @@ const SEOOptimizedHero = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default SEOOptimizedHero;

@@ -92,41 +92,93 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Additional Services - Enhanced Design */}
-        <div className="relative bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl sm:rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20 overflow-hidden">
-          {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full blur-2xl"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/5 to-primary/10 rounded-full blur-2xl"></div>
+        {/* Additional Services - Premium Design */}
+        <div className="relative py-12 sm:py-16 md:py-20 lg:py-24 mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20 overflow-hidden">
+          {/* Advanced Background Elements */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/3 rounded-3xl"></div>
+          <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 left-10 w-32 h-32 bg-gradient-to-tr from-primary/10 to-primary/20 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/5 to-transparent rounded-full blur-3xl opacity-60"></div>
           
-          <div className="relative">
-            <div className="text-center mb-8 sm:mb-10 md:mb-12">
-              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
-                Wat wij <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">nog meer</span> doen
+          <div className="relative container mx-auto px-4">
+            {/* Premium Header */}
+            <div className="text-center mb-12 sm:mb-16 md:mb-20 animate-fade-in">
+              <div className="inline-flex items-center gap-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full text-primary text-sm font-medium mb-6 border border-primary/20">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                Uitgebreide dienstverlening
+              </div>
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+                Wat wij <span className="relative">
+                  <span className="bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent">nog meer</span>
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/60 rounded-full"></div>
+                </span> doen
               </h3>
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                Naast onze hoofdspecialisaties bieden wij ook deze aanvullende diensten
+              <p className="text-muted-foreground text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-light">
+                Naast onze kernspecialisaties bieden wij een compleet pakket aan aanvullende geveltechnische diensten
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+            {/* Premium Service Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
               {additionalServices.map((service, index) => (
                 <div 
                   key={index} 
-                  className="group bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  className="group relative bg-gradient-to-br from-background/90 via-background/80 to-background/70 backdrop-blur-lg border border-border/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/40 transition-all duration-700 hover:-translate-y-4 animate-fade-in overflow-hidden"
+                  style={{ animationDelay: `${index * 0.15}s` }}
                 >
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  {/* Card Background Effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl sm:rounded-3xl"></div>
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  
+                  <div className="relative">
+                    {/* Enhanced Icon */}
+                    <div className="flex items-start gap-4 sm:gap-6 mb-6">
+                      <div className="relative">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary via-primary/90 to-primary/80 rounded-2xl sm:rounded-3xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 shadow-xl shadow-primary/30 group-hover:shadow-2xl group-hover:shadow-primary/40">
+                          <CheckCircle className="w-8 h-8 sm:w-10 sm:h-10 text-white group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                        {/* Floating Badge */}
+                        <div className="absolute -top-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-125 transition-transform duration-500">
+                          {index + 1}
+                        </div>
+                        {/* Glow Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80 rounded-2xl sm:rounded-3xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-700 -z-10"></div>
+                      </div>
+                      
+                      {/* Service Text */}
+                      <div className="flex-1 min-w-0">
+                        <h4 className="text-foreground font-bold text-lg sm:text-xl md:text-2xl leading-tight group-hover:text-primary transition-colors duration-500 mb-2">
+                          {service}
+                        </h4>
+                        <div className="w-12 h-1 bg-gradient-to-r from-primary to-primary/60 rounded-full group-hover:w-full transition-all duration-700"></div>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-foreground font-semibold text-sm sm:text-base md:text-lg leading-tight group-hover:text-primary transition-colors duration-300">
-                        {service}
+                    
+                    {/* Hover Content */}
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0">
+                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                        Professionele uitvoering met hoogwaardige materialen en jarenlange ervaring.
                       </p>
                     </div>
                   </div>
+                  
+                  {/* Bottom Accent */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 </div>
               ))}
+            </div>
+            
+            {/* Bottom CTA */}
+            <div className="text-center mt-12 sm:mt-16 md:mt-20 animate-fade-in" style={{animationDelay: '0.8s'}}>
+              <p className="text-muted-foreground text-base sm:text-lg mb-6">
+                Heeft u vragen over onze aanvullende diensten?
+              </p>
+              <Button asChild className="bg-gradient-to-r from-primary via-primary/90 to-primary/80 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 hover:scale-105 transition-all duration-500 border-0">
+                <Link to="/contact">
+                  Neem Contact Op
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

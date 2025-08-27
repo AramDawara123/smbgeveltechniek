@@ -1,18 +1,10 @@
-
 const AboutFooter = () => {
-  return (
-    <footer className="bg-construction-dark text-white py-12">
+  return <footer className="bg-construction-dark text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img 
-                src={`${import.meta.env.BASE_URL}lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png`}
-                alt="SMB Geveltechniek Logo" 
-                className="h-8"
-                loading="eager"
-                decoding="async"
-              />
+              <img src={`${import.meta.env.BASE_URL}lovable-uploads/1e0914bc-1527-4823-a9b1-50957f0e3c6f.png`} alt="SMB Geveltechniek Logo" className="h-8" loading="eager" decoding="async" />
             </div>
             <p className="text-gray-300 leading-relaxed mb-4">
               Uw betrouwbare partner voor professionele geveltechnieken in Noord-Holland. 
@@ -50,11 +42,9 @@ const AboutFooter = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 SMB Geveltechniek. Alle rechten voorbehouden. | 25+ jaar ervaring sinds 1999</p>
+          <p>© 2025 SMB Geveltechniek. Alle rechten voorbehouden. | 25+ jaar ervaring sinds 1999</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default AboutFooter;

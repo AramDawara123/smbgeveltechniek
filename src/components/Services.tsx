@@ -92,18 +92,42 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Additional Services - Mobile optimized */}
-        <div className="bg-muted/30 rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20 min-h-[200px] sm:min-h-[240px] md:min-h-[280px] flex flex-col justify-center">
-          <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 sm:mb-6 md:mb-8 text-center">
-            Wat wij nog meer doen
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
-            {additionalServices.map((service, index) => (
-              <div key={index} className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 md:p-4 bg-background/50 rounded-lg md:rounded-xl h-12 sm:h-14 md:h-16">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 bg-gradient-to-r from-primary to-primary/80 rounded-full flex-shrink-0"></div>
-                <span className="text-foreground font-medium text-xs sm:text-sm md:text-base leading-tight">{service}</span>
-              </div>
-            ))}
+        {/* Additional Services - Enhanced Design */}
+        <div className="relative bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl sm:rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20 overflow-hidden">
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary/5 to-primary/10 rounded-full blur-2xl"></div>
+          
+          <div className="relative">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
+              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+                Wat wij <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">nog meer</span> doen
+              </h3>
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                Naast onze hoofdspecialisaties bieden wij ook deze aanvullende diensten
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+              {additionalServices.map((service, index) => (
+                <div 
+                  key={index} 
+                  className="group bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                      <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-foreground font-semibold text-sm sm:text-base md:text-lg leading-tight group-hover:text-primary transition-colors duration-300">
+                        {service}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

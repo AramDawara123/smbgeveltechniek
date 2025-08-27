@@ -116,7 +116,7 @@ const Services = () => {
 
             <div className="text-center mt-8 sm:mt-10">
               <Button asChild variant="secondary" className="px-6">
-                <Link to="/contact">
+                <Link to="/offerte">
                   Vraag naar de mogelijkheden
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>

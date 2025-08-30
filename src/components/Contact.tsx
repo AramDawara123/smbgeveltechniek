@@ -131,7 +131,7 @@ const Contact = () => {
             <Card className="lg:col-span-2 construction-shadow h-full">
               <CardContent className="p-8">
                 <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-                  Vraag een gratis offerte aan
+                  Neem Contact Op
                 </h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">

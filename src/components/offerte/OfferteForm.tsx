@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Send, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const OfferteForm = () => {
   const { toast } = useToast();
@@ -16,34 +17,56 @@ const OfferteForm = () => {
     email: "",
     phone: "",
     address: "",
+    city: "",
+    postalCode: "",
     projectType: "",
     projectDescription: "",
     timeline: "",
     budget: "",
     contactPreference: "",
+    additionalInfo: "",
     agreeToTerms: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Offerte aanvraag verzonden!",
-      description: "We nemen binnen 24 uur contact met u op voor een vrijblijvende offerte."
-    });
     
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      address: "",
-      projectType: "",
-      projectDescription: "",
-      timeline: "",
-      budget: "",
-      contactPreference: "",
-      agreeToTerms: false
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke('send-offerte-email', {
+        body: formData
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Offerte aanvraag verzonden!",
+        description: "We nemen binnen 24 uur contact met u op voor een vrijblijvende offerte."
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        city: "",
+        postalCode: "",
+        projectType: "",
+        projectDescription: "",
+        timeline: "",
+        budget: "",
+        contactPreference: "",
+        additionalInfo: "",
+        agreeToTerms: false
+      });
+    } catch (error) {
+      console.error('Error sending offerte email:', error);
+      toast({
+        title: "Er is iets misgegaan",
+        description: "Probeer het later opnieuw of bel ons direct.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -124,7 +147,7 @@ const OfferteForm = () => {
               </div>
               <div className="space-y-2">
                 <label htmlFor="address" className="block text-sm font-medium text-foreground">
-                  Adres/Plaats *
+                  Adres *
                 </label>
                 <Input 
                   id="address" 
@@ -133,7 +156,38 @@ const OfferteForm = () => {
                   onChange={handleInputChange} 
                   required 
                   className="h-12 border-primary/20 focus:border-primary transition-colors duration-200" 
-                  placeholder="Straat, plaats" 
+                  placeholder="Straat en huisnummer" 
+                />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="city" className="block text-sm font-medium text-foreground">
+                  Plaats *
+                </label>
+                <Input 
+                  id="city" 
+                  name="city" 
+                  value={formData.city} 
+                  onChange={handleInputChange} 
+                  required 
+                  className="h-12 border-primary/20 focus:border-primary transition-colors duration-200" 
+                  placeholder="Plaats" 
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="postalCode" className="block text-sm font-medium text-foreground">
+                  Postcode *
+                </label>
+                <Input 
+                  id="postalCode" 
+                  name="postalCode" 
+                  value={formData.postalCode} 
+                  onChange={handleInputChange} 
+                  required 
+                  className="h-12 border-primary/20 focus:border-primary transition-colors duration-200" 
+                  placeholder="1234 AB" 
                 />
               </div>
             </div>
@@ -233,6 +287,20 @@ const OfferteForm = () => {
                 required 
                 className="min-h-32 border-primary/20 focus:border-primary transition-colors duration-200" 
                 placeholder="Beschrijf uw project zo gedetailleerd mogelijk: wat moet er gebeuren, welke materialen, afmetingen, bijzonderheden, etc." 
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label htmlFor="additionalInfo" className="block text-sm font-medium text-foreground">
+                Aanvullende informatie
+              </label>
+              <Textarea 
+                id="additionalInfo" 
+                name="additionalInfo" 
+                value={formData.additionalInfo} 
+                onChange={handleInputChange} 
+                className="min-h-24 border-primary/20 focus:border-primary transition-colors duration-200" 
+                placeholder="Eventuele aanvullende wensen of opmerkingen..." 
               />
             </div>
           </div>

@@ -1,1 +1,7 @@
 project_id = "pkvayugxzgkoipclcpli"
+
+[functions.send-contact-email]
+verify_jwt = false
+
+[functions.send-offerte-email]
+verify_jwt = false

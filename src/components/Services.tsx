@@ -7,13 +7,6 @@ import BenefitsGrid from "./services/BenefitsGrid";
 
 const Services = () => {
   const services = [{
-    icon: Building2,
-    title: "Nieuwbouw", 
-    subtitle: "Vakmanschap en duurzaamheid",
-    description: "SMB Geveltechniek staat garant voor hoogwaardige nieuwbouwprojecten waar vakmanschap en duurzaamheid samenkomen.",
-    features: ["Maatwerkoplossingen", "Topkwaliteit materialen", "Woningbouw & bedrijfspanden"],
-    href: "/nieuwbouw"
-  }, {
     icon: Wrench,
     title: "Gevelrenovatie",
     subtitle: "Transformatie van uw gevel",
@@ -230,8 +223,8 @@ const Services = () => {
         {/* CTA Button - Mobile optimized */}
         <div className="text-center mt-8 sm:mt-12 md:mt-16 min-h-[80px] sm:min-h-[100px] md:min-h-[120px] flex items-center justify-center px-2">
           <Button asChild size="lg" className="bg-gradient-to-r from-primary to-primary/90 text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 text-sm sm:text-base md:text-xl font-bold rounded-lg sm:rounded-xl md:rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
-            <Link to="/metselwerk">
-              Bekijk Al Onze Diensten
+            <Link to="/offerte">
+              Vraag Een Offerte Aan
               <ArrowRight className="ml-2 md:ml-3 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
             </Link>
           </Button>

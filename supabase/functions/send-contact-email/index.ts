@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
     const companyEmailResponse = await resend.emails.send({
       from: "SMB Geveltechniek <noreply@resend.dev>",
       to: ["info@smbgeveltechniek.nl"],
-      replyTo: email,
+      reply_to: email,
       subject: `Nieuwe contactaanvraag van ${name}`,
       html: `
         <h2>Nieuwe contactaanvraag</h2>

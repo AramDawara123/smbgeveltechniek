@@ -7,7 +7,7 @@ const ReviewsSection = () => {
       name: "Frank Prins",
       timeAgo: "een jaar geleden",
       rating: 5,
-      text: "Maikel komt zijn afspraken na. Is elke dag op tijd evenals zijn collegae. Doet het werk met zorg en maakt er geen 'haastklus' van."
+      text: "Maikel komt zijn afspraken na. Is elke dag op tijd evenals zijn collegae. Doet het werk met zorg en maakt er geen 'haastklus' van. Het ging bij ons om een schoorsteen die aan renovatie toe was. Maikel laat zien wat hij doet en komt met oplossingen. Prettig in de omgang en gewoon een no nonsense persoon. Na twee forse regenbuien is het nog droog op zolder. Maar goed..., even het najaar afwachten als naast de regen ook de wind een rol gaat spelen. Mocht er tzt wat zijn dan kan ik contact op"
     },
     {
       name: "Patrick van der Voort", 

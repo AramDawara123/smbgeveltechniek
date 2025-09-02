@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import SEOOptimizedHero from "@/components/SEOOptimizedHero";
 import Services from "@/components/Services";
 import ProjectShowcase from "@/components/ProjectShowcase";
+import ReviewsSection from "@/components/ReviewsSection";
 import About from "@/components/About";
 import { Helmet } from "react-helmet-async";
 const Index = () => {
@@ -59,6 +60,7 @@ const Index = () => {
       <SEOOptimizedHero />
       <Services />
       <ProjectShowcase />
+      <ReviewsSection />
       <About />
       
       {/* Footer */}

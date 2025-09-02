@@ -12,7 +12,7 @@ const VoegrobotSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-construction-medium/20 to-primary/20 rounded-3xl transform -rotate-2"></div>
               <img 
                 src="/lovable-uploads/b9e3a597-4b31-4822-91bf-5eb1ab8ac8d6.png" 
-                alt="Voegrobot prototype SMB Geveltechniek" 
+                alt="Voegrobot prototype waar SMB Geveltechniek aan meewerkt" 
                 className="relative w-full rounded-3xl shadow-2xl construction-shadow"
               />
             </div>
@@ -33,14 +33,14 @@ const VoegrobotSection = () => {
               
               <div className="bg-gradient-to-r from-primary/5 to-primary/10 p-6 rounded-2xl border-l-4 border-primary">
                 <p>
-                  Vanuit die ambitie hebben we een <strong className="text-foreground">voegrobot ontwikkeld</strong> – 
+                  Vanuit die ambitie <strong className="text-foreground">helpen we bij de doorontwikkeling van een innovatieve voegrobot</strong> – 
                   momenteel nog een prototype, maar met veelbelovende resultaten.
                 </p>
               </div>
               
               <p>
                 Samen met <strong className="text-primary">RoboHouse</strong> werken we aan de verdere ontwikkeling van deze innovatie. 
-                De robot is ontworpen om het zware voegwerk te verlichten, de productiviteit te verhogen en een constante kwaliteit te leveren.
+                Wij dragen bij aan het ontwerp en de testing, met als doel het zware voegwerk te verlichten, de productiviteit te verhogen en een constante kwaliteit te leveren.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
@@ -60,8 +60,8 @@ const VoegrobotSection = () => {
               
               <div className="bg-muted/50 p-6 rounded-2xl">
                 <p className="italic text-foreground font-medium">
-                  "We geloven in technologie als verlengstuk van de mens. Met deze stap zetten we koers richting 
-                  een toekomst waarin innovatie, samenwerking en vakmanschap samenkomen."
+                  "We geloven in technologie als verlengstuk van de mens. Door bij te dragen aan deze innovaties, zetten we koers richting 
+                  een toekomst waarin ontwikkeling, samenwerking en vakmanschap samenkomen."
                 </p>
               </div>
             </div>

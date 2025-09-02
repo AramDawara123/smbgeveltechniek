@@ -38,9 +38,9 @@ const MetselrobotSection = () => {
               </p>
               
               <p>
-                <strong className="text-foreground">Onze metselrobot is geen vervanging van het vak, maar een slimme versterking ervan.</strong> 
+                <strong className="text-foreground">Deze metselrobot is geen vervanging van het vak, maar een slimme versterking ervan.</strong> 
                 Hij neemt het zware, repeterende werk over, zodat de vakman zich kan richten op wat écht telt: 
-                precisie, afwerking en kwaliteit.
+                precisie, afwerking en kwaliteit. Wij helpen bij de doorontwikkeling van deze innovatieve technologie.
               </p>
               
               <div className="bg-primary/5 p-6 rounded-xl border border-primary/10">
@@ -50,8 +50,8 @@ const MetselrobotSection = () => {
               </div>
               
               <p>
-                Het is onze manier om toekomstbestendig te bouwen. Om het ambacht te behouden, maar slimmer in te zetten. 
-                Om jongeren enthousiast te maken voor een vernieuwde bouwsector waarin technologie en vakmanschap hand in hand gaan.
+                Het is onze manier om deel te nemen aan toekomstbestendig bouwen. Om het ambacht te behouden, maar slimmer in te zetten. 
+                Door bij te dragen aan de doorontwikkeling van deze technologie, helpen we jongeren enthousiast maken voor een vernieuwde bouwsector waarin technologie en vakmanschap hand in hand gaan.
               </p>
             </div>
 
@@ -76,7 +76,7 @@ const MetselrobotSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-construction-medium/20 rounded-3xl transform rotate-2"></div>
               <img 
                 src="/lovable-uploads/8aaf3188-7878-4e8d-ab2c-9d43357b05e4.png" 
-                alt="Metselrobot in actie bij SMB Geveltechniek" 
+                alt="Metselrobot waar SMB Geveltechniek aan meewerkt" 
                 className="relative w-full rounded-3xl shadow-2xl construction-shadow"
               />
             </div>

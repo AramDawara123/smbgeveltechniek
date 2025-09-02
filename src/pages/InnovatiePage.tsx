@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import InnovatieHero from "@/components/innovatie/InnovatieHero";
 import MetselrobotSection from "@/components/innovatie/MetselrobotSection";
 import VoegrobotSection from "@/components/innovatie/VoegrobotSection";
+import VideoSection from "@/components/innovatie/VideoSection";
 import PartnershipsSection from "@/components/innovatie/PartnershipsSection";
 import BricktrikeSection from "@/components/innovatie/BricktrikeSection";
 import InnovatieCTA from "@/components/innovatie/InnovatieCTA";
@@ -22,6 +23,7 @@ const InnovatiePage = () => {
       <InnovatieHero />
       <MetselrobotSection />
       <VoegrobotSection />
+      <VideoSection />
       <PartnershipsSection />
       <BricktrikeSection />
       <InnovatieCTA />

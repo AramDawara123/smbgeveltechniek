@@ -19,7 +19,6 @@ const Navigation = () => {
 
   const serviceItems = [
     { label: "Metselwerk", href: "/metselwerk" },
-    { label: "Nieuwbouw", href: "/nieuwbouw" },
     { label: "Gevelrenovatie", href: "/gevelrenovatie" },
     { label: "Renovatieankers", href: "/renovatieankers" },
     { label: "Scheurherstel", href: "/scheurherstel" },

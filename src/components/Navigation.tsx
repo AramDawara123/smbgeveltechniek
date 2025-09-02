@@ -10,7 +10,18 @@ const Navigation = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const location = useLocation();
-  const { isAuthenticated, logout } = useAuth();
+  
+  // Safely use auth with fallback
+  let isAuthenticated = false;
+  let logout = () => {};
+  
+  try {
+    const auth = useAuth();
+    isAuthenticated = auth.isAuthenticated;
+    logout = auth.logout;
+  } catch {
+    // Not within AuthProvider, use defaults
+  }
 
   // Close all menus when route changes
   useEffect(() => {

@@ -1,14 +1,16 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, LogOut } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const location = useLocation();
+  const { isAuthenticated, logout } = useAuth();
 
   // Close all menus when route changes
   useEffect(() => {
@@ -131,13 +133,18 @@ const Navigation = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="hidden lg:flex">
+            <div className="hidden lg:flex items-center space-x-2">
               <Button asChild
                 variant="default" 
                 className="gradient-primary text-white hover:scale-105 transition-transform duration-200 px-8 py-3 font-bold text-lg rounded-xl construction-shadow border-0 whitespace-nowrap"
               >
                 <Link to="/offerte">Offerte Aanvragen</Link>
               </Button>
+              {isAuthenticated && (
+                <Button variant="ghost" onClick={logout} className="p-2">
+                  <LogOut className="h-4 w-4" />
+                </Button>
+              )}
             </div>
 
             {/* Mobile Menu Button */}

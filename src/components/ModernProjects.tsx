@@ -25,10 +25,10 @@ const ModernProjects = () => {
   const [loading, setLoading] = useState(true);
   
   // Animation hooks for stats
-  const projectsCount = useCountAnimation({ end: 150, suffix: "+" });
+  const clientsCount = useCountAnimation({ end: 500, suffix: "+" });
   const experienceCount = useCountAnimation({ end: 25, suffix: "+" });
-  const satisfactionCount = useCountAnimation({ end: 98, suffix: "%" });
-  const specialistsCount = useCountAnimation({ end: 50, suffix: "+" });
+  const projectsCount = useCountAnimation({ end: 1000, suffix: "+" });
+  const certificationCount = useCountAnimation({ end: 100, suffix: "%" });
 
   useEffect(() => {
     fetchProjects();
@@ -84,32 +84,32 @@ const ModernProjects = () => {
 
             {/* Stats Cards with Animated Numbers */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div ref={projectsCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
-                  {projectsCount.count}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover-scale animate-fade-in">
+                <div ref={clientsCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {clientsCount.count}
                 </div>
-                <div className="text-slate-200 text-sm md:text-base">Voltooide Projecten</div>
+                <div className="text-slate-200 text-sm md:text-base">Tevreden klanten</div>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover-scale animate-fade-in" style={{animationDelay: '0.1s'}}>
                 <div ref={experienceCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
                   {experienceCount.count}
                 </div>
-                <div className="text-slate-200 text-sm md:text-base">Jaar Ervaring</div>
+                <div className="text-slate-200 text-sm md:text-base">Jaar ervaring</div>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div ref={satisfactionCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
-                  {satisfactionCount.count}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover-scale animate-fade-in" style={{animationDelay: '0.2s'}}>
+                <div ref={projectsCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {projectsCount.count}
                 </div>
-                <div className="text-slate-200 text-sm md:text-base">Klanttevredenheid</div>
+                <div className="text-slate-200 text-sm md:text-base">Projecten voltooid</div>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div ref={specialistsCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
-                  {specialistsCount.count}
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover-scale animate-fade-in" style={{animationDelay: '0.3s'}}>
+                <div ref={certificationCount.ref} className="text-2xl md:text-3xl font-bold text-white mb-1">
+                  {certificationCount.count}
                 </div>
-                <div className="text-slate-200 text-sm md:text-base">Vakspecialisten</div>
+                <div className="text-slate-200 text-sm md:text-base">Gecertificeerd</div>
               </div>
             </div>
           </div>

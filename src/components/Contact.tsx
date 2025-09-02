@@ -40,19 +40,18 @@ const Contact = () => {
   }];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+      const {
+        data,
+        error
+      } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
-
       if (error) throw error;
-
       toast({
         title: "Bericht verzonden!",
         description: "We nemen zo snel mogelijk contact met u op."
       });
-      
       setFormData({
         name: "",
         email: "",
@@ -183,35 +182,7 @@ const Contact = () => {
       </section>
 
       {/* Google Maps Section */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Bezoek Onze Locatie
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              U bent altijd welkom voor een persoonlijk gesprek op ons kantoor in Alkmaar.
-            </p>
-          </div>
-          
-          <Card className="max-w-4xl mx-auto construction-shadow">
-            <CardContent className="p-0">
-              <div className="h-96 w-full rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.123456789!2d4.7527777!3d52.6308333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTjalkstraat%2025%2C%201826%20DT%20Alkmaar!5e0!3m2!1snl!2snl!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="SMB Geveltechniek Locatie"
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+      
     </div>;
 };
 export default Contact;

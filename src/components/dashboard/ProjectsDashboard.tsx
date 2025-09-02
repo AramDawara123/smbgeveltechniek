@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash2, Eye, EyeOff } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, EyeOff, GripVertical } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
@@ -25,6 +25,7 @@ const ProjectsDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [draggedProject, setDraggedProject] = useState<string | null>(null);
 
   useEffect(() => {
     fetchProjects();
@@ -80,6 +81,63 @@ const ProjectsDashboard = () => {
     }
   };
 
+  const handleDragStart = (e: React.DragEvent, projectId: string) => {
+    setDraggedProject(projectId);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = async (e: React.DragEvent, targetProjectId: string) => {
+    e.preventDefault();
+    
+    if (!draggedProject || draggedProject === targetProjectId) {
+      setDraggedProject(null);
+      return;
+    }
+
+    const draggedIndex = projects.findIndex(p => p.id === draggedProject);
+    const targetIndex = projects.findIndex(p => p.id === targetProjectId);
+    
+    if (draggedIndex === -1 || targetIndex === -1) return;
+
+    // Optimistically update the UI
+    const newProjects = [...projects];
+    const [draggedItem] = newProjects.splice(draggedIndex, 1);
+    newProjects.splice(targetIndex, 0, draggedItem);
+    
+    // Update display_order for all affected projects
+    const updates = newProjects.map((project, index) => ({
+      id: project.id,
+      display_order: index + 1
+    }));
+
+    setProjects(newProjects);
+
+    try {
+      // Update all projects with new display_order
+      for (const update of updates) {
+        const { error } = await supabase
+          .from('projects')
+          .update({ display_order: update.display_order })
+          .eq('id', update.id);
+        
+        if (error) throw error;
+      }
+      
+      toast.success('Project volgorde bijgewerkt');
+    } catch (error) {
+      toast.error('Fout bij het bijwerken van volgorde');
+      // Revert changes on error
+      fetchProjects();
+    }
+
+    setDraggedProject(null);
+  };
+
   const handleFormSuccess = () => {
     setIsFormOpen(false);
     setSelectedProject(null);
@@ -111,7 +169,16 @@ const ProjectsDashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <Card key={project.id} className="group hover:shadow-lg transition-all duration-300">
+          <Card 
+            key={project.id} 
+            className={`group hover:shadow-lg transition-all duration-300 cursor-move ${
+              draggedProject === project.id ? 'opacity-50 scale-95' : ''
+            }`}
+            draggable
+            onDragStart={(e) => handleDragStart(e, project.id)}
+            onDragOver={handleDragOver}
+            onDrop={(e) => handleDrop(e, project.id)}
+          >
             <CardHeader className="p-0">
               <div className="relative overflow-hidden rounded-t-lg">
                 <img 
@@ -119,11 +186,19 @@ const ProjectsDashboard = () => {
                   alt={project.alt_text}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
+                <div className="absolute top-2 left-2">
+                  <div className="bg-white/90 rounded p-1">
+                    <GripVertical className="w-4 h-4 text-muted-foreground" />
+                  </div>
+                </div>
                 <div className="absolute top-2 right-2 flex gap-2">
                   <Button
                     size="sm"
                     variant="secondary"
-                    onClick={() => handleToggleVisibility(project.id, project.is_featured)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleToggleVisibility(project.id, project.is_featured);
+                    }}
                     className="bg-white/90 hover:bg-white"
                   >
                     {project.is_featured ? (
@@ -165,14 +240,20 @@ const ProjectsDashboard = () => {
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={() => openEditForm(project)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openEditForm(project);
+                  }}
                 >
                   <Edit className="w-4 h-4" />
                 </Button>
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={() => handleDelete(project.id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDelete(project.id);
+                  }}
                   className="text-destructive hover:text-destructive"
                 >
                   <Trash2 className="w-4 h-4" />

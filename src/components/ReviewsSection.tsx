@@ -180,7 +180,7 @@ const ReviewsSection = () => {
         {/* Google Link */}
         <div className="text-center mt-12">
           <a 
-            href="https://www.google.com/search?q=SMB+Geveltechniek+reviews" 
+            href="https://share.google/EUaxu6LeYplQQMQBB" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-card hover:bg-primary/10 border border-border/50 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg text-foreground hover:text-primary"

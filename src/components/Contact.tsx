@@ -32,11 +32,6 @@ const Contact = () => {
     title: "Locatie",
     content: "Tjalkstraat 25, 1826 DT Alkmaar",
     subtitle: "Noord-Holland"
-  }, {
-    icon: Clock,
-    title: "Spoeddienst",
-    content: "24/7 Beschikbaar",
-    subtitle: "Voor acute reparaties"
   }];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -21,12 +21,6 @@ const ContactSidebar = () => {
       title: "Locatie",
       content: "Tjalkstraat 25, 1826 DT Alkmaar",
       subtitle: "Noord-Holland"
-    },
-    {
-      icon: Clock,
-      title: "Spoeddienst",
-      content: "24/7 Bereikbaar",
-      subtitle: "Voor urgente reparaties"
     }
   ];
 

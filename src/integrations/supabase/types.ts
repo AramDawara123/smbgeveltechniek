@@ -98,6 +98,10 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: string
       }
+      verify_admin_access: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never

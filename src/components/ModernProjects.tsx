@@ -1,12 +1,28 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCountAnimation } from "@/hooks/useCountAnimation";
 import ImageModal from "@/components/ui/image-modal";
+import { supabase } from "@/integrations/supabase/client";
+
+interface Project {
+  id: string;
+  title: string;
+  description?: string;
+  image_url: string;
+  alt_text: string;
+  category?: string;
+  location?: string;
+  year?: number;
+  is_featured: boolean;
+  display_order: number;
+}
 
 const ModernProjects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   
   // Animation hooks for stats
   const projectsCount = useCountAnimation({ end: 150, suffix: "+" });
@@ -14,138 +30,39 @@ const ModernProjects = () => {
   const satisfactionCount = useCountAnimation({ end: 98, suffix: "%" });
   const specialistsCount = useCountAnimation({ end: 50, suffix: "+" });
 
-  const projects = [
-    {
-      id: 1,
-      image: "/lovable-uploads/fc711684-8a80-49b5-b184-19609995bd41.png",
-      alt: "Project 1"
-    },
-    {
-      id: 2,
-      image: "/lovable-uploads/0d9254c6-335e-4a52-9f81-65b316ddb5cd.png",
-      alt: "Project 2"
-    },
-    {
-      id: 3,
-      image: "/lovable-uploads/8f95b7ae-3490-4862-9558-c1a4be4eabde.png",
-      alt: "Project 3"
-    },
-    {
-      id: 4,
-      image: "/lovable-uploads/d19f88ed-78c0-40b1-8152-5db0ae9c9762.png",
-      alt: "Project 4"
-    },
-    {
-      id: 5,
-      image: "/lovable-uploads/07abfffe-f53a-4f3e-b336-2da01c426550.png",
-      alt: "Project 5"
-    },
-    {
-      id: 6,
-      image: "/lovable-uploads/2b60a42a-bd4b-4d02-87de-a5ef2c7899cf.png",
-      alt: "Project 6"
-    },
-    {
-      id: 7,
-      image: "/lovable-uploads/05bed40a-d094-42df-ad9e-225bb2992f7a.png",
-      alt: "Project 7"
-    },
-    {
-      id: 8,
-      image: "/lovable-uploads/6dd99701-5e85-4184-a91f-179f75af4dfa.png",
-      alt: "Project 8"
-    },
-    {
-      id: 9,
-      image: "/lovable-uploads/bdf44d7c-06d7-4735-948e-e6eae1be0a5c.png",
-      alt: "Project 9"
-    },
-    {
-      id: 10,
-      image: "/lovable-uploads/3155a046-52b4-45e5-9861-1c1ae1031e0e.png",
-      alt: "Metselwerk terras project"
-    },
-    {
-      id: 11,
-      image: "/lovable-uploads/bd356fc2-1168-4160-ae62-6b853398e271.png",
-      alt: "Modern wooncomplex"
-    },
-    {
-      id: 12,
-      image: "/lovable-uploads/49877ecb-b4bc-42cf-96da-95933b391f51.png",
-      alt: "Nieuwbouw appartementencomplex"
-    },
-    {
-      id: 13,
-      image: "/lovable-uploads/824c6627-9866-433a-8fd1-8039948624d2.png",
-      alt: "Bouwplaats met hijskraan"
-    },
-    {
-      id: 14,
-      image: "/lovable-uploads/84b88dcf-de71-466f-8e60-869e0e982d13.png",
-      alt: "Schoorsteenrenovatie"
-    },
-    {
-      id: 15,
-      image: "/lovable-uploads/2155a827-f98a-48ee-820e-cea78274d2a7.png",
-      alt: "Metselwerk fundering"
-    },
-    {
-      id: 16,
-      image: "/lovable-uploads/75844152-afb8-4b35-a20d-16d62c17228f.png",
-      alt: "Precisie metselwerk"
-    },
-    {
-      id: 17,
-      image: "/lovable-uploads/5df69e77-1f02-40ea-bdca-60c1809f692f.png",
-      alt: "Historische trap restauratie"
-    },
-    {
-      id: 18,
-      image: "/lovable-uploads/5ad4fda3-14a2-497d-a46d-6b7e8f0d7df7.png",
-      alt: "Moderne aanbouw"
-    },
-    {
-      id: 19,
-      image: "/lovable-uploads/12c70662-1f12-4cba-bbbe-61cb244498f1.png",
-      alt: "Zwembad installatie"
-    },
-    {
-      id: 20,
-      image: "/lovable-uploads/95193751-381c-411e-a58c-fd77f0bd426a.png",
-      alt: "Nieuwbouw constructie"
-    },
-    {
-      id: 21,
-      image: "/lovable-uploads/0fbf0757-e622-45ef-b1e4-f3632b027f3c.png",
-      alt: "Gevelrenovatie met steiger"
-    },
-    {
-      id: 22,
-      image: "/lovable-uploads/7891a0e6-f6ae-456e-87f0-bdb9bb398830.png",
-      alt: "Moderne gevel met ramen"
-    },
-    {
-      id: 23,
-      image: "/lovable-uploads/4f54975d-3102-45a9-a43c-c3401288e5d1.png",
-      alt: "Vakman aan het werk"
-    },
-    {
-      id: 24,
-      image: "/lovable-uploads/4aee0701-ae5b-4e4c-8609-2304d895f478.png",
-      alt: "Schoorsteenonderhoud"
-    },
-    {
-      id: 25,
-      image: "/lovable-uploads/2ed6b6ec-c9bd-4f5a-87c6-2035e2686846.png",
-      alt: "Modern wooncomplex aan het water"
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('is_featured', true)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+      setProjects(data || []);
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
   const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
     setModalOpen(true);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
@@ -212,8 +129,8 @@ const ModernProjects = () => {
               >
                 <div className="relative overflow-hidden">
                   <img 
-                    src={project.image} 
-                    alt={project.alt}
+                    src={project.image_url} 
+                    alt={project.alt_text}
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -226,7 +143,7 @@ const ModernProjects = () => {
       <ImageModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        images={projects.map(project => ({ src: project.image, alt: project.alt }))}
+        images={projects.map(project => ({ src: project.image_url, alt: project.alt_text }))}
         initialIndex={selectedImageIndex}
       />
     </div>

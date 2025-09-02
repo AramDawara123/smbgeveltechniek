@@ -16,6 +16,7 @@ import ScheurherstellPage from "./pages/services/ScheurherstellPage";
 import RenovatieankersPage from "./pages/services/RenovatieankersPage";
 import MetselwerkPage from "./pages/services/MetselwerkPage";
 import NotFound from "./pages/NotFound";
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/gevelrenovatie" element={<GevelrenovatiePage />} />
             <Route path="/scheurherstel" element={<ScheurherstellPage />} />
             <Route path="/renovatieankers" element={<RenovatieankersPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

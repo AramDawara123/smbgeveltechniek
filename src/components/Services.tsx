@@ -77,7 +77,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid - Mobile optimized */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-8 sm:mb-10 md:mb-12 lg:mb-16 justify-items-center mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-8 sm:mb-10 md:mb-12 lg:mb-16 justify-items-center mx-auto max-w-7xl">
           {services.map((service, index) => (
             <Link key={service.title} to={service.href} className="h-full group">
               <ServiceCard {...service} index={index} />

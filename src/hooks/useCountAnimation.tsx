@@ -17,6 +17,7 @@ export const useCountAnimation = ({
   const [count, setCount] = useState(start);
   const [isVisible, setIsVisible] = useState(false);
   const countRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number>();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,14 +26,19 @@ export const useCountAnimation = ({
           setIsVisible(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
 
     if (countRef.current) {
       observer.observe(countRef.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, [isVisible]);
 
   useEffect(() => {
@@ -53,12 +59,21 @@ export const useCountAnimation = ({
       setCount(currentCount);
 
       if (progress < 1) {
-        requestAnimationFrame(updateCount);
+        animationRef.current = requestAnimationFrame(updateCount);
       }
     };
 
-    requestAnimationFrame(updateCount);
+    animationRef.current = requestAnimationFrame(updateCount);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
   }, [isVisible, start, end, duration]);
 
-  return { count: count + suffix, ref: countRef };
+  return { 
+    count: `${count}${suffix}`, 
+    ref: countRef 
+  };
 };

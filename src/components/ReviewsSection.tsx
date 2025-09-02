@@ -92,6 +92,30 @@ const ReviewsSection = () => {
       timeAgo: "2 jaar geleden",
       rating: 5,
       text: "Snel en goed werk geleverd, maar vooral vlotte en duidelijke communicatie!"
+    },
+    {
+      name: "Marco van der Berg",
+      timeAgo: "5 maanden geleden",
+      rating: 5,
+      text: "Perfecte uitvoering van de gevelrenovatie. Maikel denkt mee en werkt zeer professioneel."
+    },
+    {
+      name: "Sandra de Wit",
+      timeAgo: "9 maanden geleden", 
+      rating: 5,
+      text: "Zeer tevreden met het metselwerk aan onze schutting. Netjes afgewerkt en binnen budget."
+    },
+    {
+      name: "Rob Janssen",
+      timeAgo: "4 maanden geleden",
+      rating: 5,
+      text: "Uitstekend vakmanschap en eerlijke prijzen. Zeker een aanrader voor metselwerk!"
+    },
+    {
+      name: "Linda Bakker",
+      timeAgo: "6 maanden geleden",
+      rating: 5,
+      text: "Maikel heeft onze voegen perfect hersteld. Zeer betrouwbaar en klantvriendelijk."
     }
   ];
 

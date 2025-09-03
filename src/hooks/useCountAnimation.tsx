@@ -20,21 +20,39 @@ export const useCountAnimation = ({
   const animationRef = useRef<number>();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const el = countRef.current;
+    if (!el) return;
 
-    if (countRef.current) {
-      observer.observe(countRef.current);
+    let observer: IntersectionObserver | null = null;
+
+    const makeVisible = () => {
+      if (!isVisible) setIsVisible(true);
+    };
+
+    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            makeVisible();
+          }
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(el);
+
+      // Fallback immediate check (in case already in view at mount)
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        makeVisible();
+      }
+    } else {
+      // No IntersectionObserver support — start immediately
+      makeVisible();
     }
 
     return () => {
-      observer.disconnect();
+      observer?.disconnect();
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }

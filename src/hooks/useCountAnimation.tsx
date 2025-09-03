@@ -20,44 +20,57 @@ export const useCountAnimation = ({
   const animationRef = useRef<number>();
 
   useEffect(() => {
-    const el = countRef.current;
-    if (!el) return;
-
     let observer: IntersectionObserver | null = null;
+    let rafId: number | null = null;
 
     const makeVisible = () => {
-      if (!isVisible) setIsVisible(true);
+      setIsVisible((prev) => (prev ? prev : true));
     };
 
-    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            makeVisible();
-          }
-        },
-        { threshold: 0.1 }
-      );
+    const setup = () => {
+      const el = countRef.current;
+      if (!el) return;
 
-      observer.observe(el);
+      if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+        observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              makeVisible();
+            }
+          },
+          { root: null, threshold: 0, rootMargin: "0px" }
+        );
 
-      // Fallback immediate check (in case already in view at mount)
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        observer.observe(el);
+
+        // Immediate check in case element is already in view at mount
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          makeVisible();
+        }
+      } else {
+        // No IntersectionObserver support — start immediately
         makeVisible();
       }
-    } else {
-      // No IntersectionObserver support — start immediately
+    };
+
+    // Ensure the DOM node exists before setting up
+    rafId = requestAnimationFrame(setup);
+
+    // Safety fallback: ensure animation starts even if observer fails
+    const timeout = window.setTimeout(() => {
       makeVisible();
-    }
+    }, 800);
 
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       observer?.disconnect();
+      window.clearTimeout(timeout);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isVisible]);
+  }, []);
 
   useEffect(() => {
     if (!isVisible) return;

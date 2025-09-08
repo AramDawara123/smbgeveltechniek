@@ -14,6 +14,88 @@ export type Database = {
   }
   public: {
     Tables: {
+      memberships: {
+        Row: {
+          amount: number | null
+          boundary_behavior: string | null
+          company: string | null
+          created_at: string
+          currency: string | null
+          email: string
+          experience_years: string
+          first_name: string
+          id: string
+          industry_role: string
+          job_title: string
+          last_name: string
+          membership_type: Database["public"]["Enums"]["membership_type"] | null
+          mollie_payment_id: string | null
+          motivation: string | null
+          newsletter: boolean | null
+          payment_status: string | null
+          phone: string
+          respectful_practices: string | null
+          respectful_workplace: string | null
+          specializations: string[]
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          amount?: number | null
+          boundary_behavior?: string | null
+          company?: string | null
+          created_at?: string
+          currency?: string | null
+          email: string
+          experience_years: string
+          first_name: string
+          id?: string
+          industry_role: string
+          job_title: string
+          last_name: string
+          membership_type?:
+            | Database["public"]["Enums"]["membership_type"]
+            | null
+          mollie_payment_id?: string | null
+          motivation?: string | null
+          newsletter?: boolean | null
+          payment_status?: string | null
+          phone: string
+          respectful_practices?: string | null
+          respectful_workplace?: string | null
+          specializations: string[]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          amount?: number | null
+          boundary_behavior?: string | null
+          company?: string | null
+          created_at?: string
+          currency?: string | null
+          email?: string
+          experience_years?: string
+          first_name?: string
+          id?: string
+          industry_role?: string
+          job_title?: string
+          last_name?: string
+          membership_type?:
+            | Database["public"]["Enums"]["membership_type"]
+            | null
+          mollie_payment_id?: string | null
+          motivation?: string | null
+          newsletter?: boolean | null
+          payment_status?: string | null
+          phone?: string
+          respectful_practices?: string | null
+          respectful_workplace?: string | null
+          specializations?: string[]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -89,6 +171,48 @@ export type Database = {
         }
         Relationships: []
       }
+      website_content: {
+        Row: {
+          contact_email: string
+          contact_phone: string
+          created_at: string
+          hero_subtitle: string
+          hero_title: string
+          id: string
+          mission_text: string
+          mission_title: string
+          primary_color: string
+          secondary_color: string
+          updated_at: string
+        }
+        Insert: {
+          contact_email: string
+          contact_phone: string
+          created_at?: string
+          hero_subtitle: string
+          hero_title: string
+          id?: string
+          mission_text: string
+          mission_title: string
+          primary_color: string
+          secondary_color: string
+          updated_at?: string
+        }
+        Update: {
+          contact_email?: string
+          contact_phone?: string
+          created_at?: string
+          hero_subtitle?: string
+          hero_title?: string
+          id?: string
+          mission_text?: string
+          mission_title?: string
+          primary_color?: string
+          secondary_color?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -104,7 +228,7 @@ export type Database = {
       }
     }
     Enums: {
-      [_ in never]: never
+      membership_type: "klein" | "middelgroot" | "groot" | "offerte"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -231,6 +355,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      membership_type: ["klein", "middelgroot", "groot", "offerte"],
+    },
   },
 } as const

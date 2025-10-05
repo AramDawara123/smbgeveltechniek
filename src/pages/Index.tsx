@@ -111,6 +111,17 @@ const Index = () => {
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
             <p>© 2025 SMB Geveltechniek. All rights reserved. | 25+ jaar ervaring sinds 1999</p>
+            <p className="mt-2 text-sm">
+              Website gemaakt door{" "}
+              <a 
+                href="https://dawaraconsulting.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                Dawara Consulting
+              </a>
+            </p>
           </div>
         </div>
       </footer>

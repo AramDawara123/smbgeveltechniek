@@ -29,7 +29,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to company
     const companyEmailResponse = await resend.emails.send({
-      from: "SMB Geveltechniek <noreply@resend.dev>",
+      from: "SMB Geveltechniek <onboarding@resend.dev>",
       to: ["info@smbgeveltechniek.nl"],
       reply_to: email,
       subject: `Nieuwe contactaanvraag van ${name}`,
@@ -45,7 +45,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to customer
     const customerEmailResponse = await resend.emails.send({
-      from: "SMB Geveltechniek <noreply@resend.dev>",
+      from: "SMB Geveltechniek <onboarding@resend.dev>",
       to: [email],
       subject: "Bedankt voor uw bericht - SMB Geveltechniek",
       html: `
@@ -55,7 +55,7 @@ const handler = async (req: Request): Promise<Response> => {
         <p>${message.replace(/\n/g, '<br>')}</p>
         <br>
         <p>Met vriendelijke groet,<br>SMB Geveltechniek</p>
-        <p>Telefoon: 06-12345678<br>E-mail: info@smbgeveltechniek.nl</p>
+        <p>Telefoon: 06-39 58 03 41<br>E-mail: info@smbgeveltechniek.nl</p>
       `,
     });
 

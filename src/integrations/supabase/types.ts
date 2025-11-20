@@ -46,7 +46,7 @@ export type Database = {
       }
       projects: {
         Row: {
-          alt_text: string
+          alt_text: string | null
           category: string | null
           created_at: string
           description: string | null
@@ -60,7 +60,7 @@ export type Database = {
           year: number | null
         }
         Insert: {
-          alt_text: string
+          alt_text?: string | null
           category?: string | null
           created_at?: string
           description?: string | null
@@ -74,7 +74,7 @@ export type Database = {
           year?: number | null
         }
         Update: {
-          alt_text?: string
+          alt_text?: string | null
           category?: string | null
           created_at?: string
           description?: string | null

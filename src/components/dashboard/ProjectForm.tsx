@@ -14,7 +14,7 @@ interface Project {
   title?: string;
   description?: string;
   image_url: string;
-  alt_text: string;
+  alt_text?: string;
   category?: string;
   location?: string;
   year?: number;
@@ -264,15 +264,12 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ project, onSuccess, onCancel 
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="alt_text">Alt tekst *</Label>
+          <Label htmlFor="alt_text">Alt tekst</Label>
           <Input
             id="alt_text"
-            {...register('alt_text', { required: 'Alt tekst is verplicht' })}
-            placeholder="Beschrijving voor toegankelijkheid"
+            {...register('alt_text')}
+            placeholder="Beschrijving voor toegankelijkheid (optioneel)"
           />
-          {errors.alt_text && (
-            <p className="text-sm text-destructive">{errors.alt_text.message}</p>
-          )}
         </div>
       </div>
 

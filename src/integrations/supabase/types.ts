@@ -14,6 +14,221 @@ export type Database = {
   }
   public: {
     Tables: {
+      action_items_pricing: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          employees_range: string
+          id: string
+          is_popular: boolean | null
+          is_quote: boolean | null
+          price_cents: number
+          price_display: string
+          size_type: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          employees_range: string
+          id?: string
+          is_popular?: boolean | null
+          is_quote?: boolean | null
+          price_cents: number
+          price_display: string
+          size_type: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          employees_range?: string
+          id?: string
+          is_popular?: boolean | null
+          is_quote?: boolean | null
+          price_cents?: number
+          price_display?: string
+          size_type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      analytics_events: {
+        Row: {
+          country: string | null
+          created_at: string
+          device_type: string | null
+          event_type: string
+          id: string
+          page_path: string | null
+          referrer: string | null
+          session_id: string
+          user_agent: string | null
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          device_type?: string | null
+          event_type: string
+          id?: string
+          page_path?: string | null
+          referrer?: string | null
+          session_id: string
+          user_agent?: string | null
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          device_type?: string | null
+          event_type?: string
+          id?: string
+          page_path?: string | null
+          referrer?: string | null
+          session_id?: string
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      company_profiles: {
+        Row: {
+          contact_email: string | null
+          contact_phone: string | null
+          created_at: string
+          description: string | null
+          display_order: number | null
+          id: string
+          industry: string | null
+          is_featured: boolean | null
+          logo_url: string | null
+          name: string
+          partner_membership_id: string | null
+          updated_at: string
+          website: string | null
+        }
+        Insert: {
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          industry?: string | null
+          is_featured?: boolean | null
+          logo_url?: string | null
+          name: string
+          partner_membership_id?: string | null
+          updated_at?: string
+          website?: string | null
+        }
+        Update: {
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          description?: string | null
+          display_order?: number | null
+          id?: string
+          industry?: string | null
+          is_featured?: boolean | null
+          logo_url?: string | null
+          name?: string
+          partner_membership_id?: string | null
+          updated_at?: string
+          website?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "company_profiles_partner_membership_id_fkey"
+            columns: ["partner_membership_id"]
+            isOneToOne: false
+            referencedRelation: "partner_memberships"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      discount_codes: {
+        Row: {
+          active: boolean | null
+          applies_to: string
+          code: string
+          created_at: string
+          description: string | null
+          discount_type: string
+          discount_value: number
+          expires_at: string | null
+          id: string
+          minimum_order_amount: number | null
+          partner_membership_ids: string[] | null
+          starts_at: string | null
+          updated_at: string
+          usage_limit: number | null
+          used_count: number | null
+        }
+        Insert: {
+          active?: boolean | null
+          applies_to?: string
+          code: string
+          created_at?: string
+          description?: string | null
+          discount_type: string
+          discount_value: number
+          expires_at?: string | null
+          id?: string
+          minimum_order_amount?: number | null
+          partner_membership_ids?: string[] | null
+          starts_at?: string | null
+          updated_at?: string
+          usage_limit?: number | null
+          used_count?: number | null
+        }
+        Update: {
+          active?: boolean | null
+          applies_to?: string
+          code?: string
+          created_at?: string
+          description?: string | null
+          discount_type?: string
+          discount_value?: number
+          expires_at?: string | null
+          id?: string
+          minimum_order_amount?: number | null
+          partner_membership_ids?: string[] | null
+          starts_at?: string | null
+          updated_at?: string
+          usage_limit?: number | null
+          used_count?: number | null
+        }
+        Relationships: []
+      }
+      membership_pricing: {
+        Row: {
+          created_at: string
+          employees_range: string
+          id: string
+          membership_type: string
+          price: number
+          updated_at: string
+          yearly_price_display: string
+        }
+        Insert: {
+          created_at?: string
+          employees_range: string
+          id?: string
+          membership_type: string
+          price: number
+          updated_at?: string
+          yearly_price_display: string
+        }
+        Update: {
+          created_at?: string
+          employees_range?: string
+          id?: string
+          membership_type?: string
+          price?: number
+          updated_at?: string
+          yearly_price_display?: string
+        }
+        Relationships: []
+      }
       memberships: {
         Row: {
           amount: number | null
@@ -96,6 +311,270 @@ export type Database = {
         }
         Relationships: []
       }
+      newsletter_signups: {
+        Row: {
+          email: string
+          first_name: string | null
+          id: string
+          last_name: string | null
+          mailchimp_synced: boolean | null
+          signed_up_at: string
+        }
+        Insert: {
+          email: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          mailchimp_synced?: boolean | null
+          signed_up_at?: string
+        }
+        Update: {
+          email?: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          mailchimp_synced?: boolean | null
+          signed_up_at?: string
+        }
+        Relationships: []
+      }
+      orders: {
+        Row: {
+          address_city: string | null
+          address_country: string | null
+          address_house_number: string | null
+          address_postcode: string | null
+          address_street: string | null
+          created_at: string
+          currency: string
+          customer_email: string | null
+          customer_first_name: string | null
+          customer_last_name: string | null
+          customer_phone: string | null
+          discount_amount: number | null
+          discount_code: string | null
+          email: string | null
+          id: string
+          items: Json
+          mollie_payment_id: string | null
+          payment_status: string
+          shipping: number
+          subtotal: number
+          total: number
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          address_city?: string | null
+          address_country?: string | null
+          address_house_number?: string | null
+          address_postcode?: string | null
+          address_street?: string | null
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          customer_first_name?: string | null
+          customer_last_name?: string | null
+          customer_phone?: string | null
+          discount_amount?: number | null
+          discount_code?: string | null
+          email?: string | null
+          id?: string
+          items?: Json
+          mollie_payment_id?: string | null
+          payment_status?: string
+          shipping?: number
+          subtotal?: number
+          total?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          address_city?: string | null
+          address_country?: string | null
+          address_house_number?: string | null
+          address_postcode?: string | null
+          address_street?: string | null
+          created_at?: string
+          currency?: string
+          customer_email?: string | null
+          customer_first_name?: string | null
+          customer_last_name?: string | null
+          customer_phone?: string | null
+          discount_amount?: number | null
+          discount_code?: string | null
+          email?: string | null
+          id?: string
+          items?: Json
+          mollie_payment_id?: string | null
+          payment_status?: string
+          shipping?: number
+          subtotal?: number
+          total?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      partner_memberships: {
+        Row: {
+          amount: number | null
+          billing_frequency: string | null
+          company_name: string
+          created_at: string
+          currency: string | null
+          description: string | null
+          discount_code: string | null
+          email: string
+          first_name: string
+          id: string
+          industry: string | null
+          last_name: string
+          logo_url: string | null
+          mollie_payment_id: string | null
+          next_billing_date: string | null
+          payment_status: string | null
+          phone: string
+          subscription_id: string | null
+          subscription_status: string | null
+          updated_at: string
+          user_id: string | null
+          website: string | null
+        }
+        Insert: {
+          amount?: number | null
+          billing_frequency?: string | null
+          company_name: string
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          discount_code?: string | null
+          email: string
+          first_name: string
+          id?: string
+          industry?: string | null
+          last_name: string
+          logo_url?: string | null
+          mollie_payment_id?: string | null
+          next_billing_date?: string | null
+          payment_status?: string | null
+          phone: string
+          subscription_id?: string | null
+          subscription_status?: string | null
+          updated_at?: string
+          user_id?: string | null
+          website?: string | null
+        }
+        Update: {
+          amount?: number | null
+          billing_frequency?: string | null
+          company_name?: string
+          created_at?: string
+          currency?: string | null
+          description?: string | null
+          discount_code?: string | null
+          email?: string
+          first_name?: string
+          id?: string
+          industry?: string | null
+          last_name?: string
+          logo_url?: string | null
+          mollie_payment_id?: string | null
+          next_billing_date?: string | null
+          payment_status?: string | null
+          phone?: string
+          subscription_id?: string | null
+          subscription_status?: string | null
+          updated_at?: string
+          user_id?: string | null
+          website?: string | null
+        }
+        Relationships: []
+      }
+      partner_pricing_tiers: {
+        Row: {
+          created_at: string
+          display_order: number | null
+          employee_range: string
+          id: string
+          is_active: boolean | null
+          is_quote: boolean | null
+          price_cents: number
+          price_display: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          display_order?: number | null
+          employee_range: string
+          id?: string
+          is_active?: boolean | null
+          is_quote?: boolean | null
+          price_cents: number
+          price_display: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          display_order?: number | null
+          employee_range?: string
+          id?: string
+          is_active?: boolean | null
+          is_quote?: boolean | null
+          price_cents?: number
+          price_display?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          category: string | null
+          created_at: string
+          description: string | null
+          discount_active: boolean | null
+          discount_fixed: number | null
+          discount_percentage: number | null
+          features: string[] | null
+          id: string
+          image_url: string | null
+          in_stock: boolean | null
+          name: string
+          price: number
+          updated_at: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          discount_active?: boolean | null
+          discount_fixed?: number | null
+          discount_percentage?: number | null
+          features?: string[] | null
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean | null
+          name: string
+          price: number
+          updated_at?: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          discount_active?: boolean | null
+          discount_fixed?: number | null
+          discount_percentage?: number | null
+          features?: string[] | null
+          id?: string
+          image_url?: string | null
+          in_stock?: boolean | null
+          name?: string
+          price?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -171,6 +650,39 @@ export type Database = {
         }
         Relationships: []
       }
+      qr_codes: {
+        Row: {
+          content: string
+          created_at: string
+          error_correction: string
+          id: string
+          qr_size: number
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          error_correction?: string
+          id?: string
+          qr_size?: number
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          error_correction?: string
+          id?: string
+          qr_size?: number
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       website_content: {
         Row: {
           contact_email: string
@@ -218,14 +730,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_current_user_role: {
-        Args: Record<PropertyKey, never>
-        Returns: string
+      get_current_user_email: { Args: never; Returns: string }
+      get_current_user_role: { Args: never; Returns: string }
+      increment_discount_usage: {
+        Args: { code_to_increment: string }
+        Returns: undefined
       }
-      verify_admin_access: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      verify_admin_access: { Args: never; Returns: boolean }
     }
     Enums: {
       membership_type: "klein" | "middelgroot" | "groot" | "offerte"

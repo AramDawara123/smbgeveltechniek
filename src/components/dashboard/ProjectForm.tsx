@@ -11,7 +11,7 @@ import { Upload, X, Eye } from 'lucide-react';
 
 interface Project {
   id?: string;
-  title: string;
+  title?: string;
   description?: string;
   image_url: string;
   alt_text: string;
@@ -151,15 +151,12 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ project, onSuccess, onCancel 
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="title">Titel *</Label>
+          <Label htmlFor="title">Titel</Label>
           <Input
             id="title"
-            {...register('title', { required: 'Titel is verplicht' })}
-            placeholder="Projecttitel"
+            {...register('title')}
+            placeholder="Projecttitel (optioneel)"
           />
-          {errors.title && (
-            <p className="text-sm text-destructive">{errors.title.message}</p>
-          )}
         </div>
 
         <div className="space-y-2">

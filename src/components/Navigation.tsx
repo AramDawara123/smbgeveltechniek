@@ -13,12 +13,12 @@ const Navigation = () => {
   
   // Safely use auth with fallback
   let isAuthenticated = false;
-  let logout = () => {};
+  let signOut = () => {};
   
   try {
     const auth = useAuth();
     isAuthenticated = auth.isAuthenticated;
-    logout = auth.logout;
+    signOut = auth.signOut;
   } catch {
     // Not within AuthProvider, use defaults
   }
@@ -152,7 +152,7 @@ const Navigation = () => {
                 <Link to="/offerte">Offerte Aanvragen</Link>
               </Button>
               {isAuthenticated && (
-                <Button variant="ghost" onClick={logout} className="p-2">
+                <Button variant="ghost" onClick={signOut} className="p-2">
                   <LogOut className="h-4 w-4" />
                 </Button>
               )}

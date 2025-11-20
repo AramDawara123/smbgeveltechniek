@@ -55,7 +55,7 @@ export type Database = {
           image_url: string
           is_featured: boolean | null
           location: string | null
-          title: string
+          title: string | null
           updated_at: string
           year: number | null
         }
@@ -69,7 +69,7 @@ export type Database = {
           image_url: string
           is_featured?: boolean | null
           location?: string | null
-          title: string
+          title?: string | null
           updated_at?: string
           year?: number | null
         }
@@ -83,7 +83,7 @@ export type Database = {
           image_url?: string
           is_featured?: boolean | null
           location?: string | null
-          title?: string
+          title?: string | null
           updated_at?: string
           year?: number | null
         }
